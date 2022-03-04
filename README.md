@@ -21,7 +21,7 @@ Sometimes I have no internet access when planning, and I've found that [QMapShac
 Canal or Waterways
 ------------------
 
-Holidaying on a canal boat in the UK is another passion. My mobile phone with [OSMAND plus]{https://osmand.net/) works extremely well, but the phone battery does not last for long when navigating. Using a handheld or cycle GPS works well, but I need a dedicated map which shows **bridge_ref** and **Lock names** other relevant canal features - it will never replace the printed Canal Guides, but something that shows me where I am so I know which page to look for in the guide would be handy.  
+Holidaying on a canal boat in the UK is another passion. My mobile phone with [OSMAND plus](https://osmand.net/) works extremely well, but the phone battery does not last for long when navigating. Using a handheld or cycle GPS works well, but I need a dedicated map which shows **bridge_ref** and **Lock names** other relevant canal features - it will never replace the printed Canal Guides, but something that shows me where I am so I know which page to look for in the guide would be handy.  
 
 
 Guides and Resources
