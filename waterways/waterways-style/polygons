@@ -13,7 +13,6 @@ waterway=riverbank & area_size() >=100000 & area_size() < 250000     [0x3e resol
 waterway=riverbank [0x3c resolution 22]
 (waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 22] 
 (waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 24]
-waterway=wadi [0x40 default_name="wadi/wash" resolution 21]
 
 tourism=caravan_site & tents!=yes [0x17 default_name="RV-park" resolution 22]
 tourism=camp_site & tents=no [0x17 default_name="RV-park" resolution 22]
