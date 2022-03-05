@@ -1,0 +1,79 @@
+# Assign the street name for house number search
+highway=* & name=* { set mkgmap:street='${name}' }
+tunnel=* & tunnel:name=* & name!=$tunnel:name {name '${name} (${tunnel:name})' | '${tunnel:name} (${ref})' | '${tunnel:name}'} 
+bridge=* & bridge:name=* & name!=$bridge:name  {name '${name} (${bridge:name})' |  '${bridge:name} (${ref})' | '${bridge:name}'}
+# include 'inc/address';
+# include 'inc/contours';
+
+waterway=* & source=3dshapes { add natural=water }
+(waterway=river | waterway=canal) & intermittent=yes [0x10A02 resolution 18]
+waterway=river & natural!=water [0x18 resolution 18-19 continue]
+waterway=river & natural!=water [0x1f resolution 20 continue]
+waterway=canal & natural!=water [0x18 resolution 22-21 continue]
+waterway=canal & natural!=water [0x1f resolution 23 continue]
+waterway=stream & intermittent=yes [0x10A02 resolution 22]
+waterway=stream & natural!=water & name=* [0x18 resolution 22-22 continue]
+waterway=stream & natural!=water & name=* [0x1f resolution 23 continue]
+waterway=stream & natural!=water & name!=* [0x18 resolution 24 continue]
+waterway=drain & intermittent=yes [0x10A02 resolution 24]
+waterway=drain & natural!=water [0x18 resolution 24 continue]
+(waterway=ditch | barrier=ditch) & natural!=water [0x18 resolution 24]
+waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]
+waterway=weir [0x15 default_name="weir" resolution 24]
+
+
+highway=tertiary [0x10001 resolution 20-22 continue with_actions]
+# Roundabouts
+junction=roundabout { add oneway=yes }
+highway=cycleway & junction=roundabout { delete junction }
+junction=roundabout [0x0c road_class=1 road_speed=1 resolution 24 continue with_actions]
+junction=roundabout {set access=no}
+
+# Convert highways to most specific
+highway=raceway {set highway=service}
+(highway=tertiary | highway=secondary) & (surface=unpaved | surface=gravel) {set highway=track; add tracktype=grade2}
+(railway=abandoned | railway=disused) & highway!=* & (bicycle=yes | bicycle=designated) & !(state ~ '.*(proposed)') { add highway = cycleway }
+highway=motorway_link | (highway=* & motorroad=yes) { set highway=motorway }
+highway=trunk_link { set highway=trunk }
+(highway=trunk | highway=motorway)  & bicycleroute=yes { set highway=primary }
+(highway=trunk | highway=motorway)  & cycleway=* { set highway=motorway_bike }
+(highway=trunk | highway=motorway)  & bicycle=yes { set highway=motorway_bike }
+
+highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
+highway=trunk & bicycle=no { set highway=motorway }
+highway=trunk { set highway=primary }
+highway=primary_link { set highway=primary }
+highway=secondary_link { set highway=secondary }
+highway=tertiary_link { set highway=tertiary }
+highway=byway | highway=minor | highway=living_street | highway=residential | highway=road { set highway=unclassified }
+highway=bus_guideway  { set highway=service }
+highway=service & (bicycle=yes | bicycle=designated | bicycleroute=yes) { set highway=unclassified }
+#highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & bicycleroute=yes { add highway=unclassified }
+#highway!=* & route!=ferry & railway!=* & waterway!=* & man_made!=* & mtb_from_relation=yes { add highway=track }
+highway=unsurfaced { set highway=track }
+highway=track & (tracktype=grade1 | surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)') { set highway=unclassified; delete tracktype; set mkgmap:check=ok }
+highway=cycleroad  { set highway=cycleway }
+cycleway=cyclestreet | bicycle_road=yes | (highway=unclassified & bicycle=designated) {add cyclestreet=yes} 
+(cycleway=lane | cycleway=track) & highway=pedestrian {add bicycle=yes; add motorcar=yes; delete 'cycleway' }
+cycleway=track & (highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
+cycleway=lane & (highway=track | highway=path | highway=footway | highway=bridleway) {add bicycle=yes; delete 'cycleway' }
+
+highway=footway & bicycle=designated & !(mtb:scale ~ '[1-6]') { set highway=cycleway }
+highway=path & bicycle=designated & foot:designated=yes { set highway=cycleway }
+highway=path & bicycle=designated & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)' { set highway=cycleway }
+bicycle=designated { set bicycle=yes; add motorcar=yes }
+highway=path & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)' & access!=no & access!=private & vehicle!=no { set highway=pedestrian; add bicycle=yes; add motorcar=yes; }
+highway=footway & surface ~ '(paved|asphalt|sett|concrete|paving_stones|paving_stones:30)'  { set highway=pedestrian; add bicycle=no; add motorcar=no; }
+highway=steps & area=yes { set highway=pedestrian; add bicycle=no; add motorcar=no; }
+highway=path & foot=designated & bicycle!=yes { set highway=footway }
+highway=path & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
+highway=track & horse=designated & (surface=sand | tracktype=grade4 | tracktype=grade5) & bicycle!=yes & foot!=yes  { set highway=bridleway; add mkgmap:unpaved=1; set motorcar=no; }
+highway=bridleway & mkgmap:country=GBR & bicycle!=* {set highway=track; add mkgmap:unpaved=1; set motorcar=no;}
+leisure=track & sport=cycling & area!=yes & is_closed()=false { add highway=service }
+leisure=track & sport=bmx & area!=yes & is_closed()=false { add highway=path }
+leisure=track & sport=mtb & area!=yes & is_closed()=false { add highway=path }
+leisure=track & sport!=cycling & area!=yes & is_closed()=false { add highway=service; add access=no }
+
+bicycle=lane { set cycleway=lane }
+bicycleroute=yes & area=yes {set bicycleroute=no}
+

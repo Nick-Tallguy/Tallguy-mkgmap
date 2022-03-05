@@ -1,0 +1,64 @@
+natural=water & area_size() >=50000000 [0x3c resolution 14]
+natural=water & area_size() >=1000000 [0x3e resolution 14-16 continue]
+natural=water & area_size() >=1000000 [0x3c resolution 17]
+natural=water & area_size() >=500000 [0x3e resolution 16-18 continue]
+natural=water & area_size() >=500000 [0x3c resolution 19]
+natural=water & area_size() >=50000  [0x3e resolution 18-21 continue]
+natural=water & area_size() >=50000 [0x3c resolution 22]
+natural=water [0x3d resolution 20-21 continue]
+natural=water [0x3e resolution 22]
+
+waterway=riverbank & area_size() >=250000                            [0x3e resolution 14-21 continue]
+waterway=riverbank & area_size() >=100000 & area_size() < 250000     [0x3e resolution 18-21 continue]
+waterway=riverbank [0x3c resolution 22]
+(waterway=canal | waterway=river)   & natural!=water   [0x3c resolution 22] 
+(waterway=drain | waterway=stream)  & natural!=water   [0x3c resolution 24]
+waterway=wadi [0x40 default_name="wadi/wash" resolution 21]
+
+tourism=caravan_site & tents!=yes [0x17 default_name="RV-park" resolution 22]
+tourism=camp_site & tents=no [0x17 default_name="RV-park" resolution 22]
+tourism=camp_site | tourism=caravan_site  [0x52 default_name="camping" resolution 22]
+tourism=picnic_site [0x1e resolution 24]
+tourism=chalet & building!=*  [0x50 default_name="bungalowpark" resolution 22]
+tourism=* & tourism ~ '(hotel|hostel|motel|guest_house|bed_and_breakfast|alpine_hut|chalet)'  [0x13 resolution 22]
+tourism=zoo [0x17 resolution 22]
+building=church | building=chapel | building=cathedral | amenity=place_of_worship [0x06 resolution 23]
+historic=archaeological_site & building!=* [0x17 resolution 22]
+(historic=castle | historic=fort | historic=ruins) & building=* { name '${name}' | '${historic}' } [0x06 resolution 22]
+historic=* & (building=bunker | historic=bomb_crater | historic=abandoned | historic=no | historic=yes | historic=disused) {delete historic}
+historic=* & building=yes [0x13 resolution 24]
+historic=* & building=* { name '${name}' | '${building}' } [0x06 resolution 24]
+historic=* & building!=* [0x21 resolution 24]
+
+amenity=hospital [0x0b resolution 22]
+amenity=parking & building!=* [0x05 resolution 23]
+amenity=parking & building=* [0x13 resolution 24]
+amenity=bicycle_parking & building!=* [0x05 resolution 23]
+amenity=bicycle_parking & building=* [0x13 resolution 24]
+amenity=restaurant [0x13 resolution 24]
+
+amenity=university & building=yes [0x13 resolution 24]
+amenity=university [0x0a resolution 20]
+
+landuse=residential & building=yes {delete landuse}
+landuse=residential & place=* & name!=* {delete place}
+landuse=residential {add name='${is_in:hamlet}' | '${is_in:locality}' | '${is_in:neigbourhood}' | '${is_in:quarter}' | '${is_in:village}' | '${is_in:town}' | '${is_in:suburb}' | '${is_in:city}'}
+landuse=residential {add name='${mkgmap:admin_level11}' | '${mkgmap:admin_level10}' | '${mkgmap:admin_level9}' | '${mkgmap:admin_level8}' | '${mkgmap:admin_level7}' | '${mkgmap:admin_level6}'}
+landuse=residential & building=yes {delete landuse}
+landuse=residential & area_size() >=500000 [0x03 resolution 14]
+landuse=residential & area_size() >=250000 & area_size() < 500000 [0x03 resolution 16]
+landuse=residential & area_size() >=50000 & area_size() < 250000 [0x03 resolution 18]
+landuse=residential & area_size() < 50000 [0x03 resolution 19]
+
+(place=city | boundary=city) & name=* [0x01 resolution 21]
+admin_level=11 & boundary=administrative & name=* [0x01 resolution 22]
+(place=town | boundary=town) & name=* [0x01 resolution 22]
+(place=village | boundary=village) & name=* [0x01 resolution 23]
+(place=hamlet | boundary=hamlet)  & name=* [0x01 resolution 23]
+place=island | place=islet [0x010200 resolution 18 continue]
+
+
+landuse=reservoir | landuse=basin [0x3d resolution 20-18 continue]
+landuse=reservoir | landuse=basin [0x3c resolution 24-22]
+landuse=construction [0x0d resolution 21]
+

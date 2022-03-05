@@ -1,0 +1,32 @@
+family-id: 6000
+product-id: 1
+draw-priority: 20
+series-name: Waterways (GB_v%date%)
+family-name: Waterways (GB)
+description: Waterways (GB)
+copyright-message: Map data © openstreetmap.org
+area-name: Waterways_GB
+country-name: GB
+country-abbr: GB
+style-file: /home/nick/Github/mkgmap-styles-typ/waterways/waterways-style/
+overview-mapname: 60000000
+#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
+generate-sea: land-tag=natural=background
+#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+bounds: /home/nick/mapping/mkgmap/bounds-latest.zip
+location-autofill: is_in,nearest
+housenumbers
+latin1
+code-page: 1252
+show-profiles: 1
+merge-lines
+add-pois-to-areas
+add-pois-to-lines
+link-pois-to-ways
+min-size-polygon: 4
+preserve-element-order
+keep-going
+net
+route
+index
