@@ -1,5 +1,6 @@
 # mkgmap-styles-typ
 
+
 Trike  
 -----
 
@@ -31,9 +32,18 @@ The following Guides and Resources may help in producing the maps;
 
 [OpenStreetMap Wiki for MKGMAP](https://wiki.openstreetmap.org/wiki/Mkgmap)  
 
-[MKGMAP Website](https://www.mkgmap.org.uk/)  
-Documentation on the site, downloads of mkgmap and splitter, links for downloads of sea data, bounds, and city data.
+[OSM wiki entry concerning compilint a typ file](https://wiki.openstreetmap.org/wiki/Mkgmap/help/typ_compile)  
+
+[MKGMAP Website](https://www.mkgmap.org.uk/) Documentation on the site, downloads of mkgmap and splitter, links for downloads of sea data, bounds, and city data.
 
 [Downloads of OSM data from Geofabrik](https://download.geofabrik.de/) Also boundaries.  
 
+[Garmin POI types](https://wiki.openstreetmap.org/wiki/OSM_Map_On_Garmin/POI_Types)
 
+
+GPS's
+-----
+
+Cycling = Garmin Edge 705
+
+Handheld = Garmin etrex 30
