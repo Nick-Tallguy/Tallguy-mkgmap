@@ -18,7 +18,6 @@ waterway=stream & natural!=water & name!=* [0x18 resolution 24 continue]
 waterway=drain & intermittent=yes [0x10A02 resolution 24]
 waterway=drain & natural!=water [0x18 resolution 24 continue]
 (waterway=ditch | barrier=ditch) & natural!=water [0x18 resolution 24]
-waterway=weir & (mkgmap:country=NLD | mkgmap:admin_level4="Vlaanderen") [0x15 default_name="stuw" resolution 24]
 waterway=weir [0x15 default_name="weir" resolution 24]
 
 
@@ -39,7 +38,6 @@ highway=trunk_link { set highway=trunk }
 (highway=trunk | highway=motorway)  & cycleway=* { set highway=motorway_bike }
 (highway=trunk | highway=motorway)  & bicycle=yes { set highway=motorway_bike }
 
-highway=trunk & mkgmap:country ~ '(NLD|BEL|LUX|FRA|DEU|AUT|CHE|DNK|HUN|ROU)' { set highway=motorway }
 highway=trunk & bicycle=no { set highway=motorway }
 highway=trunk { set highway=primary }
 highway=primary_link { set highway=primary }
@@ -76,4 +74,8 @@ leisure=track & sport!=cycling & area!=yes & is_closed()=false { add highway=ser
 
 bicycle=lane { set cycleway=lane }
 bicycleroute=yes & area=yes {set bicycleroute=no}
+
+highway=motorway [0x01 level 0-4]
+highway=residential [0x06 resolution 16-22 continue]
+highway=residential [0x07 resolution 23-24]
 
