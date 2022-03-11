@@ -14,8 +14,18 @@ mkgmap:synthesised=yes & bicycle=yes { set mkgmap:highest-resolution-only = true
 # Assign the street name for house number search
 highway=* & name=* { set mkgmap:street='${name}' }
 tunnel=* & tunnel:name=* & name!=$tunnel:name {name '${name} (${tunnel:name})' | '${tunnel:name} (${ref})' | '${tunnel:name}'} 
-bridge=* & bridge:name=* & name!=$bridge:name  {name '${name} (${bridge:name})' |  '${bridge:name} (${bridge:ref})' | '${bridge:name}' | '${bridge:ref}'}
-include 'inc/address';
+#bridge=* & bridge:ref=* & name!=$bridge:name  {name '${name} (${bridge:name|highway-symbol:hbox})' |  '${bridge:name|highway-symbol:hbox} (${bridge:ref|highway-symbol:hbox})' | '${bridge:name|highway-symbol:hbox}' | '${bridge:ref|highway-symbol:hbox}'}
+#include 'inc/address';
+
+### DISPLAY OF BRIDGE TAGS
+bridge=* { name '${bridge:ref|highway-symbol:oval} ${bridge:name} ' | '${bridge:name}' | '${bridge:ref|highway-symbol:oval}' } 
+
+### Change bridge display so the tag is not doubled.  
+bridge=* [0x06 resolution 23] 
+
+#Display Locks 
+lock=yes { name '${lock_name}' | '${name}'} [0x01 resolution 23] 
+waterway=lock_gate [0x1d resolution 23] 
 
 # Aeroways
 aeroway=runway & is_closed()!=true [0x27 resolution 20 continue with_actions]
@@ -47,7 +57,7 @@ highway=* & oneway=yes & (access=private|access=no)
 highway=motorway|highway=motorway_link { add oneway=yes }
 
 # Set highway names to include the reference if there is one
-highway=motorway { name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
+highway=motorway { name '${ref} ${name}' | '${ref}' | '${name}' }
 
 (highway=motorway_link | highway=trunk_link) & mkgmap:exit_hint=true & mkgmap:dest_hint=true
   { name '${destination:ref|subst: =>} ${destination|subst:;=> |subst:/=> }' | 
@@ -74,9 +84,9 @@ highway=motorway { name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-sy
          'Exit ${mkgmap:exit_hint_ref}'
        }
               
-highway=trunk {name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}'; addlabel '${name} (${ref})' }
-highway=primary {name '${ref|highway-symbol:box} ${name}' | '${ref|highway-symbol:box}' | '${name}'; addlabel '${name} (${ref})' }
-highway=secondary | highway=tertiary {name '${ref|highway-symbol:oval} ${name}' | '${ref|highway-symbol:oval}' | '${name}'; addlabel '${name} (${ref})' }
+highway=trunk {name '${ref} ${name}' | '${ref}' | '${name}'; addlabel '${name} (${ref})' }
+highway=primary {name '${ref} ${name}' | '${ref}' | '${name}'; addlabel '${name} (${ref})' }
+highway=secondary | highway=tertiary {name '${ref} ${name}' | '${ref}' | '${name}'; addlabel '${name} (${ref})' }
 highway=* {name '${name}' | '${ref}' }
 
 # Flag paved roads
@@ -155,8 +165,8 @@ bridge=* & bridge!=no & highway!=proposed & bridge!=proposed & railway!=proposed
 (tunnel=yes | tunnel=true | tunnel=1) & highway!=proposed & railway!=* & waterway!=* [0x2a resolution 24 continue with_actions]
 
 # Ways sorted roughly by descending order of class
-highway=motorway & mkgmap:fast_road=yes [0x01 road_class=4 road_speed=7 resolution 14]
-highway=motorway [0x01 road_class=4 road_speed=7 resolution 15]
+highway=motorway & mkgmap:fast_road=yes [0x02 road_class=4 road_speed=7 resolution 14]
+highway=motorway [0x02 road_class=4 road_speed=7 resolution 15]
 highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x06 road_class=4 road_speed=2 resolution 20]
 highway=motorway_link [0x09 road_class=4 road_speed=2 resolution 20]
 highway=trunk & mkgmap:fast_road=yes [0x02 road_class=4 road_speed=5 resolution 15]
