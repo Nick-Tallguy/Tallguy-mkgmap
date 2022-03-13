@@ -2192,7 +2192,7 @@ String1=0x04,pedestrian zone
 String2=0x03,Voetgangerszone
 String3=0x02,Fußgängerzone
 ExtendedLabels=Y
-FontStyle=NormalFont
+FontStyle=SmallFont
 CustomColor=No
 [end]
 
@@ -2501,7 +2501,7 @@ String1=0x04,bridge
 String2=0x03,brug
 String3=0x02,Brücke
 ExtendedLabels=Y
-FontStyle=SmallFont
+FontStyle=NormalFont
 CustomColor=No
 [end]
 

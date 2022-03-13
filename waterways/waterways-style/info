@@ -14,7 +14,7 @@ version=1.0
 
 ### ToDo's
 #
-# Bridge is currently a line: 0x06 SmallFont - could do with increasing to NormalFont - maybe!
+# Bridge is currently a line: 0x04 SmallFont - could do with increasing to NormalFont - maybe!
 #
 # Highway labels (names) are too intrusive - try finding their line types and changing font to SmallFont to see if that improves things.  
 #
