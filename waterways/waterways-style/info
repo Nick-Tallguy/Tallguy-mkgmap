@@ -11,3 +11,17 @@ summary: generic new style for garmin.openstreetmap.nl, based on the default mkg
 # Version of the style itself
 #
 version=1.0
+
+### ToDo's
+#
+# Bridge is currently a line: 0x06 SmallFont - could do with increasing to NormalFont - maybe!
+#
+# Highway labels (names) are too intrusive - try finding their line types and changing font to SmallFont to see if that improves things.  
+#
+# Need an icon for locks - perhaps two? if added to the line of the centre of the lock then can use the direction of flow to show the lock the correct way round. Or could have an icon for the individual lock gates, but this would not be directional. 
+#
+# Winding holes
+#
+# Moorings  
+#
+# Less buildings.  
