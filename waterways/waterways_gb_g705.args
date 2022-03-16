@@ -24,7 +24,8 @@ merge-lines
 add-pois-to-areas
 add-pois-to-lines=mid
 link-pois-to-ways
-min-size-polygon: 4
+# min-size polygon can be up to 15 with 15 producing the smallest file size & less polygons.
+min-size-polygon: 15	
 preserve-element-order
 keep-going
 net

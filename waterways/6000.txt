@@ -6,14 +6,14 @@ FID=6000
 CodePage=1252
  [End]
 
-;=========== COMMENTAIRES ======
+;=========== COMMENTS ======
 [_comments]
 [End]
 
 
 
 
-;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
+;=========== POLYGONS : PRIORITY ORDER ======
 [_drawOrder]
 Type=0x032,1
 Type=0x10101,2
@@ -84,7 +84,7 @@ Type=0x01e,6
 
 
 
-;===================== POLYGONES ========================
+;===================== POLYGONS ========================
 
 
 [_polygon]
@@ -2166,6 +2166,29 @@ CustomColor=No
 
 
 [_line]
+type=0x06
+;GRMN_TYPE: Roads/RESIDENTIAL/Residential street, these are typically the most numerous roads in a detailed city map and do not show up until the user is zoomed in quite far/Non NT, NT
+UseOrientation=N
+LineWidth=2
+;reduced LineWidth from 7 to 2 - much better!
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FFFFFF"
+"2 c #C5C5C5"
+String=Residential/Minor/Unclassified
+String1=0x01,Rue
+String2=0x02,Straße
+String4=0x03,Weg
+String7=0x15,Droga
+String8=0x10,Residencial
+String9=0x05,Strada residenziale
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
 Type=0x10
 UseOrientation=N
 LineWidth=2
@@ -2501,7 +2524,7 @@ String1=0x04,bridge
 String2=0x03,brug
 String3=0x02,Brücke
 ExtendedLabels=Y
-FontStyle=NormalFont
+FontStyle=SmallFont
 CustomColor=No
 [end]
 
