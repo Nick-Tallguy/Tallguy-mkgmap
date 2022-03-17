@@ -2910,7 +2910,7 @@ DayXpm="25 25 3 1"   Colormode=16
 
 [_point]
 Type=0x02f
-;SubType=0x0a
+SubType=0x0b
 String1=0x04,parking (bicycles)
 String2=0x03,fietsenstalling
 String3=0x02,Fahrrad-Parkplatz
@@ -2942,46 +2942,6 @@ DayXpm="20 20 3 1"   Colormode=16
 "                    "
 "                    "
 ;12345678901234567890
-[end]
-
-
-[_point]
-Type=0x02f0b
-SubType=0x0b
-String1=0x04,parking
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-DayXpm="12 12 16 1"   Colormode=0
-"!	c #0393DB"
-"#	c #159BDD"
-"%	c #22A1DF"
-"?	c #55B3E2"
-"$	c #41AEE3"
-"*	c #5BB9E7"
-"=	c #71C3EB"
-"1	c #83CAED"
-"2	c #92D1EF"
-"3	c #9BD4F1"
-"4	c #A4D8F2"
-"5	c #C0E4F6"
-"6	c #C9E8F7"
-"7	c #EAF6FC"
-"8	c #F7FCFE"
-"9	c #FFFFFF"
-"?##########?"
-"!!#3222=#!!!"
-"!!$999997$!!"
-"!!$91!!$95!!"
-"!!$91!!!96!!"
-"!!$95=4494!!"
-"!!$999975#!!"
-"!!$93%%!!!!!"
-"!!$91!!!!!!!"
-"!!$91!!!!!!!"
-"!!%9*!!!!!!!"
-"?!!!!!!!!!!?"
-;123456789012
 [end]
 
 
