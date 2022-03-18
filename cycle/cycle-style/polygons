@@ -15,6 +15,7 @@ leisure=* & sport=* & name!=* {add name='${sport}'}
 
 include 'inc/name';
 
+
 aeroway=airport [0x07 resolution 20]
 aeroway=aerodrome [0x07 resolution 20]
 aeroway=runway & area=yes {name '${ref}'} [0x0e resolution 20]
@@ -47,7 +48,11 @@ amenity=university [0x0a resolution 20]
 healthcare=hospital | amenity=hospital | amenity=clinic [0x0b resolution 22]
 healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b resolution 23]
 
+# Buildings - deleting a few
+(building=house | building=terrace | building=garage | building=detached | building=bungalow | building=semidetached_house | building=shed | building=carport | building=garages) {delete building}
+
 leisure=common [0x1d resolution 21]
+leisure=garden & area_size() < 100 {delete leisure}
 leisure=garden [0x20 resolution 21]
 leisure=golf_course [0x18 resolution 21]
 leisure=ice_rink [0x19 resolution 22]

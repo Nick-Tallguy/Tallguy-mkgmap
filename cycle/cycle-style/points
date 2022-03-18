@@ -186,7 +186,7 @@ amenity=supermarket [0x2e02 resolution 24]
 amenity=taxi [0x2f17 resolution 24]
 amenity=telephone [0x2f12 resolution 24 default_name 'Telephone']
 amenity=theatre [0x2d01 resolution 24]
-amenity=toilets [0x2f0c resolution 24 default_name 'Toilets']
+amenity=toilets [0x02f1c resolution 24 default_name 'Toilets']
 amenity=townhall [0x3003 resolution 24]
 amenity=university [0x2c05 resolution 24]
 # amenity=zoo is superceded by tourism=zoo
