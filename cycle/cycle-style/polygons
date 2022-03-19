@@ -122,7 +122,6 @@ natural=fell [0x41 resolution 20]
 
 
 # Buildings
-building=yes [0x06 resolution 24]
 building=no {delete building}
 building=* & name=* [0x06 resolution 24]
 (shop=bicycle | amenity=bicycle_parking | amenity=bicycle_rental) & building=yes [0x13 resolution 22]
