@@ -1,0 +1,35 @@
+family-id: 6001
+product-id: 1
+draw-priority: 20
+series-name: Cycle (GB_v%date%)
+family-name: Cycle (GB)
+description: Cycle (GB)
+copyright-message: Map data © openstreetmap.org
+area-name: Cycle_GB
+country-name: GB
+country-abbr: GB
+style-file: /home/nick/Github/mkgmap-styles-typ/cycle/cycle-style/
+overview-mapname: 60010000
+#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
+generate-sea: land-tag=natural=background
+#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+bounds: /home/nick/mapping/mkgmap/bounds-latest.zip
+dem: /home/nick/ncdata/mapping/Garmin/mkgmap-dem-data/
+location-autofill: is_in,nearest
+housenumbers
+latin1
+code-page: 1252
+show-profiles: 1
+merge-lines
+add-pois-to-areas
+add-pois-to-lines=mid
+link-pois-to-ways
+# min-size polygon can be up to 15 with 15 producing the smallest file size & less polygons.
+min-size-polygon: 4	
+preserve-element-order
+keep-going
+net
+### commenting out housenumbers, route & index reduces file size from over 900mb (did not fit on 1GB microSD) to 600mb.  
+route
+index
