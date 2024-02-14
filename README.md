@@ -1,5 +1,14 @@
 # mkgmap-styles-typ
 
+## Version 2 - updates in 2024
+
+Bringing this repository up to date with developments.  
+
+These folders will be holding files in relation to creating MKGMAP images compatible with usage on Garmin devices. Will be experimenting with osm-tags-transform, Lua, and any other programmes that will allow me to further progress on producing an online map or maps which complement the Garmin maps - aimed at Trike riders, wheelchair users, mobility scooter users and canal users.  
+
+Out of date info below this line
+--------------------------------
+
 
 Trike  
 -----
