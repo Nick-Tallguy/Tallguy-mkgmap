@@ -11,53 +11,6 @@
 include 'inc/line_cycle_routes';
 include 'inc/line_trike_barriers';
 
-highway=steps {add bicycle=no} [0x10a01 resolution 24 continue]
-
-highway=* { add mkgmap:way-has-pois=true; }
-
-highway=* & (width<0.82 | opening<0.82 | maxwidth<0.82 | maxwidth:physical<0.82) { add mkgmap:bicycle=no; delete highway; }
-#
-
-#####   This will display ALL GENERAL CYCLE ROUTES
-#
-highway=* & ncn_from_relation=yes {set mkgmap:way-has-pois=yes} [0x10 resolution 18 road_class=4 road_speed=7]
-highway=* & rcn_from_relation=yes {set mkgmap:way-has-pois=yes} [0x12 resolution 20 road_class=4 road_speed=6]
-highway=* & lcn_from_relation=yes {set mkgmap:way-has-pois=yes} [0x13 resolution 22 road_class=3 road_speed=5]
-
-highway=* & ncn_from_relation=yes & ref=* {name '${ref|highway-symbol:hbox}'; addlabel '${name}'}
-highway=* & rcn_from_relation=yes & ref=* {name '${ref|highway-symbol:hbox}'; addlabel '${name}'}
-highway=* & lcn_from_relation=yes & ref=* {name '${ref|highway-symbol:oval}'; addlabel '${name}'}
-
-# Ways sorted roughly by descending order of class
-highway=motorway & mkgmap:fast_road=yes { delete highway } [0x01 road_class=4 road_speed=7 resolution 14]
-highway=motorway  { delete highway } [0x01 road_class=4 road_speed=7 resolution 15]
-highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) { delete highway } [0x0b road_class=4 road_speed=2 resolution 20]
-highway=motorway_link { delete highway } [0x09 road_class=4 road_speed=2 resolution 20]
-
-highway=trunk & mkgmap:fast_road=yes  { delete highway } [0x02 road_class=4 road_speed=5 resolution 15]
-highway=trunk  { delete highway } [0x02 road_class=4 road_speed=5 resolution 18]
-highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*)  { delete highway }  [0x0b road_class=4 road_speed=2 resolution 20]
-highway=trunk_link  { delete highway } [0x09 road_class=4 road_speed=2 resolution 20]
-highway=* & motorroad=yes  { delete highway } [0x02 road_class=4 road_speed=4 resolution 18]
-highway=primary & mkgmap:fast_road=yes  { delete highway } [0x03 road_class=4 road_speed=4 resolution 17]
-highway=primary  { delete highway } [0x03 road_class=3 road_speed=4 resolution 19]
-highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) & mkgmap:fast_road=yes  { delete highway } [0x0b road_class=4 road_speed=1 resolution 21]
-highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) { delete highway } [0x0b road_class=3 road_speed=1 resolution 21]
-highway=primary_link & mkgmap:fast_road=yes { delete highway } [0x08 road_class=4 road_speed=1 resolution 21]
-highway=primary_link { delete highway } [0x08 road_class=3 road_speed=1 resolution 21]
-highway=secondary & mkgmap:fast_road=yes { delete highway } [0x04 road_class=3 road_speed=3 resolution 18]
-highway=secondary { delete highway } [0x04 road_class=2 road_speed=3 resolution 20]
-highway=secondary_link & mkgmap:fast_road=yes { delete highway }  [0x08 road_class=3 road_speed=1 resolution 22]
-highway=secondary_link { delete highway }  [0x08 road_class=2 road_speed=1 resolution 22]
-highway=tertiary { delete highway } [0x05 road_class=1 road_speed=3 resolution 20]
-highway=tertiary_link { delete highway } [0x08 road_class=1 road_speed=1 resolution 22]
-
-# Update display highway shield for mayor roads if they have a ref and make them searchable by their name
-(highway=motorway | highway=trunk)     & ref=* {name '${ref|highway-symbol:box}'; addlabel '${name}'; delete highway}
-highway=primary                        & ref=* {name '${ref|highway-symbol:box}' ; addlabel '${name}'; delete highway}
-(highway=secondary | highway=tertiary) & ref=* {name '${ref|highway-symbol:box}'; addlabel '${name}'; delete highway}
-
-
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
 abandoned=yes {deletealltags}  # old, depreciated, ambiguous, method of handling abandoned
