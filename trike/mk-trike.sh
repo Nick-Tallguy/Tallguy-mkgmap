@@ -1,15 +1,15 @@
 #!/bin/bash
-##################################  SET FOR LOCAL & DEM DATA
+##################################  
 DATE=$(date +"%Y-%m-%d")  
 NME=trike
 DESC="Garmin_compatible_trike_map"
 FAMILYNME=Tallguy-trike
 GMAKE=/home/nick/mapping/mkgmap
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
-POLY=${NC_GMAKE}/mkgmap-resources/barriers.poly
-#POLY=${NC_GMAKE}/mkgmap-resources/great-britain.poly
-PBF=/home/nick/mapping/mkgmap/pbf_downloads/barriers.osm.pbf
-#PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
+#POLY=${NC_GMAKE}/mkgmap-resources/barriers.poly
+POLY=${NC_GMAKE}/mkgmap-resources/great-britain.poly
+#PBF=/home/nick/mapping/mkgmap/pbf_downloads/barriers.osm.pbf
+PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/mkgmap-styles-typ
 NC_STYLES=${TYPS}/${NME}
