@@ -1,0 +1,35 @@
+
+#
+# Style options.
+#
+
+# The levels specification for this style
+# 
+levels = 0:24, 1:22, 2:20, 3:18
+overview-levels = 4:16, 5:14
+# More levels may make zooming smoother, but it will generate larger map tiles.
+#
+####  Levels
+#     ######
+### 4:18 = Polygons: Sea, farmland, residential, scrub, wood, island, forest, vineyard, airfield, airport, airdrome, beach/sand, orchard,
+#          Lines: Av-Verte, National boundary, ferry routes
+#          Points: Cities & named towns such as Dieppe & Newhaven
+#
+### 3:20 = Polygons: Village, Suburb, reservoir, bay, glacier, marsh, tundra, mud, wetland, water, riverbank,  greenfield, meadow, military, quarry, recreation_ground, industrial,  retail, village-green,  barracks, danger_area, range, islet.  
+#          Lines: river, canal, stream, waterfall, 
+#          Points: cities, towns, villages, suburbs, islands, named bay, 
+#
+### 2:22 = Polygons: aeroway, heliport, helipad, food_court, supermarket, common, garden, golf_course, nature_reserve, park, recreation_ground, sports_centre, stadium, track, water_park, square, pedestrian_area, services, rest_area, basin, canal, lock, lake, waterfall, waterway, cemetary, commercial, construction, farm, farmyard.
+#          Lines: ncn, rcn, lcn, runway, track (area), breakwater(area), roundabouts, motorways, trunk, primary, secondary, tertiary, minor, unclassified, pedestrian, living street, residential, track, road, railway, admin boundaries, cycle & foot ferries, intermittent stream or drain, rapids, waterfalls, streams.  
+#          Points: Islet name, reservoir.
+#
+### 1:23 = Polygons: airport taxiway, cafe, fast food, restaurant, footway area, barracks, graveyard, tourism, man_made.  
+#          Lines: taxiway, roundabouts, highways under construction, service roads, cycleways, bridleway, byway, footway, path, raceway, gallop, waterways.
+#          Points: parkrun start, cycle_barrier, hamlet, water_point, Toilets, military, village_green, tower, mast, chimney, cape, cliff, rock, peak, volcano, bicycle shop, camp / caravan site, chalet, guest_house, hostel, hotel, info, alpine / wilderness hut, picnic_site, viewpoint, bollard block barrier, basin, beach, glacier, spring, stream, lock chamber, small waters (pond), waterfall, named wetland, cemetary, named wood, 
+#
+### 0:24 = Polygons:
+#          Lines:  
+#          Points: 
+#extra-used-tags= 
+#
+

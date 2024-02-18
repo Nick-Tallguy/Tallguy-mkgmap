@@ -1,0 +1,114 @@
+# Points reduced for lightweight cycle maps etc. 
+#
+amenity=arts_centre |
+amenity=bank        |
+amenity=bar         |
+amenity=bus_station |
+amenity=car_club    |
+amenity=car_rental  |
+amenity=car_sharing |
+amenity=car_wash    |
+amenity=casino      |
+amenity=charging_station |
+amenity=cinema            |
+amenity=college           |
+amenity=concert_hall      |
+amenity=conference_centre |
+amenity=convention_center |
+amenity=courthouse        |
+amenity=embassy           |
+amenity=fire_station      |
+amenity=kindergarten      |
+amenity=library           |
+amenity=nightclub         |
+amenity=nursing_home      |
+amenity=parking           |
+amenity=pharmacy          |
+amenity=post_box          |
+amenity=post_office       |
+amenity=prison            |
+amenity=public_building   |
+amenity=recycling         |
+amenity=school            |
+amenity=taxi              |
+amenity=telephone         |
+amenity=theatre           |
+amenity=townhall          |
+amenity=university        |
+amenity=zoo               |
+amenity=swimming_pool
+{delete amenity}  
+#
+amenity=clinic   |
+amenity=dentist  |
+amenity=doctors
+{delete amenity} 
+#
+historic=museum  |
+historic=archaeological_site |
+historic=memorial
+{delete historic}  
+#
+leisure=ice_rink   |
+leisure=marina     |
+leisure=pitch      |
+leisure=playground |
+leisure=sports_center |
+leisure=sports_centre |
+leisure=stadium       |
+leisure=swimming_pool |
+leisure=track         |
+leisure=water_park
+{delete leisure}
+#
+highway=bus_stop {delete highway} 
+#
+# add these cycle specific points
+shop=* & (service:bicycle:retail=yes | service:bicycle:repair=yes | service:bicycle:tools=yes)  [0x2f13 resolution 23]
+#
+shop=beauty  |
+shop=boat    |
+shop=butcher |
+shop=car     |
+shop=car_dealer |
+shop=car_parts  |
+shop=car_rental |
+shop=car_repair |
+shop=car_wrecker |
+shop=chemist     |
+shop=clothes     |
+shop=computer    |
+shop=department_store |
+shop=doityourself     |
+shop=fashion          |
+shop=furniture        |
+shop=general          |
+shop=hardware         |
+shop=hairdresser      |
+shop=mall             |
+shop=organic          |
+shop=outdoor          |
+shop=shoes            |
+shop=tires            |
+shop=tyres
+{delete shop}  
+#
+sport=9pin  |
+sport=10pin |
+sport=airport |
+sport=multi   |
+sport=skating |
+sport=skiing  |
+sport=swimming
+{delete sport} 
+#
+tourism=alpine_hut |
+tourism=artwork    |
+tourism=aquarium   |
+tourism=information |
+tourism=lean_to     |
+tourism=museum      |
+tourism=wine_cellar |
+tourism=zoo
+{delete tourism} 
+#

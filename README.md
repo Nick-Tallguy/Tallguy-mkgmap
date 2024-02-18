@@ -7,11 +7,11 @@ Bringing this repository up to date with developments.
 These folders will be holding files in relation to creating MKGMAP images compatible with usage on Garmin devices. Will be experimenting with osm-tags-transform, Lua, and any other programmes that will allow me to further progress on producing an online map or maps which complement the Garmin maps - aimed at Trike riders, wheelchair users, mobility scooter users and canal users.  
 
 ### Trike
-Need to create
+Need to create;
 
-bash script
-Lua file to preprocess the osm data 
-type files
++  bash script
++  Lua file to preprocess the osm data 
++  typ files
 
 Out of date info below this line
 --------------------------------
