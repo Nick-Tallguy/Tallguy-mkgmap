@@ -66,12 +66,12 @@ echo "copying 7-zipped folder contents to destination" $(date -u)
 cd ${NC_GMAKE}/hidden-scripts
 ./send.sh
 #
-#echo "sorting the file sync on destination" $(date -u)
-#cd ${SCRIPTS}
-#./mk-sync-needed.sh
+echo "sorting the file sync on destination" $(date -u)
+cd ${SCRIPTS}
+./mk-sync-needed.sh
 ##
-#echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-#trash-put ${ZIPPED}/*
+echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
+trash-put ${ZIPPED}/*
 #trash-put ${MAPS}/*
-#echo "Files transferred to destination & all finished - sync not requested" $(date -u)
+echo "Files transferred to destination & all finished" $(date -u)
 
