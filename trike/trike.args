@@ -9,7 +9,7 @@ country-name: Great Britain
 country-abbr: GBR
 cycle-map  
 make-opposite-cycleways
-style-file: /home/nick/Github/mkgmap-styles-typ/trike/trike 
+style-file: /home/nick/Github/Tallguy-mkgmap/trike/trike 
 #overview-mapname: 60000000
 #download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
 precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
@@ -29,7 +29,7 @@ add-pois-to-lines=mid
 link-pois-to-ways
 # min-size polygon can be up to 15 with 15 producing the smallest file size & less polygons.
 min-size-polygon: 15	
-road-name-config: /home/nick/Github/mkgmap-styles-typ/trike/roadNameConfig.txt
+road-name-config: /home/nick/Github/Tallguy-mkgmap/trike/roadNameConfig.txt
 preserve-element-order
 keep-going
 ### commenting out housenumbers, route & index reduces file size considerably

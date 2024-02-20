@@ -6,8 +6,8 @@
 #
 #######  STEPS
 highway=steps & (access=private | access=customers ) { delete highway }
-highway=steps & step_count!=* {set name='steps?' } [0x03200 resolution 22]
-highway=steps & step_count>=2 { set name='${step_count}_steps' } [0x03200 resolution 22]
+highway=steps & step_count!=* {set name='steps?' } [0x03200 resolution 23]
+highway=steps & step_count>=2 { set name='${step_count}_steps' } [0x03200 resolution 23]
 #
 #####    BARRIER ACCESS TAGS
 barrier=* & (access=private | access=customers ) { delete barrier }
@@ -21,14 +21,14 @@ barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${overlap})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening!=* { set name='${barrier} ${cycle_barrier} op_${overlap} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | overlap>0.82 | spacing<0.82 ) { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing}) (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | overlap>0.82) { set name='${barrier} ${cycle_barrier} op_${opening} (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 22]#
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | spacing<0.82) { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( overlap<0.82 | spacing<0.82) { set name='${barrier} ${cycle_barrier} (sp_${spacing}) (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 22]
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & opening<0.82 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete cycle_barrier } [0x03200 resolution 22]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${overlap})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening!=* { set name='${barrier} ${cycle_barrier} op_${overlap} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | overlap>0.82 | spacing<0.82 ) { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing}) (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | overlap>0.82) { set name='${barrier} ${cycle_barrier} op_${opening} (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 23]#
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 | spacing<0.82) { set name='${barrier} ${cycle_barrier} op_${opening} (sp_${spacing})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( overlap<0.82 | spacing<0.82) { set name='${barrier} ${cycle_barrier} (sp_${spacing}) (ov_${overlap})' ; delete cycle_barrier } [0x03200 resolution 23]
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & opening<0.82 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete cycle_barrier } [0x03200 resolution 23]
 barrier=cycle_barrier {delete cycle_barrier} 
 #
 #####     BOLLARD
@@ -36,21 +36,21 @@ barrier=bollard & width=* {add opening='${width}'; delete width }
 barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 barrier=bollard & opening>0.82 { delete barrier }
-barrier=bollard & opening<=0.82 { add name='bollard op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=bollard & opening<=0.82 { add name='bollard op_${opening}' ; delete barrier } [0x03200 resolution 23]
 #
 #####    BLOCK
 barrier=block & width=* {add opening='${width}'; delete width }
 barrier=block & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=block & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 barrier=block & opening>0.82 { delete barrier }
-barrier=block & opening<=0.82 { add name='block op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=block & opening<=0.82 { add name='block op_${opening}' ; delete barrier } [0x03200 resolution 23]
 #
 #####     KISSING_GATE
 #barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 #barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
-#barrier=kissing_gate & ( opening<=0.82 | recess<=2.13 ) {set name='${barrier} op_${opening} (re_${recess})'; delete barrier } [0x03200 resolution 22]
-#barrier=kissing_gate & (opening!=* | kissing_gate!=* | recess!=* ) {set name='${barrier}'; delete barrier } [0x03200 resolution 22]
+#barrier=kissing_gate & ( opening<=0.82 | recess<=2.13 ) {set name='${barrier} op_${opening} (re_${recess})'; delete barrier } [0x03200 resolution 23]
+#barrier=kissing_gate & (opening!=* | kissing_gate!=* | recess!=* ) {set name='${barrier}'; delete barrier } [0x03200 resolution 23]
 #
 #####     GATE
 barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
@@ -58,10 +58,10 @@ barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & width=* {set maxwidth:physical='${width}'; delete width} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical>0.82 {delete barrier} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical<=0.82 {set name='${barrier} op_${maxwidth:physical}'; delete maxwidth:physical} [0x03200 resolution 22]
+(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical<=0.82 {set name='${barrier} op_${maxwidth:physical}'; delete maxwidth:physical} [0x03200 resolution 23]
 #####     STILE
 #barrier=stile & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical }
 #barrier=stile & maxwidth=* { add opening='${maxwidth}'; delete maxwidth }  
 #barrier=stile & width=* { add opening='${width}'; delete width }   
-#barrier=stile {set name='${barrier}'; delete barrier; } [0x03200 resolution 22]
+#barrier=stile {set name='${barrier}'; delete barrier; } [0x03200 resolution 23]
 #
