@@ -1,4 +1,4 @@
-# mkgmap-styles-typ
+# Tallguy-mkgmap
 
 ## Version 2 - updates in 2024
 
