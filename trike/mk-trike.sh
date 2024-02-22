@@ -36,7 +36,7 @@ java -Xmx7g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r653/splitter.jar --output=pb
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx7g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4916/mkgmap.jar -c ${NC_STYLES}/${NME}.args -c ${GMAKE}/splitter/template.args --description="Garmin_compatible_trike_map" ${NC_STYLES}/5409.txt --gmapsupp --gmapi --nsis
+java -Xms1024m -Xmx7g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4917/mkgmap.jar -c ${NC_STYLES}/${NME}.args -c ${GMAKE}/splitter/template.args --description="Garmin_compatible_trike_map" ${NC_STYLES}/5409.txt --gmapsupp --gmapi --nsis
 ##
 echo "Creating the windows .exe file with makensis" $(date -u)
 makensis osmmap.nsi
