@@ -1,12 +1,18 @@
 # Tallguy-mkgmap
 
-## Version 2 - updates in 2024
+At present (February 2024), the main content here is a working set of files to create a Garmin compatible map for a recumbent trike rider.
 
-Bringing this repository up to date with developments.  
+## Trike
 
-These folders will be holding files in relation to creating MKGMAP images compatible with usage on Garmin devices. Will be experimenting with osm-tags-transform, Lua, and any other programmes that will allow me to further progress on producing an online map or maps which complement the Garmin maps - aimed at Trike riders, wheelchair users, mobility scooter users and canal users.  
+### The Garmin compatible map for a recumbent trike rider
 
-### Trike
+
+![rcn-steps](/assets/rcn_steps.png "Screenshot of steps highlighted on rcn in Maidstone"){: align="centre" width="95%"}
+
+The aim is to produce a map which you can use in a garmin cycle computer with your trike, able to route you, and which you can search for features. But perhaps more importantly, you can view the map on something like [QMapShack](https://github.com/Maproom/qmapshack/wiki/DocMain), [Garmin Basecamp](https://www.garmin.com/en-GB/software/basecamp/) or just on your actual cycle computer, and see if there will be some kind of 'hiccup' which will cause you problems when you find it. Personally I've found problems on 'The Avenue Verte' where I found a bridge with hundreds of steps that defeated me, NCN1 in the UK with cycle barriers that blocked me, and a railway bridge in Scotland that I had to take a 10 mile diversion round the roads to avoid when riding my recumbent trike.  
+
+Using [MKGMAP](https://www.mkgmap.org.uk/) it is possible to create a map that only shows barriers which will affect a vehicle (in this case a recumbent trike) of a certain width. My trikes are 82cm in width, so that's the width I've chosen whilst creating this map. For instance, and bollards which have a gap between them of 82cm or less are shown on this map, and their actual available width of 'gap' is shown. If the bollards don't have their width of opening (maxwidth:physical) marked on [OpenStreetMap](https://www.openstreetmap.org) then bollards will appear on the map as 'Bollard Gap?' - it's easy to update OpenStreetMap so the actual gap is shown.  
+
 Need to create;
 
 +  bash script
