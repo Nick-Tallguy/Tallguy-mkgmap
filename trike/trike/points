@@ -8,8 +8,9 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/point_trike_barriers';  
-include 'inc/point_cycle';
+#include 'inc/point_trike_barriers';  
+#include 'inc/point_cycle';
+include 'inc/point_trike_2';
 include 'inc/point_localise';
 include 'inc/point_parkrun';
 include 'inc/point_reduced';
@@ -51,7 +52,7 @@ barrier=bollard | barrier=block {
     add mkgmap:taxi=no;
     add mkgmap:emergency=no;
     }
-barrier=cycle_barrier | barrier=kissing_gate | barrier=stile {
+barrier=kissing_gate | barrier=stile {
     add mkgmap:bicycle=no;
     add mkgmap:car=no;
     add mkgmap:delivery=no;
@@ -67,11 +68,11 @@ barrier=bus_trap {
     add mkgmap:truck=no;
     add mkgmap:taxi=no;
     }
-barrier=gate | barrier=lift_gate | barrier=swing_gate {
-    set mkgmap:road-speed=0;
-    }
-barrier=* {add mkgmap:road-speed=1}
-barrier=* & access=* {addaccess '${access|subst:private=>no}'}
+#barrier=gate | barrier=lift_gate | barrier=swing_gate {
+#    set mkgmap:road-speed=0;
+#    }
+#barrier=* {add mkgmap:road-speed=1}
+#barrier=* & access=* {addaccess '${access|subst:private=>no}'}
 
 internet_access=yes {name 'Internet ${name}' | 'Internet'} [0x2f12 resolution 24 continue]
 internet_access=* & internet_access!=no & internet_access!=yes
@@ -376,9 +377,9 @@ amenity=restaurant {add name='${cuisine|subst:"_=> "}'}
 #amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
 #amenity=fast_food [0x2a07 resolution 24]
 
-barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
-    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
-    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
+#barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
+#    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
+#    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
 
 landuse=basin [0x6603 resolution 24]
 landuse=reservoir | water=reservoir [0x650f resolution 22]

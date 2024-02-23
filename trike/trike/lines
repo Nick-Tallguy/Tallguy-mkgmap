@@ -9,7 +9,8 @@
 # for more information.
 
 include 'inc/line_cycle_routes';
-include 'inc/line_trike_barriers';
+include 'inc/line_trike-2';
+#include 'inc/line_trike_barriers';
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 

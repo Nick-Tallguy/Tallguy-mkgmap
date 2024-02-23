@@ -8,8 +8,8 @@ GMAKE=/home/nick/mapping/mkgmap
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
 #POLY=${NC_GMAKE}/mkgmap-resources/barriers.poly
 POLY=${NC_GMAKE}/mkgmap-resources/great-britain.poly
-#PBF=/home/nick/mapping/mkgmap/pbf_downloads/barriers.osm.pbf
-PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
+PBF=/home/nick/mapping/mkgmap/pbf_downloads/barriers.osm.pbf
+#PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
@@ -29,9 +29,9 @@ cd ${SCRIPTS}
 cd ${GMAKE}/work
 #
 ## SPLITTER
-rm -r ${GMAKE}/splitter/*
-echo "starting splitter" $(date -u)
-java -Xmx7g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r653/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${POLY} ${PBF}
+#rm -r ${GMAKE}/splitter/*
+#echo "starting splitter" $(date -u)
+#java -Xmx7g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r653/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${POLY} ${PBF}
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
