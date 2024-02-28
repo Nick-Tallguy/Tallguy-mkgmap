@@ -10,8 +10,8 @@ shop=bicycle { delete shop } [0x2f13 resolution 20]
 #
 #######  STEPS
 highway=steps & (access=private | access=customers ) { delete highway }
-highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count!=* {set name='steps?' } [0x03200 resolution 22]
-highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count>=2 { set name='${step_count}_steps' } [0x03200 resolution 22]
+highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count!=* {set name='steps?' } [0x03200 resolution 18]
+highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count>=2 { set name='${step_count}_steps' } [0x03200 resolution 18]
 #
 #####    BARRIER ACCESS TAGS
 barrier=* & (access=private | access=customers ) { delete barrier }
