@@ -26,6 +26,30 @@ landuse=grass
 =cemetery
 =construction
 =forest
+=meadow
+=orchard
+=railway
+=recreation_ground
+=village_green
+=vineyard
 
+--keep=
+waterway=river
+=stream
+=canal
+=ditch
+
+
+--keep=
+natural=water
+=tree
+=wood
+=beach
+=coastline
+=wetland
+=cliff
+=hill
+=sand
+=rock
 
 --out-o5m
