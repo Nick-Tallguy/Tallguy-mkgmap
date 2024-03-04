@@ -22,7 +22,10 @@ landuse=grass
 =industrial
 =residential
 =farmland
+=farmyard
 =cemetery
 =construction
+=forest
+
 
 --out-o5m
