@@ -16,4 +16,13 @@ highway=*ary
 =secondary_link
 =track and bicycle=yes
 
+--keep=
+landuse=grass
+=retail
+=industrial
+=residential
+=farmland
+=cemetery
+=construction
+
 --out-o5m
