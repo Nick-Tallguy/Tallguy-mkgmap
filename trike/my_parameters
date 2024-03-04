@@ -1,0 +1,19 @@
+-v
+
+--keep=
+highway=*ary
+=unclassified
+=trunk
+=motorway
+=residential
+=service
+=cycleway
+=bridleway
+=motorway_link
+=trunk_link
+=living_street
+=primary_link
+=secondary_link
+=track and bicycle=yes
+
+--out-o5m
