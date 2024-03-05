@@ -49,40 +49,40 @@ echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
 java -Xms1024m -Xmx7g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4917/mkgmap.jar -c ${NC_STYLES}/${NME}.args -c ${GMAKE}/splitter/template.args --description="Garmin_compatible_trike_map" ${NC_STYLES}/5409.txt --gmapsupp --gmapi --nsis
 ##
-#echo "Creating the windows .exe file with makensis" $(date -u)
-#makensis osmmap.nsi
-#cd ${ZIPPED}
-#echo "Zipping the windows file" $(date -u)
-#7z a ${ZIPPED}/${NME}-winexe-${DATE} ${GMAKE}/work/${FAMILYNME}.exe
-#echo "Creating torrent file" $(date -u)
-#transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
+echo "Creating the windows .exe file with makensis" $(date -u)
+makensis osmmap.nsi
+cd ${ZIPPED}
+echo "Zipping the windows file" $(date -u)
+7z a ${ZIPPED}/${NME}-winexe-${DATE} ${GMAKE}/work/${FAMILYNME}.exe
+echo "Creating torrent file" $(date -u)
+transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
 # 
-#echo "zipping gmapi files" $(date -u)
-#7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
-#echo "Creating gmapi torrent file" $(date -u)
-#transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
+echo "zipping gmapi files" $(date -u)
+7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
+echo "Creating gmapi torrent file" $(date -u)
+transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
 mv ${GMAKE}/work/gmapsupp.img ${MAPS}/${NME}-${DATE}.img
 mv ${GMAKE}/work/*.tdb ${MAPS}/${NME}-${DATE}.tdb
 #
-#echo "Creating 7z archive" $(date -u)
-#7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
-#cd ${ZIPPED}
+echo "Creating 7z archive" $(date -u)
+7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
+cd ${ZIPPED}
 #
-#echo "Creating torrent file" $(date -u)
-#transmission-create ${NME}-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-${DATE}.7z
+echo "Creating torrent file" $(date -u)
+transmission-create ${NME}-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-${DATE}.7z
 #
-#echo "copying 7-zipped folder contents to destination" $(date -u)
-#cd ${NC_GMAKE}/hidden-scripts
-#./send.sh
+echo "copying 7-zipped folder contents to destination" $(date -u)
+cd ${NC_GMAKE}/hidden-scripts
+./send.sh
 #
-#echo "sorting the file sync on destination" $(date -u)
-#cd ${SCRIPTS}
-#./mk-sync-needed.sh
+echo "sorting the file sync on destination" $(date -u)
+cd ${SCRIPTS}
+./mk-sync-needed.sh
 ##
-#echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-#trash-put ${ZIPPED}/*
-#trash-put ${MAPS}/*
+echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
+trash-put ${ZIPPED}/*
+trash-put ${MAPS}/*
 echo "Files transferred to destination & all finished" $(date -u)
 
