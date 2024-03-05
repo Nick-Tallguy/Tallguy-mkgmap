@@ -8,8 +8,6 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-#include 'inc/point_trike_barriers';  
-#include 'inc/point_cycle';
 include 'inc/point_trike_2';
 include 'inc/point_localise';
 include 'inc/point_parkrun';

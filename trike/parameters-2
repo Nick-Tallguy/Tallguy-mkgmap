@@ -1,6 +1,10 @@
 -v
 
 --keep=
+highway=footway
+=path
+
+--keep=
 landuse=grass  
 =retail  
 =industrial  

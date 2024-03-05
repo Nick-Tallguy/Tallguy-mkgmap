@@ -9,3 +9,5 @@ highway=steps {add bicycle=no} [0x10a01 resolution 24 continue]
 highway=* { add mkgmap:way-has-pois=true; }
 
 highway=* & (width<0.82 | opening<0.82 | maxwidth<0.82 | maxwidth:physical<0.82) { add mkgmap:bicycle=no; delete highway; }
+
+highway=steps & (rcn_from_relation=yes | ncn_from_relation=yes | rcn_from_relation=yes ) {add bicycle=no} [0x10a01 resolution 24 continue]

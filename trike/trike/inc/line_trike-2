@@ -1,7 +1,0 @@
-#
-#  Testing if steps can be restricted to those on cycle routes
-#
-highway=* & rcn_from_relation=yes {set mkgmap:way-has-pois=yes} [0x12 resolution 20 road_class=4 road_speed=6]
-
-
-highway=steps & rcn_from_relation=yes {add bicycle=no} [0x10a01 resolution 24 continue]

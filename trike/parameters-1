@@ -15,7 +15,7 @@ highway=*ary
 =secondary_link
 
 --keep=
-highway=bridleway and ( tracktype=grade1 or tracktype=grade2 )
+highway=bridleway and ( tracktype=grade1 or tracktype=grade2 ) and ( width=>0.82 or maxwidth:physical=>0.82 )
 
 --keep=
 highway=track and ( tracktype=grade1 or tracktype=grade2 )
