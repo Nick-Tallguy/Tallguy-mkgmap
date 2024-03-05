@@ -1,0 +1,26 @@
+-v
+
+--keep=
+highway=*ary
+=unclassified
+=trunk
+=motorway
+=residential
+=service
+=cycleway
+=motorway_link
+=trunk_link
+=living_street
+=primary_link
+=secondary_link
+
+--keep=
+highway=bridleway and ( tracktype=grade1 or tracktype=grade2 )
+
+--keep=
+highway=track and ( tracktype=grade1 or tracktype=grade2 )
+
+--keep=
+route=bicycle
+
+--out-o5m
