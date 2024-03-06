@@ -17,8 +17,8 @@ precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
 #download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
 bounds: /home/nick/mapping/mkgmap/bounds-latest.zip
 #########################################################  DEM MAP ######################################
-# dem: /home/nick/ncdata/mapping/Garmin/mkgmap-dem-data,/home/nick/ncdata/mapping/Garmin/Dem-zips
-# dem-dists: 3312,13248,26512,53024
+dem: /home/nick/ncdata/mapping/Garmin/mkgmap-dem-data,/home/nick/ncdata/mapping/Garmin/Dem-zips
+dem-dists: 3312,13248,26512,53024
 location-autofill: is_in,nearest
 housenumbers
 #code-page: 1252 is equivalent of latin1

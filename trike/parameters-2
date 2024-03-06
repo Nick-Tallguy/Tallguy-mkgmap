@@ -5,6 +5,12 @@ highway=footway
 =path
 
 --keep=
+place=city
+=town
+=village
+=island
+
+--keep=
 landuse=grass  
 =retail  
 =industrial  
