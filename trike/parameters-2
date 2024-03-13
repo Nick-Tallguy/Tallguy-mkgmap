@@ -3,6 +3,7 @@
 --keep=
 highway=footway
 =path
+=service
 
 --keep=
 place=city
@@ -72,7 +73,7 @@ shop=convenience
 =newsagent
 
 --keep=
-shop=* and ( service:bicycle:retail=yes or service:bicycle:repair=yes or service:bicycle:tools=yes )
+shop= and ( service:bicycle:retail=yes or service:bicycle:repair=yes or service:bicycle:tools=yes )
 
 --keep=
 railway=rail
