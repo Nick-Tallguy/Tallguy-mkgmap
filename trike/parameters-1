@@ -7,11 +7,21 @@ highway=*ary
 =motorway
 =residential
 =cycleway
-=motorway_link
-=trunk_link
+=*_link
 =living_street
-=primary_link
-=secondary_link
+=pedestrian
+=bus_guideway
+=escape
+=road
+=busway
+=steps
+=corridor
+=crossing
+=mini_roundabout
+=motorway_junction
+=rest_area
+=services
+=traffic_signals
 
 --keep=
 highway=service and access!=private
@@ -26,6 +36,7 @@ highway=track and ( tracktype=grade1 or tracktype=grade2 )
 route=bicycle
 
 --drop=
+--drop-nodes=
 barrier= and access=private
 
 --out-o5m

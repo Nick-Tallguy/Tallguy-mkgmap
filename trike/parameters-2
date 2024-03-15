@@ -63,6 +63,7 @@ amenity=toilets
 
 --keep=
 leisure=park
+=picnic_table
 
 --keep=
 shop=convenience
@@ -87,6 +88,7 @@ railway=rail
 route=running
 
 --drop=
+--drop-nodes=
 barrier=
 
 --out-o5m
