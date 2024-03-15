@@ -1,8 +1,8 @@
 # Tallguy-mkgmap
 
-## Trike Map
+## Trike Map - Experimental at this stage 
 
-Produces a cycle map aimed at a recumbent trike rider with a trike 0.82 metres wide. - Any barriers which have an available width of less than 0.82 mtres, and are on a route that could be cycled are shown with a red B in a circle. The map is routable, but will not route you through a barrier you will not fit through (caveat, if the opening width has not been updated on OpenStreetMap (OSM), then the map displays the red B in a circle as a warning that you may have a problem there (Perhaps you could update OSM so that the next trike rider has a better map). 
+Produces a cycle map aimed at a recumbent trike rider with a trike 0.83 metres wide. - Any barriers which have an available width of less than 0.83 mtres, and are on a route that could be cycled are shown with a red B in a circle. The map is routable, but will not route you through a barrier you will not fit through (caveat, if the opening width has not been updated on OpenStreetMap (OSM), then the map displays the red B in a circle as a warning that you may have a problem there (Perhaps you could update OSM so that the next trike rider has a better map). 
 
 ### The Garmin compatible map for a recumbent trike rider
 
