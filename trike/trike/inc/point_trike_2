@@ -2,7 +2,7 @@
 #####   This will display BARRIERS WHICH ARE INCOMPLETE IN SOME WAY 
 #
 ### NEED TO ADD THE XPM'S FOR STEPS & BARRIER TO THE STYLE FILE (????.TXT?).
-#####################   TRIKE WIDTH = 82CM  LENGTH = 2.13 METRES
+#####################   TRIKE WIDTH = 1.01 METRES  LENGTH = 2.13 METRES
 #
 ######## cycle specific points
 shop=* & (service:bicycle:retail=yes | service:bicycle:repair=yes | service:bicycle:tools=yes)  [0x2f13 resolution 20]
@@ -25,9 +25,9 @@ barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & opening<0.82 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & opening<1.01 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
 #
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<0.82 & spacing<0.82 ) { set name=
+barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<1.01 | spacing<1.01 ) { set name=
 '${barrier} ${cycle_barrier} op_${opening} sp_${spacing} ov_${overlap}'
 | '${barrier} ${cycle_barrier} op_${opening} sp_${spacing}' 
 | '${barrier} ${cycle_barrier} op_${opening}'
@@ -41,8 +41,8 @@ barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!
 barrier=bollard & width=* {add opening='${width}'; delete width }
 barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=bollard & opening>0.82 { delete barrier }
-barrier=bollard & opening<=0.82 { add name='bollard op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=bollard & opening>1.01 { delete barrier }
+barrier=bollard & opening<=1.01 { add name='bollard op_${opening}' ; delete barrier } [0x03200 resolution 22]
 barrier=bollard & opening!=* { add name='bollard gap?' ; delete barrier } [0x03200 resolution 22]
 barrier=bollard { delete barrier }
 #
@@ -50,8 +50,8 @@ barrier=bollard { delete barrier }
 barrier=block & width=* {add opening='${width}'; delete width }
 barrier=block & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=block & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=block & opening>0.82 { delete barrier }
-barrier=block & opening<=0.82 { add name='block op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=block & opening>1.01 { delete barrier }
+barrier=block & opening<=1.01 { add name='block op_${opening}' ; delete barrier } [0x03200 resolution 22]
 barrier=block & opening!=* { add name='block gap?' ; delete barrier } [0x03200 resolution 22]
 barrier=block { delete barrier } 
 #
@@ -61,8 +61,8 @@ barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & width=* {set maxwidth:physical='${width}'; delete width} 
 #
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical>0.82 {delete barrier} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical<=0.82 {set name='${barrier} op_${maxwidth:physical}'; delete barrier} [0x03200 resolution 22]
+(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical>1.01 {delete barrier} 
+(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical<=1.01 {set name='${barrier} op_${maxwidth:physical}'; delete barrier} [0x03200 resolution 22]
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* { set name='${barrier}?' ; delete barrier } [0x03200 resolution 22]
 (barrier=gate | barrier=lift_gate | barrier=swing_gate) { delete barrier }
 #

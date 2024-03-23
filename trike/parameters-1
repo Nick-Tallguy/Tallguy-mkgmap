@@ -24,7 +24,7 @@ highway=*ary
 =traffic_signals
 
 --keep=
-highway=service and access!=private
+highway=service and ( access=private or access=customers )
 
 --keep=
 highway=bridleway and ( tracktype=grade1 or tracktype=grade2 ) and ( width=>0.83 or maxwidth:physical=>0.83 )

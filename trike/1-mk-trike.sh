@@ -23,6 +23,10 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash - total time for map creation = ??? mins." $(date -u)
+#
+## Trash any existing o5m files
+trash-put ${PBF}/*.o5m
+#
 cd ${SCRIPTS}
 ./space.sh
 #
