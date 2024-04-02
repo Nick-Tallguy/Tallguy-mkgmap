@@ -74,8 +74,6 @@ echo "Creating 7z archive" $(date -u)
 7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
 cd ${ZIPPED}
 #
-echo "Creating torrent file" $(date -u)
-transmission-create ${NME}-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-${DATE}.7z
 #
 echo "copying 7-zipped folder contents to destination" $(date -u)
 cd ${NC_GMAKE}/hidden-scripts
