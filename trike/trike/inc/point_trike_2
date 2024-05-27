@@ -21,18 +21,18 @@ barrier=* & (access=private | access=customers ) { delete barrier }
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & width=* { add opening='${width}'; delete width } 
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & width=* { add opening='${width}'; delete width } 
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & width=* { add opening='${width}'; delete width } 
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #
-barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted) & opening<1.01 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & opening<1.01 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
 #
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<1.01 | spacing<1.01 ) { set name=
 '${barrier} ${cycle_barrier} op_${opening} sp_${spacing} ov_${overlap}'
 | '${barrier} ${cycle_barrier} op_${opening} sp_${spacing}' 
 | '${barrier} ${cycle_barrier} op_${opening}'
 | '${barrier} ${cycle_barrier} op_${spacing}'  
-; delete barrier } [0x03200 resolution 22]
+; delete barrier } [0x03200 resolution 22] 
 #
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening!=* { set name='${barrier} ${cycle_barrier} gap?' ; delete barrier } [0x03200 resolution 22]
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* { set name='${barrier} ${cycle_barrier} gap?' ; delete barrier } [0x03200 resolution 22]
