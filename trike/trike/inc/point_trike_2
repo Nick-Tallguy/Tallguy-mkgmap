@@ -26,6 +26,7 @@ barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & opening<1.01 { set name='${barrier} ${cycle_barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=diagonal | cycle_barrier=tilted | cycle_barrier=squeeze ) & opening!=* { set name='${barrier} ${cycle_barrier} gap?' ; delete barrier } [0x03200 resolution 22]
 #
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( opening<1.01 | spacing<1.01 ) { set name=
 '${barrier} ${cycle_barrier} op_${opening} sp_${spacing} ov_${overlap}'
