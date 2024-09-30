@@ -2,12 +2,12 @@
 #####   This will display BARRIERS WHICH ARE INCOMPLETE IN SOME WAY 
 #
 ### NEED TO ADD THE XPM'S FOR STEPS & BARRIER TO THE STYLE FILE (????.TXT?).
-#####################   TRIKE WIDTH = 1.01 METRES  
+#####################   TRIKE WIDTH = 0.82 METRES but warn at 0.85 metres  
 #
 highway=steps {add bicycle=no} [0x10a01 resolution 24 continue]
 
 highway=* { add mkgmap:way-has-pois=true; }
 
-highway=* & (width<1.01 | opening<1.01 | maxwidth<1.01 | maxwidth:physical<1.01) { add mkgmap:bicycle=no; delete highway; }
+highway=* & (width<0.85 | opening<0.85 | maxwidth<0.85 | maxwidth:physical<0.85) { add mkgmap:bicycle=no; delete highway; }
 
 highway=steps & (rcn_from_relation=yes | ncn_from_relation=yes | rcn_from_relation=yes ) {add bicycle=no} [0x10a01 resolution 24 continue]
