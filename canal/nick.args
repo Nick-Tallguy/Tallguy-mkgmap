@@ -1,0 +1,35 @@
+ family-id: 5410
+product-id: 1
+draw-priority: 20
+series-name: Canal
+family-name: Tallguy-Canal
+copyright-message: Map data © openstreetmap.org
+area-name: Great Britain
+country-name: Great Britain
+country-abbr: GBR
+cycle-map  
+make-opposite-cycleways
+style-file: /home/nick/Github/Tallguy-mkgmap/canal/canal_style/
+#overview-mapname: 60000000
+#download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
+precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
+# generate-sea: land-tag=natural=background
+#download the latest bounds from http://osm2.pleiades.uni-wuppertal.de/bounds/latest/
+bounds: /home/nick/mapping/mkgmap/bounds-latest.zip
+location-autofill: is_in,nearest
+housenumbers
+#code-page: 1252 is equivalent of latin1
+code-page: 1252 
+show-profiles: 1
+add-pois-to-areas
+add-pois-to-lines=mid
+link-pois-to-ways
+# min-size polygon can be up to 15 with 15 producing the smallest file size & less polygons.
+min-size-polygon: 15	
+road-name-config: /home/nick/Github/Tallguy-mkgmap/canal/roadNameConfig.txt
+preserve-element-order
+keep-going
+### commenting out housenumbers, route & index reduces file size considerably
+route
+index
+split-name-index

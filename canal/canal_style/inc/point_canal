@@ -1,0 +1,12 @@
+### This snippet alters some points to a more appropriate symbol for canal use
+## The object type number - the kind of element that it is. If the number is greater than 0xff then it will be treated as a type and subtype combination. Eg 0x2305 is type 0x23 with subtype 0x5.
+
+# waterway specific points
+waterway=water_point [0x5001 resolution 23]
+amenity=water_point [0x5001 resolution 23]
+waterway=turning_point [0x6000 resolution 20]
+
+## This added to prevent all barriers being tagged with the 'barrier' circle & their name
+barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
+    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
+    { delete barrier; } [0x0100 resolution 24]

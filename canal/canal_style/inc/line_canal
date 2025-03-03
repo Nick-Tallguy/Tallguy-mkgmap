@@ -1,0 +1,38 @@
+###   
+#########   Lines for producing canal map
+#
+### Display Locks 
+lock=yes 
+{
+ name 
+  '${lock_ref|highway-symbol:interstate} ${lock_name} ' |
+  '${lock_ref|highway-symbol:interstate} '              |
+  '${lock_name|highway-symbol:interstate}'              |
+  '${name|highway-symbol:interstate}'    
+}
+ 
+waterway=canal & lock=yes [0x19 resolution 20]
+
+waterway=lock_gate [0x1d resolution 20] 
+#
+### DISPLAY OF BRIDGE TAGS
+
+bridge=* 
+{ 
+  name 
+  '${bridge:ref|highway-symbol:oval} ${bridge:name}' |
+  '${bridge_ref|highway-symbol:oval} ${bridge_name}' |
+  '${bridge:ref|highway-symbol:oval}'                |
+  '${bridge_ref|highway-symbol:oval}'                |
+  '${bridge:name}'                                   |
+  '${bridge_name}'                                   |
+  '${name}'  
+}
+
+bridge=* & (highway=track | highway=footway | highway=path | railway=*) { set highway=bridleway } 
+
+### Change bridge display so the tag is not doubled.  
+# bridge=* [0x06 resolution 22] # commented out so bridge keeps the colour of the highway - trunk, classified, etc.  
+
+### Remove power lines which use the same line as a canal / river does.  
+power=line {delete power} 
