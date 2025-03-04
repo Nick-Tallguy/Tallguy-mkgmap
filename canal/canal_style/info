@@ -6,14 +6,12 @@
 
 # A short one line description of the style
 #
-summary: A style to show GB canals, & highlight some routes
+summary: A style to show GB canals, & features useful for canal users.
 # Version of the style itself
 #
 version=1.0
 
 # A longer description of the style.
 description {
-The default style.  This is a heavyweight style that is
-designed for use when mapping and especially in lightly covered
-areas.
+An attempt at creating a map useful when using a canal boat, which includes locks, bridge references, winding holes, water points.  
 }
