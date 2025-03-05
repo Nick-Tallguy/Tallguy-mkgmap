@@ -11,9 +11,9 @@ lock=yes
   '${name|highway-symbol:interstate}'    
 }
  
-waterway=canal & lock=yes [0x19 resolution 20]
+waterway=canal & lock=yes [0x19 resolution 18]
 
-waterway=lock_gate [0x1d resolution 20] 
+waterway=lock_gate [0x1d resolution 24] 
 #
 ### DISPLAY OF BRIDGE TAGS
 
