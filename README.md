@@ -1,4 +1,21 @@
-# Tallguy-mkgmap
+# Tallguy-mkgmap 
+
+**All mapping data is derived from [OpenStreetMap](https://www.openstreetmap.org/copyright), including the downloadable maps. Many thanks to OpenStreetMap contributors for their skill & dedication.**
+
+
+## Canal Map
+
+Not something to navigate by, but something that may help you! Treat as a bit of fun.
+
+![canal-2](/assets/canal-2.jpg "Screenshot of canal with locks and a bridge")
+
+Useful if you want to see where you are in relation to locks, bridges and other features such as turning points (winding holes). It is **not** routable for boats, but is useful, and can be fun to look at - I find it useful when trying to work out exactly where winding holes and other features are ahead of me. I keep an old Garmin edge cycle computer at the back of the boat with me.   
+
+![canal-1](/assets/canal-1.jpg "Screenshot of canal with locks and a bridge")
+
+![canal-3](/assets/canal-3.jpg "Screenshot of canal with locks and a bridge")
+
+
 
 ## Trike Map - Experimental at this stage 
 
@@ -17,7 +34,7 @@ This map has been created using OpenStreetMap data, and a number of other progra
 
 ### Background
 
-As a recumbent trike rider, I would like to have maps on my navigation devices that assist me. I have **NCN 1** fairly near me, and fond memories of riding it when I rode a 2 wheel bike and was a Sustrans Ranger, but parts of it are a 'show stopper' for me on my trike as they have narrow gaps between bollards which require me to get off and try to lift the trike over a chest high gate - not easy or fun for me if on my own - I'm thinking that some kind of warning on the map so I can chose whether to try to negotiate the barrier, or not go that way at all, would be helpful.  
+As a recumbent trike rider, I would like to have maps on my navigation devices that assist me. I have **NCN 1** fairly near me, and fond memories of riding it when I rode a 2 wheel bike and was a Sustrans Ranger, but parts of it are a 'show stopper' for me on my trike as they have narrow gaps between bollards which require me to get off and try to lift the trike over a chest high gate - not easy or fun for me if on my own - I'm thinking that some kind of warning on the map so I can choose whether to try to negotiate the barrier, or not go that way at all, would be helpful.  
 
 
 ### GPS's
