@@ -374,9 +374,9 @@ amenity=restaurant {add name='${cuisine|subst:"_=> "}'}
 #amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
 #amenity=fast_food [0x2a07 resolution 24]
 
-barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
-    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
-    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
+# barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
+#    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
+#    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
 
 landuse=basin [0x6603 resolution 24]
 landuse=reservoir | water=reservoir [0x650f resolution 22]
