@@ -2,8 +2,8 @@
 ## The object type number - the kind of element that it is. If the number is greater than 0xff then it will be treated as a type and subtype combination. Eg 0x2305 is type 0x23 with subtype 0x5.
 
 # waterway specific points
-waterway=water_point [0x5001 resolution 23]
-amenity=water_point [0x5001 resolution 23]
+waterway=water_point [0x5001 resolution 22]
+amenity=water_point [0x5001 resolution 22]
 waterway=turning_point [0x6000 resolution 20]
 
 ## This added to prevent all barriers being tagged with the 'barrier' circle & their name
