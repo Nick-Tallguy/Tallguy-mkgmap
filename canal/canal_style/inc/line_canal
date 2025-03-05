@@ -17,6 +17,8 @@ waterway=lock_gate [0x1d resolution 24]
 #
 ### DISPLAY OF BRIDGE TAGS
 
+bridge=* & (highway=track | highway=footway | highway=path | railway=*) { set highway=bridleway } 
+
 bridge=* 
 { 
   name 
@@ -29,7 +31,6 @@ bridge=*
   '${name}'  
 }
 
-bridge=* & (highway=track | highway=footway | highway=path | railway=*) { set highway=bridleway } 
 
 ### Change bridge display so the tag is not doubled.  
 # bridge=* [0x06 resolution 22] # commented out so bridge keeps the colour of the highway - trunk, classified, etc.  
