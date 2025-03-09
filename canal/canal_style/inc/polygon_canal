@@ -1,0 +1,9 @@
+###   
+#########   Polygons for producing canal map ###
+
+## water display
+
+natural=water & water=canal [0x48 resolution 18]
+
+
+landuse=commercial {delete landuse}

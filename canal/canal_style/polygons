@@ -8,6 +8,8 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+include 'inc/polygon_canal';
+
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
 leisure=* & sport=* & name=* {set name='${name} (${sport})'}

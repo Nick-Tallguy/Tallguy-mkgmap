@@ -26,6 +26,7 @@ Based on mkgmap default style version: r4293
 
 ;=========== POLYGONS : RENDERING PRIORITY ======
 [_drawOrder]
+;Type=0x048,1
 Type=0x03d,1
 Type=0x04b,1
 Type=0x011,1
@@ -710,10 +711,10 @@ ExtendedLabels=Y
 FontStyle=SmallFont
 CustomColor=Day
 DaycustomColor:#30D5C8
-;change from 4D80B3
+;DaycustomColor:#4D80B3
 Xpm="0 0 1 0"
-"1 c #30D5C8"
-;change from #4169E1  AAD3DF
+"1 c #AAD3DF"
+;"1 c #30D5C8"
 [end]
 
 [_polygon]

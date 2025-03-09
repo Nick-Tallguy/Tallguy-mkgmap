@@ -37,3 +37,7 @@ bridge=*
 
 ### Remove power lines which use the same line as a canal / river does.  
 power=line {delete power} 
+
+### Canal and navigable water to be visible at highest zooms. Others only at lowest.
+(water=* | waterway=*) & boat=yes [0x1f resolution 18]
+waterway=river & boat!=yes [0x1f resolution 24]

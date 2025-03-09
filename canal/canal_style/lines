@@ -8,7 +8,7 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/line_canal'  
+include 'inc/line_canal'  ;
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
