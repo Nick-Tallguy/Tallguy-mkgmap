@@ -17,6 +17,8 @@
 # Currently, the matching relations will be processed and the names
 # appended to the boundary lines in an arbitrary order.
 
+include 'inc/rel_parkrun'        ;
+
 (type=boundary | type=multipolygon) & boundary=administrative & name=*
 { apply
   {

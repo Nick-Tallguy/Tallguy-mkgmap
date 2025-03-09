@@ -8,6 +8,10 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
+include 'inc/point_canal';
+include 'inc/point_localise';
+include 'inc/point_parkrun';
+
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
 # impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
