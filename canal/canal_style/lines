@@ -8,8 +8,6 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/line_canal'          ;
-
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
 abandoned=yes {deletealltags}  # old, depreciated, ambiguous, method of handling abandoned
@@ -73,7 +71,7 @@ mkgmap:exit_hint=true | mkgmap:dest_hint=* {name '${tmp:exit_hint} ${tmp:dest_hi
 highway=* & (surface=asphalt | surface=paved | surface=sett |
     surface=concrete | surface=concrete:lanes | surface=concrete:plates |
     surface=paving_stones | surface=cobblestone |
-    surface=cobblestone:flattened | surface=metal | surface=wood)
+    surface=cobblestone:flattened | surface=metal | surface=wood | surface=chipseal)
     {set mkgmap:unpaved=0}
 highway=* & tracktype=grade1 & surface!=* {set mkgmap:unpaved=0}
 
@@ -124,13 +122,13 @@ man_made=breakwater & is_closed()=false & mkgmap:mp_created!=true [0x17 resoluti
 
 # Roundabouts
 junction=roundabout & (highway=trunk | highway=trunk_link) [0x0c road_class=4 road_speed=2 resolution 24 continue]
-junction=roundabout & (highway=trunk | highway=trunk_link) [0x10801 resolution 20]
+junction=roundabout & (highway=trunk | highway=trunk_link) [0x10801 resolution 18]
 
 junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x0c road_class=4 road_speed=2 resolution 24 continue]
-junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x10802 resolution 20]
+junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x10802 resolution 19]
 
 junction=roundabout & (highway=primary | highway=primary_link) [0x0c road_class=3 road_speed=2 resolution 24 continue]
-junction=roundabout & (highway=primary | highway=primary_link) [0x10802 resolution 20]
+junction=roundabout & (highway=primary | highway=primary_link) [0x10802 resolution 19]
 
 junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x0c road_class=3 road_speed=2 resolution 24 continue]
 junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x10803 resolution 20]
@@ -155,23 +153,23 @@ highway=* & construction=* & maxspeed!=* {add mkgmap:road-speed='-1'}
 highway=* & disused=yes & maxspeed!=* {add mkgmap:road-speed='-2'}
 
 # Ways sorted roughly by descending order of class
-highway=motorway & mkgmap:fast_road=yes [0x01 road_class=4 road_speed=7 resolution 20]
-highway=motorway [0x01 road_class=4 road_speed=7 resolution 20]
+highway=motorway & mkgmap:fast_road=yes [0x01 road_class=4 road_speed=7 resolution 14]
+highway=motorway [0x01 road_class=4 road_speed=7 resolution 15]
 highway=motorway_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x0b road_class=4 road_speed=2 resolution 20]
 highway=motorway_link [0x09 road_class=4 road_speed=2 resolution 20]
 
-highway=trunk & mkgmap:fast_road=yes [0x02 road_class=4 road_speed=5 resolution 20]
-highway=trunk [0x02 road_class=4 road_speed=5 resolution 20]
+highway=trunk & mkgmap:fast_road=yes [0x02 road_class=4 road_speed=5 resolution 15]
+highway=trunk [0x02 road_class=4 road_speed=5 resolution 18]
 highway=trunk_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x0b road_class=4 road_speed=2 resolution 20]
 highway=trunk_link [0x09 road_class=4 road_speed=2 resolution 20]
-highway=* & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 20]
-highway=primary & mkgmap:fast_road=yes [0x03 road_class=4 road_speed=4 resolution 20]
-highway=primary [0x03 road_class=3 road_speed=4 resolution 20]
+highway=* & motorroad=yes [0x02 road_class=4 road_speed=4 resolution 18]
+highway=primary & mkgmap:fast_road=yes [0x03 road_class=4 road_speed=4 resolution 17]
+highway=primary [0x03 road_class=3 road_speed=4 resolution 19]
 highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) & mkgmap:fast_road=yes [0x0b road_class=4 road_speed=1 resolution 21]
 highway=primary_link & (mkgmap:exit_hint=true | mkgmap:dest_hint=*) [0x0b road_class=3 road_speed=1 resolution 21]
 highway=primary_link & mkgmap:fast_road=yes [0x08 road_class=4 road_speed=1 resolution 21]
 highway=primary_link [0x08 road_class=3 road_speed=1 resolution 21]
-highway=secondary & mkgmap:fast_road=yes [0x04 road_class=3 road_speed=3 resolution 20]
+highway=secondary & mkgmap:fast_road=yes [0x04 road_class=3 road_speed=3 resolution 18]
 highway=secondary [0x04 road_class=2 road_speed=3 resolution 20]
 highway=secondary_link & mkgmap:fast_road=yes [0x08 road_class=3 road_speed=1 resolution 22]
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 22]
@@ -236,7 +234,7 @@ power=line [0x29 resolution 21]
 railway=platform & tmp:stopMopUp!=yes [0x16 road_class=0 road_speed=0 resolution 23]
 # Railway lines, note that many devices display type 0x14 only at resolution 24
 (railway=rail | railway=tram | railway=disused | railway=subway | railway=narrow_gauge | railway=light_rail | railway=preserved) & !(tunnel=yes)
-    [0x14 resolution 20]
+    [0x14 resolution 22]
 
 (man_made=cable | (man_made=* & man_made~'.*pipe.*')) & area!=yes & tunnel!=yes & location!=underground
     {name '${name} (${operator})' | '${name}' | '${operator}'} [0x28 resolution 23]
@@ -244,15 +242,15 @@ railway=platform & tmp:stopMopUp!=yes [0x16 road_class=0 road_speed=0 resolution
 # The following boundary styles are after the highway rules because ways
 # are frequently tagged with both and we want the highway to take priority.
 boundary=administrative {name '${mkgmap:boundary_name}'}
-boundary=administrative & admin_level<3 [0x1e resolution 20]
-boundary=administrative & admin_level<5 [0x1d resolution 20]
+boundary=administrative & admin_level<3 [0x1e resolution 12]
+boundary=administrative & admin_level<5 [0x1d resolution 19]
 boundary=administrative & admin_level<7 [0x1c resolution 21]
 boundary=administrative & admin_level<9 [0x1c resolution 22]
 boundary=administrative [0x1c resolution 22]
-boundary=national [0x1e resolution 18]
+boundary=national [0x1e resolution 17]
 boundary=political [0x1c resolution 19]
 
-# barrier=wall | barrier=fence | barrier=hedge | barrier=ditch {add name='${barrier|subst:"_=> "}'} [0x17 resolution 24]
+barrier=wall | barrier=fence | barrier=hedge | barrier=ditch {add name='${barrier|subst:"_=> "}'} [0x17 resolution 24]
 
 route=ferry & (toll=no | toll=false) {set mkgmap:toll=no}
 route=ferry {set mkgmap:numbers=false; set mkgmap:ferry=1; add mkgmap:toll=yes}
@@ -263,10 +261,8 @@ route=ferry [0x1a road_class=3 road_speed=0 resolution 19]
 (waterway=river | waterway=canal) & intermittent=yes [0x26 resolution 20]
 (waterway=stream | waterway=drain) & intermittent=yes [0x26 resolution 22]
 
-## Make canals visible at 18, navigable rivers also 18, remaining rivers at 22
-waterway=canal [0x1f resolution 18]
-waterway=river & boat=yes [0x1f resolution 18]
-waterway=river [0x1f resolution 22]
+waterway=canal [0x1f resolution 21]
+waterway=river [0x1f resolution 18]
 waterway=rapids|waterway=waterfall [0x1f resolution 22]
 waterway=stream | waterway=drain [0x18 resolution 22]
 
@@ -283,7 +279,6 @@ include 'inc/address';
 # calculate the road speed based on maxspeed tag
 include 'inc/roadspeed';
 # calculate the access rules
-include 'inc/access_country';
 include 'inc/access';
                                    
 #limit artificial cycleways to resolution 24
