@@ -1,14 +1,14 @@
 #!/bin/bash
 # 
 DATE=$(date +"%Y-%m-%d")            #
-NME=testing
+NME=canal
 DESC="Tallguy - canal"
 FAMILYNME=Tallguy-Canal
 GMAKE=/home/nick/mapping/mkgmap
 AREA=great-britain
 POLY=${NC_GMAKE}/mkgmap-resources/${AREA}.poly
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
-PBF=/home/nick/mapping/mkgmap/pbf_downloads/testing.osm.pbf
+PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
