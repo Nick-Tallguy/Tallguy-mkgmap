@@ -280,8 +280,6 @@ include 'inc/contour_lines';
 include 'inc/address';
 # calculate the road speed based on maxspeed tag
 include 'inc/roadspeed';
-# calculate the access rules
-include 'inc/access';
                                    
 #limit artificial cycleways to resolution 24
 mkgmap:synthesised=yes & mkgmap:bicycle=yes {set mkgmap:highest-resolution-only=true}

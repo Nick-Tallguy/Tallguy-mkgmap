@@ -8,87 +8,73 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/point_canal';
-include 'inc/point_localise';
-include 'inc/point_parkrun';
+# waterway specific points
+waterway=water_point [0x5001 resolution 22]
+amenity=water_point [0x5001 resolution 22]
+waterway=turning_point [0x6000 resolution 20]
+
+## This added to prevent all barriers being tagged with the 'barrier' circle & their name
+barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
+    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
+    { delete barrier }
+
+parkrun=start [0x5003 resolution 20]
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
-
-# impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
-
-vehicle=* {
-    add bicycle='${vehicle}';
-    add motor_vehicle='${vehicle}';
-    }
-motor_vehicle=* {
-    add motorcar='${motor_vehicle}';
-    add goods='${motor_vehicle}';
-    add hgv='${motor_vehicle}';
-    add psv='${motor_vehicle}';
-    add emergency='${motor_vehicle}';
-    }
-psv=* {
-    add taxi='${psv}';
-    add bus='${psv}';
-    }
-
-barrier=* & bicycle=*   {set mkgmap:bicycle  =  '${bicycle|subst:private=>no}'}
-barrier=* & foot=*      {set mkgmap:foot     =     '${foot|subst:private=>no}'}
-barrier=* & hgv=*       {set mkgmap:truck    =      '${hgv|subst:private=>no}'}
-barrier=* & motorcar=*  {set mkgmap:car      = '${motorcar|subst:private=>no}'}
-barrier=* & bus=*       {set mkgmap:bus      =      '${bus|subst:private=>no}'}
-barrier=* & taxi=*      {set mkgmap:taxi     =     '${taxi|subst:private=>no}'}
-barrier=* & emergency=* {set mkgmap:emergency='${emergency|subst:private=>no}'}
-barrier=* & goods=*     {set mkgmap:delivery =    '${goods|subst:private=>no}'}
-
-barrier=bollard | barrier=block {
-    add mkgmap:car=no;
-    add mkgmap:delivery=no;
-    add mkgmap:truck=no;
-    add mkgmap:bus=no;
-    add mkgmap:taxi=no;
-    add mkgmap:emergency=no;
-    }
-barrier=cycle_barrier | barrier=kissing_gate | barrier=stile {
-    add mkgmap:bicycle=no;
-    add mkgmap:car=no;
-    add mkgmap:delivery=no;
-    add mkgmap:truck=no;
-    add mkgmap:bus=no;
-    add mkgmap:taxi=no;
-    add mkgmap:emergency=no;
-    set mkgmap:road-speed=0;
-    }
-barrier=bus_trap {
-    add mkgmap:car=no;
-    add mkgmap:delivery=no;
-    add mkgmap:truck=no;
-    add mkgmap:taxi=no;
-    }
-barrier=gate | barrier=lift_gate | barrier=swing_gate {
-    set mkgmap:road-speed=0;
-    }
-barrier=* {add mkgmap:road-speed=1}
-barrier=* & access=* {addaccess '${access|subst:private=>no}'}
 
 internet_access=yes {name 'Internet ${name}' | 'Internet'} [0x2f12 resolution 24 continue]
 internet_access=* & internet_access!=no & internet_access!=yes
     {name 'Internet(${internet_access}) ${name}' | 'Internet(${internet_access})'} [0x2f12 resolution 24 continue]
 
-(public_transport=platform | highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-    & (ref=* | route_ref=*)
-    {set ref='${ref|def:}(${route_ref})'}
-(public_transport=platform | highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-    & lit=yes & (shelter=yes | covered=yes)
-    {set ref='${ref|def:}*'}
-(public_transport=platform | highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-    & lit!=yes & (shelter=yes | covered=yes)
-    {set ref='${ref|def:}+'}
-(public_transport=platform | highway=bus_stop | railway=tram_stop | railway=halt | railway=station)
-    & (shelter=no | covered=no)
-    {set ref='${ref|def:}-'}
+# Rules for naming objects, based on the following tags:
+# name, brand, operator, ref
 
-include 'inc/name';
+# delete FIXME values (they should be better used in maintenance maps)
+# better use option --ignore-fixme-values
+ref ~ '(?i)fix[ _]?+me'		{ delete ref; } 
+operator ~ '(?i)fix[ _]?+me'	{ delete operator; }
+brand ~ '(?i)fix[ _]?+me'		{ delete brand; }
+name ~ '(?i)fix[ _]?+me'		{ delete name; }
+
+# delete duplicate names
+operator=${brand} { delete operator; }
+operator=${name}  { delete operator; }
+brand=${name}     { delete brand; }
+
+# None of operator, brand given
+ref=* & (operator!=* & brand!=*) & (highway=bus_stop | railway=tram_stop | railway=halt | railway=station) { name '${name} ${ref}' | '${ref}' }
+ref=* & (operator!=* & brand!=*) { name '${ref} ${name}' | '${ref}' }
+
+# Both operator and brand given
+operator=* & brand=* {
+ name '${brand}: ${ref} ${name} (${operator})' |
+      '${brand} ${ref} (${operator})' |
+      '${brand}: ${name} (${operator})' |
+      '${brand} (${operator})'
+}
+
+# One of operator or brand given
+operator=* & brand!=* & (highway=bus_stop | railway=tram_stop | railway=halt | railway=station) {
+ name '${name} ${ref} ${operator}' |
+      '${name} ${operator}' |
+      '${ref} ${operator}' |
+      '${operator}'
+}
+
+operator=* & brand!=* {
+ name '${operator}: ${ref} ${name}' |
+      '${operator}: ${name}' |
+      '${operator}: ${ref}' |
+      '${operator}' |
+      '${ref}'
+}
+brand=* & operator!=* {
+ name '${brand}: ${ref} ${name}' |
+      '${brand}: ${name}' | 
+      '${brand}: ${ref}' |
+      '${brand}' |
+      '${ref}'
+}
 
 place=city & population > 999999 & name=* [0x0100 resolution 12]
 place=city & population > 799999 & name=* [0x0200 resolution 14]
@@ -116,6 +102,11 @@ place=hamlet                     & name=* [0x0b00 resolution 24]
 
 place=island & name=* [0x650c resolution 20]
 place=islet  & name=* [0x650c resolution 22]
+
+
+#### TO HERE ###
+
+
 
 #aeroway=airport [0x5900 resolution 22]
 aeroway=airport [0x2f04 resolution 22]
@@ -374,9 +365,6 @@ amenity=restaurant {add name='${cuisine|subst:"_=> "}'}
 #amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
 #amenity=fast_food [0x2a07 resolution 24]
 
-barrier=bollard | barrier=bus_trap | barrier=gate | barrier=block | barrier=cycle_barrier |
-    barrier=stile | barrier=kissing_gate | barrier=lift_gate | barrier=swing_gate
-    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
 
 landuse=basin [0x6603 resolution 24]
 landuse=reservoir | water=reservoir [0x650f resolution 22]

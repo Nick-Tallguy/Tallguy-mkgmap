@@ -1,6 +1,0 @@
-### This snippet alters some points to a more appropriate symbol - keep in central folder and use link to access it.
-#
-## The object type number - the kind of element that it is. If the number is greater than 0xff then it will be treated as a type and subtype combination. Eg 0x2305 is type 0x23 with subtype 0x5.
-
-amenity=post_box { set name='${collection_times}' delete amenity }[0x02f05 resolution 24 default_name 'Post box']
-
