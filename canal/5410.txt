@@ -26,7 +26,6 @@ Based on mkgmap default style version: r4293
 
 ;=========== POLYGONS : RENDERING PRIORITY ======
 [_drawOrder]
-;Type=0x048,1
 Type=0x03d,1
 Type=0x04b,1
 Type=0x011,1
