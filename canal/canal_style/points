@@ -9,8 +9,8 @@
 # for more information.
 
 # waterway specific points
-waterway=water_point [0x5001 resolution 22]
-amenity=water_point [0x5001 resolution 22]
+waterway=water_point [0x5001 resolution 20]
+amenity=water_point [0x5001 resolution 20]
 waterway=turning_point [0x6000 resolution 20]
 
 ## This added to prevent all barriers being tagged with the 'barrier' circle & their name
@@ -144,7 +144,7 @@ amenity=fire_station [0x03008 resolution 24]
 amenity=prison [0x3007 resolution 24 default_name 'Prison']
 amenity=food_court [0x02e06 resolution 24]
 amenity=fuel & fuel:HGV_diesel=yes [0x02f01 resolution 24]
-amenity=fuel & shop=convenience [0x02f01 resolution 24]
+amenity=fuel & shop=convenience [0x02f01 resolution 24 continue]
 amenity=fuel [0x02f01 resolution 24]
 amenity=grave_yard | amenity=crematorium [0x06403 resolution 24]
 amenity=kindergarten [0x02c06 resolution 24]
@@ -218,7 +218,7 @@ highway=bus_stop | railway=tram_stop [0x02f17 resolution 24]
 
 shop=* & name!=* & shop!=yes & shop!=no & shop!=none & shop!=vacant {set name='${shop|subst:"_=> "}'}
 # Uncomment the following lines to enable these extra POI that some devices support
-shop=convenience [0x02e06 resolution 24]
+shop=convenience [0x02e03 resolution 22]
 #shop=florist [0x2e0f resolution 24]
 #shop=gift | shop=art | shop=antiques [0x2e10 resolution 24]
 #shop=music [0x2e11 resolution 24]
@@ -234,24 +234,23 @@ shop=chemist [0x02e05 resolution 24]
 shop=clothes [0x02e07 resolution 24]
 shop=computer [0x02e0b resolution 24]
 shop=department_store [0x02e01 resolution 24]
+shop=doityourself [0x02e09 resolution 24]
+shop=fashion [0x02e07 resolution 24]
+shop=furniture [0x02e09 resolution 24]
+shop=garden_centre [0x02e08 resolution 24]
+shop=garden_center [0x02e08 resolution 24]
+shop=general [0x02e03 resolution 24]
+shop=hardware [0x02e09 resolution 24]
+shop=hairdresser [0x02f10 resolution 24]
+shop=mall [0x02e04 resolution 24]
+shop=organic [0x02e0a resolution 24]
+shop=outdoor [0x02e08 resolution 24]
+shop=shoes [0x02e07 resolution 24]
+shop=supermarket [0x02e03 resolution 22]
 
 #### TO HERE ###
 
 
-
-shop=doityourself [0x2e09 resolution 24]
-shop=fashion [0x2e07 resolution 24]
-shop=furniture [0x2e09 resolution 24]
-shop=garden_centre [0x2e08 resolution 24]
-shop=garden_center [0x2e08 resolution 24]
-shop=general [0x2e03 resolution 24]
-shop=hardware [0x2e09 resolution 24]
-shop=hairdresser [0x2f10 resolution 24]
-shop=mall [0x2e04 resolution 24]
-shop=organic [0x2e0a resolution 24]
-shop=outdoor [0x2e08 resolution 24]
-shop=shoes [0x2e07 resolution 24]
-shop=supermarket [0x2e02 resolution 24]
 shop=tires [0x2f07 resolution 24]
 shop=tyres [0x2f07 resolution 24]
 shop=* & name=* [0x2e0c resolution 24]
