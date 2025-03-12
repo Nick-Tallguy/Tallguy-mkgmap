@@ -17,8 +17,25 @@
 # Currently, the matching relations will be processed and the names
 # appended to the boundary lines in an arbitrary order.
 
-include 'inc/rel_parkrun' ;
-include 'inc/rel_canal'   ;
+# Parkrun running start points.
+#
+### ENSURE THAT THE BELOW TEXT IS INCLUDED IN THE POINTS FILE
+#   parkrun=start [0x5003 resolution 23]
+#
+
+type=route & route=running & (network=parkrun|network=Parkrun|operator=parkrun|operator=Parkrun) {
+    apply role=start {
+    set parkrun=start;
+    set name='${name}';
+    }
+}
+
+type=route & route=running & (network=parkrun|network=Parkrun|operator=parkrun|operator=Parkrun) {
+    apply role=start_stop {
+    set parkrun=start;
+    set name='${name}';
+    }
+}
 
 (type=boundary | type=multipolygon) & boundary=administrative & name=*
 { apply
