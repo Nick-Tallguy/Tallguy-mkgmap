@@ -189,7 +189,7 @@ leisure=ice_rink [0x02d08 resolution 24]
 leisure=marina [0x02f09 resolution 22]
 leisure=nature_reserve [0x06612 resolution 24]
 leisure=park [0x02c06 resolution 24]
-leisure=pitch & (name=* | sport=*) {name '${name} (${sport})' | '${sport}'} [0x02d0a resolution 24]
+leisure=pitch [0x02d0a resolution 24]
 leisure=playground [0x02c06 resolution 24 default_name 'Playground']
 leisure=recreation_ground [0x02c06 resolution 24 default_name 'Rec.']
 leisure=sports_center | leisure=sports_centre {name '${name} (${sport})' | '${sport}'} [0x02d0a resolution 24]
@@ -247,122 +247,66 @@ shop=organic [0x02e0a resolution 24]
 shop=outdoor [0x02e08 resolution 24]
 shop=shoes [0x02e07 resolution 24]
 shop=supermarket [0x02e03 resolution 22]
+shop=tires [0x02f07 resolution 24]
+shop=tyres [0x02f07 resolution 24]
+shop=* & name=* [0x02e0c resolution 24]
 
-#### TO HERE ###
+sport=9pin [0x02d07 resolution 24]
+sport=10pin | leisure=bowling_alley [0x02d07 resolution 24]
+sport=airport [0x02d0b resolution 24]
+sport=multi [0x02d0a resolution 24]
+sport=skating [0x02d08 resolution 24]
+sport=skiing [0x02d06 resolution 24]
+sport=swimming [0x02d09 resolution 24]
 
-
-shop=tires [0x2f07 resolution 24]
-shop=tyres [0x2f07 resolution 24]
-shop=* & name=* [0x2e0c resolution 24]
-
-sport=9pin [0x2d07 resolution 24]
-sport=10pin | leisure=bowling_alley [0x2d07 resolution 24]
-sport=airport [0x2d0b resolution 24]
-sport=multi [0x2d0a resolution 24]
-sport=skating [0x2d08 resolution 24]
-sport=skiing [0x2d06 resolution 24]
-sport=swimming [0x2d09 resolution 24]
-
-tourism=alpine_hut [0x2b02 resolution 24]
-tourism=attraction & historic=* [0x2c02 resolution 24]
-tourism=attraction [0x2c04 resolution 24]
-tourism=artwork [0x2c04 resolution 24]
-tourism=aquarium [0x2c07 resolution 24]
-tourism=bed_and_breakfast [0x2b02 resolution 24]
+tourism=alpine_hut [0x02b02 resolution 24]
+tourism=attraction & historic=* [0x02c02 resolution 24]
+tourism=attraction [0x02c04 resolution 24]
+tourism=artwork [0x02c04 resolution 24]
+tourism=aquarium [0x02c07 resolution 24]
+tourism=bed_and_breakfast [0x02b02 resolution 24]
 # NB: different devices use different codes for camp/caravan_site, have both!
-tourism=camp_site [0x2b03 resolution 24] [0x2b05 resolution 24]
-tourism=caravan_site [0x2b03 resolution 24] [0x2b05 resolution 24]
-tourism=chalet [0x2b02 resolution 24]
-tourism=guest_house [0x2b02 resolution 24]
-tourism=hostel [0x2b02 resolution 24]
+tourism=camp_site [0x02b05 resolution 24]
+tourism=caravan_site [0x02b05 resolution 24]
+tourism=chalet [0x02b02 resolution 24]
+tourism=guest_house [0x02b02 resolution 24]
+tourism=hostel [0x02b02 resolution 24]
 # Have both hotel &| restaurant POIs
-tourism=hotel | tourism=motel {set tmp:stopMopUp=yes} [0x2b01 resolution 24 continue with_actions]
-tourism=information [0x4c00 resolution 24]
+tourism=hotel | tourism=motel {set tmp:stopMopUp=yes} [0x02b01 resolution 24 continue with_actions]
+tourism=information [0x04c00 resolution 24]
 # tourism=lean_to replaces some uses of amenity=shelter
-tourism=lean_to [0x2b05 resolution 24 default_name 'lean-to']
-tourism=wilderness_hut [0x2b07 resolution 24 default_name 'wilderness hut']
-tourism=museum [0x2c02 resolution 24]
-tourism=picnic_site [0x4a00 resolution 24]
-tourism=resort [0x2b04 resolution 24]
-tourism=theme_park [0x2c01 resolution 24]
-tourism=viewpoint {name '${name} - ${description}' | '${name}'} [0x2c04 resolution 24]
-tourism=wine_cellar [0x2c0a resolution 24]
-tourism=zoo [0x2c07 resolution 24]
+tourism=lean_to [0x02b06 resolution 24 default_name 'lean-to']
+tourism=wilderness_hut [0x02b07 resolution 24 default_name 'wilderness hut']
+tourism=museum [0x02c02 resolution 24]
+tourism=picnic_site [0x04a00 resolution 24]
+tourism=theme_park [0x02c01 resolution 24]
+tourism=viewpoint {name '${name} - ${description}' | '${name}'} [0x02c04 resolution 24]
+tourism=wine_cellar [0x02c0a resolution 24]
+tourism=zoo [0x02c07 resolution 24]
 tourism=* & name!=* & tourism!=yes & tourism!=no {set name='${tourism|subst:"_=> "}'}
-tourism=* & tourism!=no & tmp:stopMopUp!=yes [0x2c0d resolution 24]
+tourism=* & tourism!=no & tmp:stopMopUp!=yes [0x02c0d resolution 24]
 
 # amenity=restaurant/fast_food/cafe/pub and shop=* can use cuisine, so have cuisine section later than where the others
 # should take precedence
 # Have the following 2 lines here rather than after cuisine=... so that, for amenity=fast_food, cuisine is ignored
-amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
+amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x02a07 resolution 24]
 amenity=fast_food [0x2a07 resolution 24]
-
-# "Food & Drink" Search has categories as follows, corresponding to 0x2a00 - 0x2a13:
-#   All, American, Asian, Barbeque, Chinese, Deli/Bakery, International, Fast Food, Italian, Mexican, Pizza,
-#     Seafood, Steak/Grill, Bagel/Donut, Cafe/Diner, French, German, British Isles, Speciality Food Products, Other
-amenity=restaurant & cuisine!=*
-    [0x2a00 resolution 24]
-cuisine=american | cuisine=burger
-    [0x2a01 resolution 24]
-cuisine=asian | cuisine=japanese | cuisine=indian | cuisine=curry | cuisine=thai | cuisine=sushi | cuisine=korean
-    [0x2a02 resolution 24]
-cuisine=barbecue | cuisine=bbq | cuisine=kebab | cuisine=chicken
-    [0x2a03 resolution 24]
-cuisine=chinese | cuisine=vietnamese
-    [0x2a04 resolution 24]
-cuisine=deli | cuisine=sandwich
-    [0x2a05 resolution 24]
-cuisine=international
-    [0x2a06 resolution 24]
-cuisine=fast_food
-    [0x2a07 resolution 24]
-cuisine=italian | cuisine=pasta
-    [0x2a08 resolution 24]
-cuisine=mexican | cuisine=spanish | cuisine=tapas
-    [0x2a09 resolution 24]
-cuisine~'.*pizza.*'
-    [0x2a0a resolution 24]
-cuisine=seafood | cuisine=sea_food | cuisine=fish
-    [0x2a0b resolution 24]
-cuisine=steak | cuisine=grill | cuisine=steak_house
-    [0x2a0c resolution 24]
-cuisine=bagel | cuisine=donut
-    [0x2a0d resolution 24]
-cuisine=cafe | cuisine=diner | cuisine=coffee_shop
-    [0x2a0e resolution 24]
-cuisine=french
-    [0x2a0f resolution 24]
-cuisine=german | cuisine=bavarian
-    [0x2a10 resolution 24]
-cuisine=british | cuisine=fish_and_chips
-    [0x2a11 resolution 24]
-cuisine=speciality | cuisine=local | cuisine=regional
-    [0x2a12 resolution 24]
-amenity=restaurant {add name='${cuisine|subst:"_=> "}'}
-    [0x2a13 resolution 24]
-#common ones not handled:
-# ice_cream,greek,turkish,noodle,portugese,pasties,lebanese,brazilian,mediterranean,oriental,caribbean,vegetarian
-
-# Have the following 2 lines here rather than before cuisine=... so that, for amenity=fast_food, cuisine is respected
-#amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
-#amenity=fast_food [0x2a07 resolution 24]
-
 
 landuse=basin [0x6603 resolution 24]
 landuse=reservoir | water=reservoir [0x650f resolution 22]
 
-natural=beach [0x6604 resolution 24]
-natural=glacier [0x650a resolution 24]
-natural=spring [0x6511 resolution 24]
-natural=stream [0x6512 resolution 24]
-natural=water & (water=canal | water=lock) & name=* [0x6505 resolution 24]
-(water=lake | water=pond) & name=* [0x650d resolution 24]
-natural=water & name=* [0x6603 resolution 24]
-natural=waterfall | waterway=waterfall [0x6508 resolution 24]
-natural=wetland & name=* [0x6513 resolution 24]
+natural=beach [0x06604 resolution 24]
+natural=spring [0x06511 resolution 24]
+natural=stream [0x06512 resolution 24]
+natural=water & (water=canal | water=lock) & name=* [0x06505 resolution 24]
 
-landuse=cemetery | landuse=cemetary | amenity=grave_yard [0x6403 resolution 24]
-(landuse=wood | landuse=forest | natural=wood) & name=* [0x6618 resolution 24]
+(water=lake | water=pond) & name=* [0x0650a resolution 24]
+natural=water & name=* [0x0660a resolution 24]
+natural=waterfall | waterway=waterfall [0x06508 resolution 24]
+natural=wetland & name=* [0x06513 resolution 24]
+
+landuse=cemetery | landuse=cemetary | amenity=grave_yard [0x06403 resolution 24]
+(landuse=wood | landuse=forest | natural=wood) & name=* [0x06618 resolution 24]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
