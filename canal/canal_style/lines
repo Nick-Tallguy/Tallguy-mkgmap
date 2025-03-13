@@ -11,13 +11,16 @@
 #########   Lines for producing canal map
 #
 ### Display Locks 
+
+lock=yes & lock_ref!=* { add lock_ref=0 }
+
 lock=yes 
 {
  name 
   '${lock_ref|highway-symbol:interstate} ${lock_name} ' |
   '${lock_ref|highway-symbol:interstate} '              |
   '${lock_name|highway-symbol:interstate}'              |
-  '${name|highway-symbol:interstate}'    
+  '${lock_ref|highway-symbol:interstate} ${name}'    
 }
  
 waterway=canal & lock=yes [0x19 resolution 18]
