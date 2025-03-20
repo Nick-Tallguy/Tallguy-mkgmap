@@ -16,7 +16,10 @@ Useful if you want to see where you are in relation to locks, bridges and other 
 ![canal-3](/assets/canal-3.jpg "Screenshot of canal with locks and a bridge")
 
 The levels on the map are currently;
-levels = 0:24, 1:22, 2:20, 3:18
+
+**levels = 0:24, 1:22, 2:20, 3:18**
+
+On a Garmin Edge 705 this results in :
 
 GPS Scale|level|resolution|Comment|
 |:--:|:--:|:--:|--|
@@ -43,7 +46,7 @@ GPS Scale|level|resolution|Comment|
 |30m|3|18|
 |50m|3|18|
 
-
+It's worth bearing in mind that we don't know exactly what the Garmin has been programmed to do, and it may not always display what we are expecting / hoping for!
 
 ## Trike Map - Experimental at this stage 
 
