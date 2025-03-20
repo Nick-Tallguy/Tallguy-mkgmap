@@ -1208,7 +1208,7 @@ Xpm="32 4 2  1"
 "  !!!!    !!!!    !!!!    !!!!  "
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String=0x04,Ave Verte
+String=0x04,Cycleway
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=Day
