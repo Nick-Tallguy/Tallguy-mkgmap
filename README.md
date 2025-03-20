@@ -15,6 +15,34 @@ Useful if you want to see where you are in relation to locks, bridges and other 
 
 ![canal-3](/assets/canal-3.jpg "Screenshot of canal with locks and a bridge")
 
+The levels on the map are currently;
+levels = 0:24, 1:22, 2:20, 3:18
+
+GPS Scale|level|resolution|Comment|
+|:--:|:--:|:--:|--|
+|20ft|0|24|
+|30ft|0|24|
+|50ft|0|24|
+|80ft|0|24|
+|120ft|0|24|
+|200ft|0|24|
+|300ft|0|24|
+|500ft|0|24|
+|800ft|1|22|This is most used by me
+|0.2m|1|22|This is most used by me
+|0.3m|1|22|This is most used by me
+|0.5m|2|20|This is most used by me
+|0.8m|2|20|This is most used by me
+|1.2m|2|20|This is most used by me
+|2m|3|18|
+|3m|3|18|
+|5m|3|18|
+|8m|3|18|
+|12m|3|18|
+|20m|3|18|
+|30m|3|18|
+|50m|3|18|
+
 
 
 ## Trike Map - Experimental at this stage 
