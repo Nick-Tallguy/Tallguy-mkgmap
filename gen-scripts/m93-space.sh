@@ -2,7 +2,7 @@
 #
 ######   Deleting items from trash automatically.  
 #
-ALERT=35   # This figure in GB  IF SPACE AVAILABLE IS LOWER THAN 10gb, OUTPUT WILL NOT BE AN INTEGER! 
+ALERT=260   # This figure in GB  IF SPACE AVAILABLE IS LOWER THAN 10gb, OUTPUT WILL NOT BE AN INTEGER! 
 #
 ### 	Sort out trash	###
 function SPC(){
