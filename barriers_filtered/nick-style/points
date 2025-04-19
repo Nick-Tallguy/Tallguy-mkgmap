@@ -9,28 +9,27 @@
 # for more information.
 #
 #####   This will display BARRIERS WHICH ARE INCOMPLETE IN SOME WAY 
-
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
-
+#
 #######  STEPS
 highway=steps & (access=private | access=customers ) { delete highway }
 highway=steps & step_count!=* {set name='steps count?' } [0x03200 resolution 18]
-
+#
 #####    CYCLE_BARRIER
 barrier=cycle_barrier & (access=private | access=customers ) { delete barrier }
 barrier=cycle_barrier & width=* { add opening='${width}'; delete width } 
 barrier=cycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=cycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-
+#
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* {set name='${barrier} ${cycle_barrier} op_missing'; delete barrier} [0x03200 resolution 18]
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* {set name='${barrier} ${cycle_barrier} ov_missing'; delete barrier} [0x03200 resolution 18]
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* {set name='${barrier} ${cycle_barrier} sp_missing'; delete barrier} [0x03200 resolution 18]
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening=* & spacing=* & overlap=* {delete barrier } 
 barrier=cycle_barrier & (cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze  ) & opening=* {delete barrier}
-
+#
 barrier=cycle_barrier & cycle_barrier!=* & opening!=*  {set name='cycle_barrier type & measurements?' } [0x03200 resolution 18]
 barrier=cycle_barrier & cycle_barrier!=* {set name='cycle_barrier type?' } [0x03200 resolution 18]
-
+#
 #####     BOLLARD
 barrier=bollard & (access=private | access=customers ) { delete barrier }
 barrier=bollard & width=* {add opening='${width}'; delete width }
@@ -38,7 +37,7 @@ barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth }
 barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 barrier=bollard & opening=* { delete barrier }
 barrier=bollard & opening!=* { add name='bollard opening?' ; delete barrier } [0x03200 resolution 18]
-
+#
 #####    BLOCK
 barrier=block & (access=private | access=customers ) { delete barrier }
 barrier=block & width=* {add opening='${width}'; delete width }
@@ -46,19 +45,19 @@ barrier=block & maxwidth=* { add opening='${maxwidth}'; delete maxwidth }
 barrier=block & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 barrier=block & opening=* { delete barrier }
 barrier=block & opening!=* { add name='block opening?' ; delete barrier } [0x03200 resolution 18]
-
+#
 #####     KISSING_GATE
 barrier=kissing_gate & (access=private | access=customers ) { delete barrier }
-
+#
 barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
-
+#
 barrier=kissing_gate & kissing_gate=* & opening=* { delete barrier } 
 barrier=kissing_gate & kissing_gate!=* & opening!=* { add name='kissing_gate type & measurements' }  [0x03200 resolution 18]
 barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' }  [0x03200 resolution 18] 
-# barrier=kissing_gate & kissing_gate=* and opening!=* { add name='KG measurements?' } [0x03200 resolution 18]
-
+barrier=kissing_gate & kissing_gate=* and opening!=* { add name='KG measurements?' } [0x03200 resolution 18]
+#
 #####     GATE
 barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & (access=private | access=customers ) { delete barrier }
@@ -67,20 +66,20 @@ barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & width=* {set maxwidth:physical='${width}'; delete width} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical=* {delete barrier} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* {set name='${barrier} measurements'; delete maxwidth:physical} [0x03200 resolution 18]
-
+#
 #####     STILE
 barrier=stile & (access=private | access=customers ) { delete barrier }
-
+#
 barrier=stile & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical }
 barrier=stile & maxwidth=* { add opening='${maxwidth}'; delete maxwidth }  
 barrier=stile & width=* { add opening='${width}'; delete width }   
-
+#
 barrier=stile & stile!=* & opening!=* { add name='${stile} type & opening?' } [0x03200 resolution 18]
 barrier=stile & stile!=* & opening=* { add name='${stile} type?' } [0x03200 resolution 18]
 barrier=stile & stile=* & opening!=* { add name='${stile} opening?' } [0x03200 resolution 18]
-
+#
 # impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
-
+#
 vehicle=* {
     add bicycle='${vehicle}';
     add motor_vehicle='${vehicle}';
@@ -96,7 +95,7 @@ psv=* {
     add taxi='${psv}';
     add bus='${psv}';
     }
-
+#
 barrier=* & bicycle=*   {set mkgmap:bicycle  =  '${bicycle|subst:private=>no}'}
 barrier=* & foot=*      {set mkgmap:foot     =     '${foot|subst:private=>no}'}
 barrier=* & hgv=*       {set mkgmap:truck    =      '${hgv|subst:private=>no}'}
@@ -105,7 +104,7 @@ barrier=* & bus=*       {set mkgmap:bus      =      '${bus|subst:private=>no}'}
 barrier=* & taxi=*      {set mkgmap:taxi     =     '${taxi|subst:private=>no}'}
 barrier=* & emergency=* {set mkgmap:emergency='${emergency|subst:private=>no}'}
 barrier=* & goods=*     {set mkgmap:delivery =    '${goods|subst:private=>no}'}
-
+#
 barrier=bollard | barrier=block {
     add mkgmap:car=no;
     add mkgmap:delivery=no;
