@@ -56,7 +56,7 @@ barrier=kissing_gate & width=* { add opening='${width}'; delete width }
 barrier=kissing_gate & kissing_gate=* & opening=* { delete barrier } 
 barrier=kissing_gate & kissing_gate!=* & opening!=* { add name='kissing_gate type & measurements' }  [0x03200 resolution 18]
 barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' }  [0x03200 resolution 18] 
-barrier=kissing_gate & kissing_gate=* and opening!=* { add name='KG measurements?' } [0x03200 resolution 18]
+barrier=kissing_gate & kissing_gate=* & opening!=* { add name='KG measurements?' } [0x03200 resolution 18]
 #
 #####     GATE
 barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
