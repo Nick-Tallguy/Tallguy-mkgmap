@@ -5,13 +5,12 @@ NME=barriers_filtered
 DESC="Tallguy - barriers require attention"
 FAMILYNME=Tallguy_barriers_filtered
 GMAKE=/home/nick/mapping/mkgmap
-POLY=/mkgmap-resources/great-britain.poly
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
+POLY=${NC_GMAKE}/mkgmap-resources/great-britain.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
-NC_STYLES=/home/nick/ncdata/mapping/Garmin/mkgmap-style-sheets/${NME}_latest
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 SCRIPTS=${TYPS}/gen-scripts
 ZIPPED=/home/nick/7-zipped
@@ -28,9 +27,9 @@ cd ${SCRIPTS}
 cd ${GMAKE}/work
 #
 ## SPLITTER
-#rm -r ${GMAKE}/splitter/*
-#echo "starting splitter" $(date -u)
-#java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+rm -r ${GMAKE}/splitter/*
+echo "starting splitter" $(date -u)
+java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
@@ -63,10 +62,6 @@ cd ${ZIPPED}
 #
 scp -P 22 ${ZIPPED}/${NME}-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 #
-#echo "sorting the file sync on dietpi" $(date -u)
-#cd ${SCRIPTS}
-#./mk-sync-needed.sh
-##
 echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
 trash-put ${ZIPPED}/*
 trash-put ${MAPS}/*
