@@ -1,20 +1,19 @@
 #!/bin/bash
 # 
-DATE=$(date +"%Y-%m-%d")            #
-NME=canal
-DESC="Tallguy - canal"
-FAMILYNME=Tallguy-Canal
+DATE=$(date +"%Y-%m-%d")           
+NME=barriers_filtered
+DESC="Tallguy - barriers require attention"
+FAMILYNME=Tallguy_barriers_filtered
 GMAKE=/home/nick/mapping/mkgmap
-AREA=great-britain
-POLY=${NC_GMAKE}/mkgmap-resources/${AREA}.poly
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
+POLY=${NC_GMAKE}/mkgmap-resources/great-britain.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 SCRIPTS=${TYPS}/gen-scripts
-ZIPPED=${GMAKE}/7-zipped
+ZIPPED=/home/nick/7-zipped
 #
 ## Sorting the logging
 exec 3>&1 1>${LOGFILE} 2>&1
@@ -28,14 +27,14 @@ cd ${SCRIPTS}
 cd ${GMAKE}/work
 #
 ## SPLITTER
-#rm -r ${GMAKE}/splitter/*
-#echo "starting splitter" $(date -u)
-#java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+rm -r ${GMAKE}/splitter/*
+echo "starting splitter" $(date -u)
+java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/nick.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy - canal" ${NC_STYLES}/5410.txt --gmapsupp --gmapi --nsis   
+java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/nick.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy - barriers require attention" ${NC_STYLES}/5401.txt --gmapsupp --gmapi --nsis
 ##
 echo "Creating the windows .exe file with makensis" $(date -u)
 makensis osmmap.nsi
@@ -45,13 +44,13 @@ echo "Zipping the windows file (needed for nextcloud)" $(date -u)
 echo "Creating torrent file" $(date -u)
 transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
 echo "copying .exe files folder to dietpi" $(date -u)
-scp -r -P 22 ${ZIPPED}/${NME}-winexe-${DATE}* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+scp -r -P 22 ${ZIPPED}/${NME}-winexe-${DATE}* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 # 
 echo "zipping gmapi files" $(date -u)
 7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
 echo "Creating gmapi torrent file" $(date -u)
 transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
-scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
 mv ${GMAKE}/work/gmapsupp.img ${MAPS}/${NME}-${DATE}.img
@@ -61,12 +60,8 @@ echo "Creating 7z archive" $(date -u)
 7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
 cd ${ZIPPED}
 #
-scp -P 22 ${ZIPPED}/${NME}-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+scp -P 22 ${ZIPPED}/${NME}-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 #
-echo "sorting the file sync on dietpi" $(date -u)
-cd ${SCRIPTS}
-./mk-sync-needed.sh
-##
 echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
 trash-put ${ZIPPED}/*
 trash-put ${MAPS}/*
