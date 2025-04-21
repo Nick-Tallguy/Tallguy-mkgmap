@@ -34,8 +34,9 @@ barrier=cycle_barrier & (cycle_barrier=single | cycle_barrier=tilted | cycle_bar
 barrier=cycle_barrier & cycle_barrier!=* & opening!=*  [0x03200 resolution 20-22 continue]
 barrier=cycle_barrier & cycle_barrier!=* & opening!=*  {set name='cycle_barrier type & measurements?' } [0x03200 resolution 24]
 barrier=cycle_barrier & cycle_barrier!=* [ 0x03200 resolution 20-22 continue ]
-barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' } [0x03200 resolution 24]
+barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' ; delete barrier} [0x03200 resolution 24]
 #
+barrier=cycle_barrier & cycle_barrier=* & opening=* { delete barrier } 
 #####     BOLLARD
 barrier=bollard & (access=private | access=customers ) { delete barrier }
 barrier=bollard & width=* {add opening='${width}'; delete width }
