@@ -2,11 +2,10 @@
 ##################################  
 DATE=$(date +"%Y-%m-%d")  
 NME=trike
-DESC="Garmin_compatible_trike_map"
+DESC="Tallguy - Garmin_compatible_trike_map"
 FAMILYNME=Tallguy-trike
 GMAKE=/home/nick/mapping/mkgmap
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
-#AREA=barriers
 AREA=great-britain
 POLY=${NC_GMAKE}/mkgmap-resources/${AREA}.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
