@@ -22,20 +22,16 @@ highway=*ary
 =bridleway
 
 --keep=
-highway=service and access=yes or access=foot or access=bicycle or access=wheelchair or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
-highway=path and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
-highway=footway and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
-highway=track and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
-highway=bridleway and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
-highway=steps and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or designation=public_bridleway or foot=permissive or bicycle=permissive or horse=permissive or designation=byway_open_to_all_traffic or designation=restricted_byway
-
+highway=service and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=path and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=footway and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=track and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=bridleway and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=steps and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=cycleway and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
 
 --keep=
 route=bicycle
+route=foot
 
 --out-o5m
