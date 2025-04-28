@@ -6,6 +6,7 @@ highway=path and access=private or access=customers or access!=
 highway=footway and access=private or access=customers or access!=
 highway=track and access=private or access=customers or access!=
 highway=bridleway and access=private or access=customers or access!=
+highway=steps and access=private or access=customers or access!=
 
 --drop=
 --drop-nodes=
