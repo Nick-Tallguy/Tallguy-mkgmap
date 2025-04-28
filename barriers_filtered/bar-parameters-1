@@ -1,0 +1,34 @@
+-v
+
+--keep=
+highway=*ary
+=unclassified
+=trunk
+=motorway
+=residential
+=cycleway
+=*_link
+=living_street
+=pedestrian
+=bus_guideway
+=escape
+=road
+=busway
+=crossing
+=mini_roundabout
+=motorway_junction
+=rest_area
+=traffic_signals
+=bridleway
+
+--keep=
+highway=service and access=yes or access=foot or access=bicycle or access=wheelchair or foot=designated or horse=designated or bicycle=yes or wheelchair=yes
+highway=path and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes
+highway=footway and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes
+highway=track and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes
+highway=bridleway and access=!private or access=!customers or foot=designated or horse=designated or bicycle=yes or wheelchair=yes
+
+--keep=
+route=bicycle
+
+--out-o5m
