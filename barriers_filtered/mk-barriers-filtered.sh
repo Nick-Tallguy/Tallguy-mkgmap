@@ -7,6 +7,7 @@ FAMILYNME=Tallguy_barriers_filtered
 GMAKE=/home/nick/mapping/mkgmap
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
 AREA=great-britain
+#AREA=testing
 POLY=${NC_GMAKE}/mkgmap-resources/${AREA}.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 MAPS=/home/nick/mapping/QMS/Maps
