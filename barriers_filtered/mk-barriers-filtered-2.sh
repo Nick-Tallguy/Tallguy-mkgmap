@@ -15,7 +15,7 @@ TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 SCRIPTS=${TYPS}/gen-scripts
-ZIPPED=${GMAKE}/7-zipped
+ZIPPED=/home/nick/7-zipped
 #
 ## Sorting the logging
 exec 3>&1 1>${LOGFILE} 2>&1
@@ -26,7 +26,7 @@ trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 trash-put ${PBF}/*.o5m
 echo "sorting the trash" $(date -u)
 cd ${SCRIPTS}
-#./m93-space.sh
+./m93-space.sh
 #
 ## OSMCONVERT  
 osmconvert ${PBF}/${AREA}.osm.pbf --out-o5m >${PBF}/${AREA}.o5m
@@ -81,4 +81,3 @@ echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u
 trash-put ${ZIPPED}/*
 trash-put ${MAPS}/*
 echo "Files transferred to dietpi & all finished - torrent files commented out & sync not requested" $(date -u)
-echo "Finished" $(date -u)
