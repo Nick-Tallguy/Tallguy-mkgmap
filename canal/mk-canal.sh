@@ -5,10 +5,11 @@ NME=canal
 DESC="Tallguy - canal"
 FAMILYNME=Tallguy-Canal
 GMAKE=/home/nick/mapping/mkgmap
-AREA=great-britain
+#AREA=great-britain
+AREA=testing
 POLY=${NC_GMAKE}/mkgmap-resources/${AREA}.poly
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
-PBF=/home/nick/mapping/mkgmap/pbf_downloads/great-britain.osm.pbf
+PBF=/home/nick/mapping/mkgmap/pbf_downloads/${AREA}.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
 NC_STYLES=${TYPS}/${NME}
@@ -28,9 +29,9 @@ cd ${SCRIPTS}
 cd ${GMAKE}/work
 #
 ## SPLITTER
-#rm -r ${GMAKE}/splitter/*
-#echo "starting splitter" $(date -u)
-#java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+rm -r ${GMAKE}/splitter/*
+echo "starting splitter" $(date -u)
+java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
