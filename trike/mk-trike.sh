@@ -37,15 +37,23 @@ osmconvert ${PBF}/${AREA}.osm.pbf --out-o5m >${PBF}/${AREA}.o5m
 osmfilter ${PBF}/${AREA}.o5m --parameter-file=${TYPS}/trike/parameters-1 -o=${PBF}/${AREA}-1.o5m     # parameters-1 = highways with barriers
 osmfilter ${PBF}/${AREA}.o5m --parameter-file=${TYPS}/trike/parameters-2 -o=${PBF}/${AREA}-2.o5m     # parameters-2 = landuse etc that's wanted, without barriers
 #
-trash-put ${PBF}/${AREA}-?.osm.pbf
 osmium merge ${PBF}/${AREA}-1.o5m ${PBF}/${AREA}-2.o5m -o${PBF}/${AREA}-3.osm.pbf
 #
+## OSMCONVERT  
+osmconvert ${PBF}/${AREA}-3.osm.pbf --out-o5m >${PBF}/${AREA}-3.o5m
+#
+##  Filtering for private areas
+osmfilter ${PBF}/${AREA}-3.o5m --parameter-file=${TYPS}/barriers_filtered/bar-parameters-1 -o=${PBF}/${AREA}-4.o5m     # bar-parameters-1 = highways except service, tracks and paths which are private or customers
+osmfilter ${PBF}/${AREA}-3.o5m --parameter-file=${TYPS}/barriers_filtered/bar-parameters-2 -o=${PBF}/${AREA}-5.o5m     # bar-parameters-2 = Private Customer access areas without barriers
+#
+trash-put ${PBF}/${AREA}-?.osm.pbf
+osmium merge ${PBF}/${AREA}-4.o5m ${PBF}/${AREA}-5.o5m -o${PBF}/${AREA}-6.osm.pbf
 cd ${GMAKE}/work
 #
 ## SPLITTER
 rm -r ${GMAKE}/splitter/*
 echo "starting splitter" $(date -u)
-java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-3.osm.pbf
+java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-6.osm.pbf
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
