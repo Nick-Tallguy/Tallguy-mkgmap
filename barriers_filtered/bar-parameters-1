@@ -5,7 +5,6 @@ highway=*ary
 =unclassified
 =trunk
 =motorway
-=residential
 =cycleway
 =*_link
 =living_street
@@ -29,6 +28,7 @@ highway=track and designation=* or foot=designated or horse=designated or bicycl
 highway=bridleway and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
 highway=steps and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
 highway=cycleway and designation=* or foot=designated or horse=designated or bicycle=yes or wheelchair=yes or foot=yes or foot=permissive
+highway=residential and access!=  or access=permissive
 
 --keep=
 route=bicycle
