@@ -37,6 +37,15 @@ barrier=cycle_barrier & cycle_barrier!=* [ 0x03200 resolution 20-22 continue ]
 barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' ; delete barrier} [0x03200 resolution 24]
 #
 barrier=cycle_barrier & cycle_barrier=* & opening=* { delete barrier } 
+#
+##### MOTORCYCLE BARRIER
+barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
+barrier=motorcycle_barrier & width=* { add opening='${width}'; delete width } 
+barrier=motorcycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+barrier=motorcycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+barrier=motorcycle_barrier & opening!=* [ 0x03200 resolution 20-22 continue ]
+barrier=motorcycle_barrier & opening!=* { set name='motorcycle_barrier gap?' ; delete barrier} [0x03200 resolution 24]
+#
 #####     BOLLARD
 barrier=bollard & (access=private | access=customers ) { delete barrier }
 barrier=bollard & width=* {add opening='${width}'; delete width }
