@@ -29,7 +29,19 @@ waterway=lock_gate [0x1d resolution 24]
 #
 ### DISPLAY OF BRIDGE TAGS
 
-bridge=* & (highway=track | highway=footway | highway=path | railway=*) { set highway=bridleway } 
+bridge=movable 
+{ 
+  name 
+  '${bridge:ref|highway-symbol:hbox} Lift-${bridge:name}' |
+  '${bridge_ref|highway-symbol:hbox} Lift-${bridge_name}' |
+  '${bridge:ref|highway-symbol:hbox} Lift'                |
+  '${bridge_ref|highway-symbol:hbox} Lift'                |
+  'Lift ${bridge:name}'                                   |
+  'Lift ${bridge_name}'                                   |
+  'Lift ${name}'  
+}
+
+bridge=* & (highway=track | highway=footway | highway=path | railway=*) { set highway=unclassified } 
 
 bridge=* 
 { 
