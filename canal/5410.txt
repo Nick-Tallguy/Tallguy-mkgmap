@@ -2203,65 +2203,27 @@ DayXpm="15 16 3 1"   Colormode=16
 ;123456789012345
 [end]
 
-[_point]
-type=0x02a
-subtype=0x0a
-;GRMN_TYPE: Business - Food and Drink/RESTAURANT_PIZZA/Pizzeria/Non NT
-String=0x04,Pizzeria
-ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
-CustomColor=No
-DayXpm="15 16 3 1"   Colormode=16
-"!	c #C77400"
-"#	c #BD956A"
-"  	c none"
-" ! !# !    !!  "
-" ! !# !   !!!! "
-" ! !# !  #!!!!#"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" !!!!!!  !!!!!!"
-" !!!!!!   !!!! "
-"  !!!!     !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-;123456789012345
-[end]
 
 [_point]
 type=0x02a
 subtype=0x0b
-;GRMN_TYPE: Business - Food and Drink/RESTAURANT_SEAFOOD/Seafood restaurant/Non NT
-String=0x04,Restaurant (Seafood)
+;GRMN_TYPE: changed to boat Pump out
+String=0x04,Boat Pump Out
 ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="15 16 3 1"   Colormode=16
+DayXpm="15 10 2 1"   Colormode=16
 "!	c #C77400"
-"#	c #BD956A"
 "  	c none"
-" ! !# !    !!  "
-" ! !# !   !!!! "
-" ! !# !  #!!!!#"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" !!!!!!  !!!!!!"
-" !!!!!!   !!!! "
-"  !!!!     !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
+" !!!!!     !!  "
+" !!  !!   !!!! "
+" !!  !!  !!  !!"
+" !!  !!  !!  !!"
+" !!  !!  !!  !!"
+" !!  !!  !!  !!"
+" !!!!!   !!  !!"
+" !!      !!  !!"
+" !!       !!!! "
+" !!        !!  "
 ;123456789012345
 [end]
 
