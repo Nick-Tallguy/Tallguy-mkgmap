@@ -14,7 +14,7 @@
 
 lock=yes | lock_name=* & lock_ref!=* { add lock_ref=0 }
 
-lock=yes | lock_name=* | lock_ref=*
+(lock=yes | lock_name=* | lock_ref=*)
 {
  name 
   '${lock_ref|highway-symbol:interstate} ${lock_name} ' |
