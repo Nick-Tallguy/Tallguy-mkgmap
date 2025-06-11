@@ -12,9 +12,14 @@
 #
 ### Display Locks 
 
+lock_name=* & lock!=yes { add lock=yes }
+lock_ref=* & lock!=yes { add lock=yes }
+lock:name=* & lock!=yes { add lock=yes }
+lock:ref=* & lock!=yes { add lock=yes }
+
 lock=yes | lock_name=* & lock_ref!=* { add lock_ref=0 }
 
-(lock=yes | lock_name=* | lock_ref=*)
+lock=yes
 {
  name 
   '${lock_ref|highway-symbol:interstate} ${lock_name} ' |
