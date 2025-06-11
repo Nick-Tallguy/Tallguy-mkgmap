@@ -37,6 +37,18 @@ type=route & route=running & (network=parkrun|network=Parkrun|operator=parkrun|o
     }
 }
 
+type=waterway & waterway=river {
+	apply 
+	{ add natural=water 
+	add waterway=riverbank }
+	}
+	
+type=waterway & waterway=canal	{
+	apply
+	{ add natural=water 
+	add water=canal }
+	}
+	
 (type=boundary | type=multipolygon) & boundary=administrative & name=*
 { apply
   {
