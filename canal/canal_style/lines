@@ -37,10 +37,10 @@ waterway=lock_gate [0x1d resolution 24]
 bridge=movable 
 { 
   name 
-  '${bridge:ref|highway-symbol:hbox} Lift-${bridge:name}' |
-  '${bridge_ref|highway-symbol:hbox} Lift-${bridge_name}' |
-  '${bridge:ref|highway-symbol:hbox} Lift'                |
-  '${bridge_ref|highway-symbol:hbox} Lift'                |
+  '${bridge:ref|highway-symbol:box} Lift-${bridge:name}' |
+  '${bridge_ref|highway-symbol:box} Lift-${bridge_name}' |
+  '${bridge:ref|highway-symbol:box} Lift'                |
+  '${bridge_ref|highway-symbol:box} Lift'                |
   'Lift ${bridge:name}'                                   |
   'Lift ${bridge_name}'                                   |
   'Lift ${name}'  
