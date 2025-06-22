@@ -38,6 +38,14 @@ barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & ( openin
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening!=* { set name='${barrier} ${cycle_barrier} gap?' ; delete barrier } [0x03200 resolution 22]
 barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* { set name='${barrier} ${cycle_barrier} gap?' ; delete barrier } [0x03200 resolution 22]
 #
+##### MOTORCYCLE BARRIER
+barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
+barrier=motorcycle_barrier & width=* { add opening='${width}'; delete width } 
+barrier=motorcycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+barrier=motorcycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+barrier=motorcycle_barrier & opening!=* { set name='${barrier} gap?' ; delete barrier } [ 0x03200 resolution 22 ]
+barrier=motorcycle_barrier & opening<0.85 { set name='${barrier} op_${opening}' ; delete barrier } [0x03200 resolution 22]
+#
 #####     BOLLARD
 barrier=bollard & width=* {add opening='${width}'; delete width }
 barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
