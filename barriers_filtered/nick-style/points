@@ -71,13 +71,11 @@ barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}';
 barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
 barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
 #
-barrier=kissing_gate & kissing_gate=* & opening=* { delete barrier } 
-barrier=kissing_gate & kissing_gate!=* & opening!=* [ 0x03200 resolution 20-22 continue ]
-barrier=kissing_gate & kissing_gate!=* & opening!=* { add name='kissing_gate type & measurements' }  [0x03200 resolution 24]
-barrier=kissing_gate & kissing_gate!=* [ 0x03200 resolution 20-22 continue ]
-barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' }  [ 0x03200 resolution 24 ] 
-barrier=kissing_gate & kissing_gate=* & opening!=* [ 0x03200 resolution 20-22 continue ]
-barrier=kissing_gate & kissing_gate=* & opening!=* { add name='KG measurements?' } [0x03200 resolution 24]
+barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=) [ 0x03200 resolution 20-22 continue ]
+barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=) { add name='Large KG measurements?' } [0x03200 resolution 24]
+barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' }  [0x03200 resolution 20-22 continue]
+barrier=kissing_gate & kissing_gate!=* [0x03200 resolution 24]
+barrier=kissing_gate & kissing_gate=* { delete barrier } 
 #
 #####     GATE
 barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
