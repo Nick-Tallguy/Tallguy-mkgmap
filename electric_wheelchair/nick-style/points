@@ -67,13 +67,17 @@ highway=steps & step_count!=* {set name='step count?' ; delete highway } [0x0320
 #barrier=block & opening!=* { add name='block opening?' ; delete barrier } [0x03200 resolution 24]
 #
 #####     KISSING_GATE
-#barrier=kissing_gate & (access=private | access=customers ) { delete barrier }
+barrier=kissing_gate & (access=private | access=customers ) { delete barrier }
 #
-#barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-#barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-#barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
+barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
 #
-#barrier=kissing_gate & kissing_gate=* & opening=* { delete barrier } 
+barrier=kissing_gate & (kissing_gate=triangular_profile | kissing_gate=circular_profile | kissing_gate=square_profile | kissing_gate=central_pivot) { set bicycle=no } [0x02a0b resolution 20-22 continue]
+barrier=kissing_gate & (kissing_gate=triangular_profile | kissing_gate=circular_profile | kissing_gate=square_profile | kissing_gate=central_pivot) { set name='${barrier}' } [0x02a0b resolution 24]
+
+
+# & opening=* { delete barrier } 
 #barrier=kissing_gate & kissing_gate!=* & opening!=* [ 0x03200 resolution 20-22 continue ]
 #barrier=kissing_gate & kissing_gate!=* & opening!=* { add name='kissing_gate type & measurements' }  [0x03200 resolution 24]
 #barrier=kissing_gate & kissing_gate!=* [ 0x03200 resolution 20-22 continue ]
@@ -565,8 +569,8 @@ amenity=restaurant {add name='${cuisine|subst:"_=> "}'}
 #amenity=fast_food & cuisine=* {add name='${cuisine|subst:"_=> "}'} [0x2a07 resolution 24]
 #amenity=fast_food [0x2a07 resolution 24]
 
-barrier=bus_trap | barrier=lift_gate | barrier=swing_gate
-    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
+#barrier=bus_trap | barrier=lift_gate | barrier=swing_gate
+#    {add name='${barrier|subst:"_=> "}'} [0x3200 resolution 24]
 
 landuse=basin [0x6603 resolution 24]
 landuse=reservoir | water=reservoir [0x650f resolution 22]
