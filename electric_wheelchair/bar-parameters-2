@@ -1,0 +1,16 @@
+-v
+
+--keep=
+highway=service and access=private or access=customers or access!=
+highway=path and access=private or access=customers or access!=
+highway=footway and access=private or access=customers or access!=
+highway=track and access=private or access=customers or access!=
+highway=bridleway and access=private or access=customers or access!=
+highway=steps and access=private or access=customers or access!=
+highway=residential and access=private or access=customers
+
+--drop=
+--drop-nodes=
+barrier=
+
+--out-o5m
