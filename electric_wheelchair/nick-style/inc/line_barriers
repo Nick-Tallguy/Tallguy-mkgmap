@@ -1,0 +1,6 @@
+### Highlighting & labelling Steps is now mainly done in the points file.
+#
+highway=steps {add bicycle=no} [0x10a01 resolution 24 continue]
+##################################
+#
+####    Make sure the 'steps' XPM is pasted into the 6000.txt file (style file)
