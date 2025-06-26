@@ -2,6 +2,12 @@
 
 **All mapping data is derived from [OpenStreetMap](https://www.openstreetmap.org/copyright), including the downloadable maps. Many thanks to OpenStreetMap contributors for their skill & dedication.**
 
+Scripts to produce
+
++  Canal Map  
++  Trike Map  
++  Barriers Filtered Map  (Barriers that require attention)  
++  Electric Wheelchair - still in development.  
 
 ## Canal Map
 
