@@ -7,7 +7,7 @@ copyright-message: Map data © openstreetmap.org
 area-name: England-part
 country-name: England
 country-abbr: GBR
-# cycle-map  # not needed for electric wheelchair map at this stage
+cycle-map  
 make-opposite-cycleways
 style-file: /home/nick/Github/Tallguy-mkgmap/electric_wheelchair/nick-style
 #overview-mapname: 60000000
