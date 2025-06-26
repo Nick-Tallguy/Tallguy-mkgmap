@@ -8,12 +8,13 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 #
-#####   This will display BARRIERS WHICH ARE INCOMPLETE IN SOME WAY 
+#####   
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 #
 #######  STEPS
 highway=steps & (access=private | access=customers ) { delete highway }
-highway=steps & step_count=* { delete highway }
+highway=steps & step_count>=2  [0x02a0b resolution 20-22 continue]
+highway=steps & step_count>=2 { set name='${step_count}_steps' } [0x02a0b resolution 24]
 highway=steps & step_count!=* [0x03200 resolution 20-22 continue]
 highway=steps & step_count!=* {set name='step count?' ; delete highway } [0x03200 resolution 24]
 #
