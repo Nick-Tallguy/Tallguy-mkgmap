@@ -36,6 +36,9 @@ barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_ba
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=*  [0x03200 resolution 20-22 continue]
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* { set name='${cycle_barrier} & opening_missing' }  [0x03200 resolution 24]
 #
+barrier=cycle_barrier & cycle_barrier!=* [0x03200 resolution 20-22 continue]
+barrier=cycle_barrier & cycle_barrier!=* { add name='${barrier}_type_measurements' } [0x03200 resolution 24]
+#
 ##### MOTORCYCLE BARRIER
 barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
 barrier=motorcycle_barrier & width=* { add opening='${width}'; delete width } 
