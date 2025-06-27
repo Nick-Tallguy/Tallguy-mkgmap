@@ -50,7 +50,7 @@ java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=p
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/nick.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy - electric wheelchair" ${NC_STYLES}/5411.txt --gmapsupp  ##--gmapi --nsis
+java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/nick.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy - electric wheelchair" ${NC_STYLES}/5411.txt --gmapsupp  --gmapi --nsis
 ##
 echo "Creating the windows .exe file with makensis" $(date -u)
 makensis osmmap.nsi
