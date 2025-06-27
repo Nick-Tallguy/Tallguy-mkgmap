@@ -33,22 +33,8 @@ barrier=cycle_barrier & ( cycle_barrier=triple | cycle_barrier=double ) & ( spac
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening<0.72 { set bicycle=no } [0x02a0b resolution 20-22 continue]
 barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening<0.72 { set bicycle=no ; set name='${cycle_barrier} & opening_${opening}' }  [0x03200 resolution 24]
 #
-
-
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* [0x03200 resolution 20-22 continue]
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | #cycle_barrier=squeeze ) & opening!=* {set name='${barrier} ${cycle_barrier} op_missing'; delete barrier} [0x03200 resolution 24]
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* [0x03200 resolution 20-22 continue]
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* {set name='${barrier} ${cycle_barrier} ov_missing'; delete barrier} [0x03200 resolution 24]
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* {set name='${barrier} ${cycle_barrier} sp_missing'; delete barrier} [0x03200 resolution 18]
-#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening=* & spacing=* & overlap=* {delete barrier } 
-#barrier=cycle_barrier & (cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze  ) & opening=* {delete barrier}
-#
-#barrier=cycle_barrier & cycle_barrier!=* & opening!=*  [0x03200 resolution 20-22 continue]
-#barrier=cycle_barrier & cycle_barrier!=* & opening!=*  {set name='cycle_barrier type & measurements?' } [0x03200 resolution 24]
-#barrier=cycle_barrier & cycle_barrier!=* [ 0x03200 resolution 20-22 continue ]
-#barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' ; delete barrier} [0x03200 resolution 24]
-#
-#barrier=cycle_barrier & cycle_barrier=* & opening=* { delete barrier } 
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=*  [0x03200 resolution 20-22 continue]
+barrier=cycle_barrier & ( cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* { set name='${cycle_barrier} & opening_missing' }  [0x03200 resolution 24]
 #
 ##### MOTORCYCLE BARRIER
 #barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
