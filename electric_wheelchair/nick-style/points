@@ -49,13 +49,16 @@ barrier=motorcycle_barrier & opening!=* [ 0x03200 resolution 20-22 continue ]
 barrier=motorcycle_barrier & opening!=* { set name='motorcycle_barrier gap?' ; delete barrier } [0x03200 resolution 24]
 #
 #####     BOLLARD
-#barrier=bollard & (access=private | access=customers ) { delete barrier }
-#barrier=bollard & width=* {add opening='${width}'; delete width }
-#barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-#barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-#barrier=bollard & opening=* { delete barrier }
-#barrier=bollard & opening!=* [ 0x03200 resolution 20-22 continue ]
-#barrier=bollard & opening!=* { add name='bollard opening?' ; delete barrier } [ 0x03200 resolution 24 ]
+barrier=bollard & (access=private | access=customers ) { delete barrier }
+barrier=bollard & width=* {add opening='${width}'; delete width }
+barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+barrier=bollard & maxwidth:physical=* { set opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#
+barrier=bollard & opening<0.72  { set bicycle=no } [0x02a0b resolution 20-22 continue]
+barrier=bollard & opening<0.72  { set bicycle=no ; add name='bollard_${opening}' } [0x02a0b resolution 24]
+#
+barrier=bollard & opening!=* [ 0x03200 resolution 20-22 continue ]
+barrier=bollard & opening!=* { add name='bollard opening?' ; delete barrier } [ 0x03200 resolution 24 ]
 #
 #####    BLOCK
 #barrier=block & (access=private | access=customers ) { delete barrier }
