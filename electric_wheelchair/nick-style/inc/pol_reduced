@@ -21,8 +21,6 @@ amenity=nursing_home
 #
 healthcare=* {delete healthcare}
 #
-parking=* {delete parking} 
-#
 leisure=garden      |
 leisure=ice_rink    |
 leisure=golf_course |
