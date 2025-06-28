@@ -78,9 +78,9 @@ cd ${ZIPPED}
 #
 scp -P 22 ${ZIPPED}/${NME}-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 #
-echo "sorting the file sync on destination" $(date -u)
-cd ${SCRIPTS}
-./mk-sync-needed.sh
+#echo "sorting the file sync on destination" $(date -u)
+#cd ${SCRIPTS}
+# ./mk-sync-needed.sh
 ##
 echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
 trash-put ${ZIPPED}/*
