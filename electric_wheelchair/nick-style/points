@@ -11,6 +11,10 @@
 #####   
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 #
+#######  BARRIERS
+
+include 'inc/point_update_needed';
+
 #######  STEPS
 highway=steps & (access=private | access=customers ) { delete highway }
 highway=steps & step_count>=2 { set bicycle=no } 
