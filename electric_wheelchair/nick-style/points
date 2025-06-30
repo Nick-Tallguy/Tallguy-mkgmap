@@ -126,7 +126,7 @@ barrier=entrance & maxwidth:physical<0.72 { set bicycle=no } [0x02a0b resolution
 barrier=entrance & maxwidth:physical<0.72 { set bicycle=no ;  add name='entrance_${maxwidth:physical}' } [0x02a0b resolution 24]
 # 
 barrier=entrance & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
-barrier=entrance & maxwidth:physical!=* { add name='${barrier}_size needed' } [ 0x03200 resolution 20-22 continue ]
+barrier=entrance & maxwidth:physical!=* { add name='${barrier}_size needed' } [ 0x03200 resolution 24 ]
 #
 # impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
 #
