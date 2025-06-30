@@ -102,6 +102,15 @@ barrier=horse_stile & opening=* { delete barrier }
 barrier=horse_stile & opening!=* [0x03200 resolution 20-22 continue]
 barrier=horse_stile & opening!=* { add name='${barrier} opening?' ; delete barrier } [0x03200 resolution 24]
 #
+#####  ENTRANCE
+barrier=entrance & (access=private | access=customers ) { delete barrier }
+barrier=entrance & maxwidth:physical!=* & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
+barrier=entrance & maxwidth:physical!=* & opening=* {set maxwidth:physical='${opening}'; delete opening} 
+barrier=entrance & maxwidth:physical!=* & width=* {set maxwidth:physical='${width}'; delete width} 
+# 
+barrier=entrance & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
+barrier=entrance & maxwidth:physical!=* { add name='${barrier}_size needed' } [ 0x03200 resolution 24 ]
+#
 # impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
 #
 vehicle=* {
