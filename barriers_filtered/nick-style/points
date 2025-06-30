@@ -8,108 +8,112 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 #
+
 #####   This will display BARRIERS WHICH ARE INCOMPLETE IN SOME WAY 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 #
+
+include 'inc/point_update_needed';
+
 #######  STEPS
-highway=steps & (access=private | access=customers ) { delete highway }
-highway=steps & step_count=* { delete highway }
-highway=steps & step_count!=* [0x03200 resolution 20-22 continue]
-highway=steps & step_count!=* {set name='step count?' ; delete highway } [0x03200 resolution 24]
+#highway=steps & (access=private | access=customers ) { delete highway }
+#highway=steps & step_count=* { delete highway }
+#highway=steps & step_count!=* [0x03200 resolution 20-22 continue]
+#highway=steps & step_count!=* {set name='step count?' ; delete highway } [0x03200 resolution 24]
 #
 #####    CYCLE_BARRIER
-barrier=cycle_barrier & (access=private | access=customers ) { delete barrier }
-barrier=cycle_barrier & width=* { add opening='${width}'; delete width } 
-barrier=cycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=cycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=cycle_barrier & (access=private | access=customers ) { delete barrier }
+#barrier=cycle_barrier & width=* { add opening='${width}'; delete width } 
+#barrier=cycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=cycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
 #
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* [0x03200 resolution 20-22 continue]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* {set name='${barrier} ${cycle_barrier} op_missing'; delete barrier} [0x03200 resolution 24]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* [0x03200 resolution 20-22 continue]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* {set name='${barrier} ${cycle_barrier} ov_missing'; delete barrier} [0x03200 resolution 24]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* {set name='${barrier} ${cycle_barrier} sp_missing'; delete barrier} [0x03200 resolution 18]
-barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening=* & spacing=* & overlap=* {delete barrier } 
-barrier=cycle_barrier & (cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze  ) & opening=* {delete barrier}
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* [0x03200 resolution 20-22 continue]
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double | cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze ) & opening!=* {set name='${barrier} ${cycle_barrier} op_missing'; delete barrier} [0x03200 resolution 24]
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* [0x03200 resolution 20-22 continue]
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & overlap!=* {set name='${barrier} ${cycle_barrier} ov_missing'; delete barrier} [0x03200 resolution 24]
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & spacing!=* {set name='${barrier} ${cycle_barrier} sp_missing'; delete barrier} [0x03200 resolution 18]
+#barrier=cycle_barrier & (cycle_barrier=triple | cycle_barrier=double) & opening=* & spacing=* & overlap=* {delete barrier } 
+#barrier=cycle_barrier & (cycle_barrier=single | cycle_barrier=tilted | cycle_barrier=diagonal | cycle_barrier=squeeze  ) & opening=* {delete barrier}
 #
-barrier=cycle_barrier & cycle_barrier!=* & opening!=*  [0x03200 resolution 20-22 continue]
-barrier=cycle_barrier & cycle_barrier!=* & opening!=*  {set name='cycle_barrier type & measurements?' } [0x03200 resolution 24]
-barrier=cycle_barrier & cycle_barrier!=* [ 0x03200 resolution 20-22 continue ]
-barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' ; delete barrier} [0x03200 resolution 24]
+#barrier=cycle_barrier & cycle_barrier!=* & opening!=*  [0x03200 resolution 20-22 continue]
+#barrier=cycle_barrier & cycle_barrier!=* & opening!=*  {set name='cycle_barrier type & measurements?' } [0x03200 resolution 24]
+#barrier=cycle_barrier & cycle_barrier!=* [ 0x03200 resolution 20-22 continue ]
+#barrier=cycle_barrier & cycle_barrier!=* { set name='cycle_barrier type?' ; delete barrier} [0x03200 resolution 24]
 #
-barrier=cycle_barrier & cycle_barrier=* & opening=* { delete barrier } 
+#barrier=cycle_barrier & cycle_barrier=* & opening=* { delete barrier } 
 #
 ##### MOTORCYCLE BARRIER
-barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
-barrier=motorcycle_barrier & width=* { add opening='${width}'; delete width } 
-barrier=motorcycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=motorcycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=motorcycle_barrier & opening!=* [ 0x03200 resolution 20-22 continue ]
-barrier=motorcycle_barrier & opening!=* { set name='motorcycle_barrier gap?' ; delete barrier} [0x03200 resolution 24]
+#barrier=motorcycle_barrier & (access=private | access=customers ) { delete barrier }
+#barrier=motorcycle_barrier & width=* { add opening='${width}'; delete width } 
+#barrier=motorcycle_barrier & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=motorcycle_barrier & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=motorcycle_barrier & opening!=* [ 0x03200 resolution 20-22 continue ]
+#barrier=motorcycle_barrier & opening!=* { set name='motorcycle_barrier gap?' ; delete barrier} [0x03200 resolution 24]
 #
 #####     BOLLARD
-barrier=bollard & (access=private | access=customers ) { delete barrier }
-barrier=bollard & width=* {add opening='${width}'; delete width }
-barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=bollard & opening=* { delete barrier }
-barrier=bollard & opening!=* [ 0x03200 resolution 20-22 continue ]
-barrier=bollard & opening!=* { add name='bollard opening?' ; delete barrier } [ 0x03200 resolution 24 ]
+#barrier=bollard & (access=private | access=customers ) { delete barrier }
+#barrier=bollard & width=* {add opening='${width}'; delete width }
+#barrier=bollard & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=bollard & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=bollard & opening=* { delete barrier }
+#barrier=bollard & opening!=* [ 0x03200 resolution 20-22 continue ]
+#barrier=bollard & opening!=* { add name='bollard opening?' ; delete barrier } [ 0x03200 resolution 24 ]
 #
 #####    BLOCK
-barrier=block & (access=private | access=customers ) { delete barrier }
-barrier=block & width=* {add opening='${width}'; delete width }
-barrier=block & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=block & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=block & opening=* { delete barrier }
-barrier=block & opening!=* [ 0x03200 resolution 20-22 continue ]
-barrier=block & opening!=* { add name='block opening?' ; delete barrier } [0x03200 resolution 24]
+#barrier=block & (access=private | access=customers ) { delete barrier }
+#barrier=block & width=* {add opening='${width}'; delete width }
+#barrier=block & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=block & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=block & opening=* { delete barrier }
+#barrier=block & opening!=* [ 0x03200 resolution 20-22 continue ]
+#barrier=block & opening!=* { add name='block opening?' ; delete barrier } [0x03200 resolution 24]
 #
 #####     KISSING_GATE
-barrier=kissing_gate & (access=private | access=customers ) { delete barrier }
+#barrier=kissing_gate & (access=private | access=customers ) { delete barrier }
 #
-barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
+#barrier=kissing_gate & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=kissing_gate & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=kissing_gate & width=* { add opening='${width}'; delete width } 
 #
-barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=*) [ 0x03200 resolution 20-22 continue ]
-barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=*) { add name='Large KG measurements?' } [0x03200 resolution 24]
-barrier=kissing_gate & kissing_gate!=* [0x03200 resolution 20-22 continue]
-barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' } [0x03200 resolution 24]
-barrier=kissing_gate & kissing_gate=* { delete barrier } 
+#barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=*) [ 0x03200 resolution 20-22 continue ]
+#barrier=kissing_gate & (kissing_gate=large_circular_profile | kissing_gate=large_square_profile) & (opening!=* | recess!=*) { add name='Large KG measurements?' } [0x03200 resolution 24]
+#barrier=kissing_gate & kissing_gate!=* [0x03200 resolution 20-22 continue]
+#barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type' } [0x03200 resolution 24]
+#barrier=kissing_gate & kissing_gate=* { delete barrier } 
 #
 #####     GATE
-barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & (access=private | access=customers ) { delete barrier }
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & opening=* {set maxwidth:physical='${opening}'; delete opening} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & width=* {set maxwidth:physical='${width}'; delete width} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical=* {delete barrier} 
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
-(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* {set name='${barrier} measurements'; delete maxwidth:physical} [0x03200 resolution 24]
+#barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & (access=private | access=customers ) { delete barrier }
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & opening=* {set maxwidth:physical='${opening}'; delete opening} 
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & width=* {set maxwidth:physical='${width}'; delete width} 
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical=* {delete barrier} 
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
+#(barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* {set name='${barrier} measurements'; delete maxwidth:physical} [0x03200 resolution 24]
 #
 #####     STILE
-barrier=stile & (access=private | access=customers ) { delete barrier }
-barrier=stile & stile=* { delete barrier }
-barrier=stile & stile!=* [0x03200 resolution 20-22 continue]
-barrier=stile & stile!=* { add name='${barrier} type missing'; delete barrier } [0x03200 resolution 24]
+#barrier=stile & (access=private | access=customers ) { delete barrier }
+#barrier=stile & stile=* { delete barrier }
+#barrier=stile & stile!=* [0x03200 resolution 20-22 continue]
+#barrier=stile & stile!=* { add name='${barrier} type missing'; delete barrier } [0x03200 resolution 24]
 #
 #####  HORSE_STILE
-barrier=horse_stile & (access=private | access=customers ) { delete barrier }
-barrier=horse_stile & width=* {add opening='${width}'; delete width }
-barrier=horse_stile & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
-barrier=horse_stile & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
-barrier=horse_stile & opening=* { delete barrier }
-barrier=horse_stile & opening!=* [0x03200 resolution 20-22 continue]
-barrier=horse_stile & opening!=* { add name='${barrier} opening?' ; delete barrier } [0x03200 resolution 24]
+#barrier=horse_stile & (access=private | access=customers ) { delete barrier }
+#barrier=horse_stile & width=* {add opening='${width}'; delete width }
+#barrier=horse_stile & maxwidth=* { add opening='${maxwidth}'; delete maxwidth } 
+#barrier=horse_stile & maxwidth:physical=* { add opening='${maxwidth:physical}'; delete maxwidth:physical } 
+#barrier=horse_stile & opening=* { delete barrier }
+#barrier=horse_stile & opening!=* [0x03200 resolution 20-22 continue]
+#barrier=horse_stile & opening!=* { add name='${barrier} opening?' ; delete barrier } [0x03200 resolution 24]
 #
 #####  ENTRANCE
-barrier=entrance & (access=private | access=customers ) { delete barrier }
-barrier=entrance & maxwidth:physical!=* & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
-barrier=entrance & maxwidth:physical!=* & opening=* {set maxwidth:physical='${opening}'; delete opening} 
-barrier=entrance & maxwidth:physical!=* & width=* {set maxwidth:physical='${width}'; delete width} 
+#barrier=entrance & (access=private | access=customers ) { delete barrier }
+#barrier=entrance & maxwidth:physical!=* & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
+#barrier=entrance & maxwidth:physical!=* & opening=* {set maxwidth:physical='${opening}'; delete opening} 
+#barrier=entrance & maxwidth:physical!=* & width=* {set maxwidth:physical='${width}'; delete width} 
 # 
-barrier=entrance & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
-barrier=entrance & maxwidth:physical!=* { add name='${barrier}_size needed' } [ 0x03200 resolution 24 ]
+#barrier=entrance & maxwidth:physical!=* [ 0x03200 resolution 20-22 continue ]
+#barrier=entrance & maxwidth:physical!=* { add name='${barrier}_size needed' } [ 0x03200 resolution 24 ]
 #
 # impose routing/speed restrictions due to access/barrier. See option --link-pois-to-ways
 #

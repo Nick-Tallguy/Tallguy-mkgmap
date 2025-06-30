@@ -1221,7 +1221,7 @@ DaycustomColor:#BF0000
 type=0x01
 ;GRMN_TYPE: Roads/INTERSTATE, MAJOR_HWY/Primary, divided, limited-access highway, akin to an interstate in the US/Non NT, NT
 UseOrientation=N
-LineWidth=8
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #E892A2"
@@ -1241,7 +1241,7 @@ CustomColor=No
 type=0x02
 ;GRMN_TYPE: Roads/PRINCIPAL_HWY/Principal highway, usually divided and limited access, akin to US highways/Non NT, NT
 UseOrientation=N
-LineWidth=8
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
@@ -1261,7 +1261,7 @@ CustomColor=No
 type=0x03
 ;GRMN_TYPE: Roads/OTHER_HWY/Other highway road, akin to a state highway in the US/Non NT, NT
 UseOrientation=N
-LineWidth=8
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FCD6A4"
@@ -1281,7 +1281,7 @@ CustomColor=No
 type=0x04
 ;GRMN_TYPE: Roads/ARTERIAL/Main city thoroughfare/Non NT, NT
 UseOrientation=N
-LineWidth=8
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F7FABF"
@@ -1301,7 +1301,7 @@ CustomColor=No
 type=0x05
 ;GRMN_TYPE: Roads/COLLECTOR/Secondary city thoroughfare/Non NT, NT
 UseOrientation=N
-LineWidth=8
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
@@ -1321,7 +1321,7 @@ CustomColor=No
 type=0x06
 ;GRMN_TYPE: Roads/RESIDENTIAL/Residential street, these are typically the most numerous roads in a detailed city map and do not show up until the user is zoomed in quite far/Non NT, NT
 UseOrientation=N
-LineWidth=7
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
@@ -1341,7 +1341,7 @@ CustomColor=No
 type=0x07
 ;GRMN_TYPE: Roads/ALLEY, DRIVEWAY/Alleyway, private driveway to residence/Non NT, NT
 UseOrientation=N
-LineWidth=3
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
@@ -1362,7 +1362,7 @@ DaycustomColor:#626262
 type=0x08
 ;GRMN_TYPE: Roads/LOW_SPEED_RAMP/Highway ramp which is to be driven at low speeds/Non NT, NT
 UseOrientation=Y
-LineWidth=5
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F7FABF"
@@ -1382,7 +1382,7 @@ CustomColor=No
 type=0x09
 ;GRMN_TYPE: Roads/HIGH_SPEED_RAMP, RAMP/Highway ramp which is to be driven at high speeds/Non NT, NT
 UseOrientation=N
-LineWidth=5
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
@@ -1424,7 +1424,7 @@ CustomColor=No
 type=0x0b
 ;GRMN_TYPE: Roads/MAJOR_CONNECTOR/Major highway connector/Non NT, NT
 UseOrientation=N
-LineWidth=5
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F9B29C"
@@ -1444,7 +1444,7 @@ CustomColor=No
 type=0x0c
 ;GRMN_TYPE: Roads/ROUNDABOUT/Roundabout/Non NT, NT
 UseOrientation=N
-LineWidth=7
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FFFFFF"
