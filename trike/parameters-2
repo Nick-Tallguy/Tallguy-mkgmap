@@ -1,9 +1,7 @@
 -v
 
 --keep=
-highway=footway
-=path
-=service
+highway=service
 
 --keep=
 place=city

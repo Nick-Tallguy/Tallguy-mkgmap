@@ -14,7 +14,6 @@ highway=*ary
 =escape
 =road
 =busway
-=steps
 =corridor
 =crossing
 =mini_roundabout
@@ -28,9 +27,14 @@ highway=service and ( access=private or access=customers )
 
 --keep=
 highway=bridleway and ( tracktype=grade1 or tracktype=grade2 ) and ( width=>0.83 or maxwidth:physical=>0.83 )
+highway=footway and bicycle=yes
+highway=path and bicycle=yes
 
 --keep=
-highway=track and ( tracktype=grade1 or tracktype=grade2 )
+highway=steps and bicycle=yes
+
+--keep=
+highway=track and ( tracktype=grade1 or tracktype=grade2 ) and bicycle=yes
 
 --keep=
 route=bicycle

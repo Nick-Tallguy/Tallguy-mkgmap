@@ -8,7 +8,7 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/point_trike_2';
+include 'inc/point_barriers';
 include 'inc/point_localise';
 include 'inc/point_parkrun';
 include 'inc/point_reduced';

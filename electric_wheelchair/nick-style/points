@@ -91,7 +91,7 @@ internet_access=* & internet_access!=no & internet_access!=yes
 include 'inc/name';
 
 place=city & population > 999999 & name=* [0x0100 resolution 12]
-place=city & population > 799999 & name=* [0x0200 resolution 14]
+#place=city & population > 799999 & name=* [0x0200 resolution 14]
 place=city & population > 399999 & name=* [0x0300 resolution 15]
 place=city & population > 299999 & name=* [0x0400 resolution 16]
 place=city & population > 199999 & name=* [0x0500 resolution 16]

@@ -2779,42 +2779,32 @@ DayXpm="15 16 3 1"   Colormode=16
 "   !!      !!  "
 ;123456789012345
 [end]
+
 [_point]
 type=0x02a
 subtype=0x0b
-;GRMN_TYPE: Business - Food and Drink/RESTAURANT_SEAFOOD/Seafood restaurant/Non NT
-String=Restaurant (Seafood)
-String1=0x01,Restaurant (Poissons/Fruits de mer)
-String2=0x02,Restaurant (Fisch)
-String4=0x03,Restaurant (Vis)
-String7=0x15,Restauracja (Ryby)
-String8=0x10,Restaurante Frutos do Mar
-String9=0x05,Ristorante di pesce
+;GRMN_TYPE: changed to Barrier
+String=0x04,Barrier
 ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
 CustomColor=No
-DayXpm="15 16 3 1"   Colormode=16
-"!	c #C77400"
-"#	c #BD956A"
+DayXpm="19 12 2 1"   Colormode=16
+"!	c #BF0000"
 "  	c none"
-" ! !# !    !!  "
-" ! !# !   !!!! "
-" ! !# !  #!!!!#"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" ! !# !  !!!!!!"
-" !!!!!!  !!!!!!"
-" !!!!!!   !!!! "
-"  !!!!     !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-"   !!      !!  "
-;123456789012345
+"!!!!           !!!!"
+" !!!!         !!!! "
+"  !!!!       !!!!  "
+"   !!!!     !!!!   "
+"    !!!!   !!!!    "
+"     !!!! !!!!     "
+"      !!!!!!!      "
+"     !!!! !!!!     "
+"    !!!!   !!!!    "
+"   !!!!     !!!!   "
+" !!!!         !!!! "
+"!!!!           !!!!"
+;1234567890123456789
 [end]
+
 [_point]
 type=0x02a
 subtype=0x0c
