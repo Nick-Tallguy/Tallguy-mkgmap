@@ -2317,23 +2317,26 @@ DayXpm="1 1 2 1"   Colormode=16
 [_point]
 type=0x00b
 subtype=0x00
-;GRMN_TYPE: Political Entities/CITY_5K/City with the range of (5, 10] thousand inhabitants/Non NT
-String=Hamlet
-String1=0x01,Nom
-String2=0x02,Name
-String4=0x03,Naam
-String7=0x15,Nazwa
-String8=0x10,Nome
-String9=0x05,Borgo
+;GRMN_TYPE: changed to Barrier
+String=0x04,Barrier
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=Day
-DaycustomColor:#737373
-DayXpm="1 1 2 1"   Colormode=16
-"!	c #00FF4B"
+CustomColor=No
+DayXpm="19 12 2 1"   Colormode=16
+"!	c #BF0000"
 "  	c none"
-" "
-;1
+"!!!!           !!!!"
+" !!!!         !!!! "
+"  !!!!       !!!!  "
+"   !!!!     !!!!   "
+"    !!!!   !!!!    "
+"     !!!! !!!!     "
+"      !!!!!!!      "
+"     !!!! !!!!     "
+"    !!!!   !!!!    "
+"   !!!!     !!!!   "
+" !!!!         !!!! "
+"!!!!           !!!!"
+;1234567890123456789
 [end]
 [_point]
 type=0x020
@@ -5231,39 +5234,26 @@ DayXpm="16 14 2 1"   Colormode=16
 [_point]
 type=0x030
 subtype=0x08
-;GRMN_TYPE: Business - Emergency and Government/FIRE_DEPT/Fire department/Non NT
-String=Fire Station
-String1=0x01,Pompiers
-String2=0x02,Feuerwehr
-String4=0x03,Brandweer
-String7=0x15,Straż pożarna
-String8=0x10,Bombeiros
-String9=0x05,Vigili del fuoco
+;GRMN_TYPE: changed to Barrier
+String=0x04,Barrier
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=Day
-DaycustomColor:#734A08
-DayXpm="13 17 2 1"   Colormode=16
-"!	c #734A08"
+CustomColor=No
+DayXpm="19 12 2 1"   Colormode=16
+"!	c #BF0000"
 "  	c none"
-"     !       "
-"    !!       "
-"   !!!  !    "
-"  !!!!  !!   "
-"  !!!! !!!   "
-" !!!!! !!!!  "
-" !!!!!!!!!!  "
-"!!!! !!!!!!! "
-"!!!!  !!!!!! "
-"!!!!  !!!!!!!"
-"!!!!   !! !!!"
-" !!!   !  !!!"
-" !!!!     !! "
-"  !!!     !! "
-"   !!!    !! "
-"    !!!  !!  "
-"     !!  !   "
-;1234567890123
+"!!!!           !!!!"
+" !!!!         !!!! "
+"  !!!!       !!!!  "
+"   !!!!     !!!!   "
+"    !!!!   !!!!    "
+"     !!!! !!!!     "
+"      !!!!!!!      "
+"     !!!! !!!!     "
+"    !!!!   !!!!    "
+"   !!!!     !!!!   "
+" !!!!         !!!! "
+"!!!!           !!!!"
+;1234567890123456789
 [end]
 
 [_point]
