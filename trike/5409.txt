@@ -2324,23 +2324,26 @@ DayXpm="1 1 2 1"   Colormode=16
 [_point]
 type=0x00b
 subtype=0x00
-;GRMN_TYPE: Political Entities/CITY_5K/City with the range of (5, 10] thousand inhabitants/Non NT
-String=Hamlet
-String1=0x01,Nom
-String2=0x02,Name
-String4=0x03,Naam
-String7=0x15,Nazwa
-String8=0x10,Nome
-String9=0x05,Borgo
+;GRMN_TYPE: changed to Barrier
+String=0x04,Barrier
 ExtendedLabels=Y
-FontStyle=SmallFont
-CustomColor=Day
-DaycustomColor:#737373
-DayXpm="1 1 2 1"   Colormode=16
-"!	c #00FF4B"
+CustomColor=No
+DayXpm="19 12 2 1"   Colormode=16
+"!	c #BF0000"
 "  	c none"
-" "
-;1
+"!!!!           !!!!"
+" !!!!         !!!! "
+"  !!!!       !!!!  "
+"   !!!!     !!!!   "
+"    !!!!   !!!!    "
+"     !!!! !!!!     "
+"      !!!!!!!      "
+"     !!!! !!!!     "
+"    !!!!   !!!!    "
+"   !!!!     !!!!   "
+" !!!!         !!!! "
+"!!!!           !!!!"
+;1234567890123456789
 [end]
 [_point]
 type=0x020
