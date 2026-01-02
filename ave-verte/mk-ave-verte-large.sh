@@ -10,7 +10,7 @@ NC_GMAKE=/home/nick/ncdata/mapping/Garmin
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/ave-verte-12.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 TYPS=/home/nick/Github/Tallguy-mkgmap
-NC_STYLES=${TYPS}/${NME}
+NC_STYLES=${TYPS}/ave-verte
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 SCRIPTS=${TYPS}/gen-scripts
 ZIPPED=${GMAKE}/7-zipped
@@ -36,12 +36,12 @@ cd ${SCRIPTS}
 cd ${GMAKE}/work
 #
 ## SPLITTER
-rm -r ${GMAKE}/splitter/*
-echo "starting splitter" $(date -u)
-java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
-PROCESS_RETURN
+#rm -r ${GMAKE}/splitter/*
+#echo "starting splitter" $(date -u)
+#java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+#PROCESS_RETURN
 #
-sleep 10
+#sleep 10
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
