@@ -1,0 +1,65 @@
+# Polygons reduced for cycle and walking maps
+#
+aeroway=* {delete aeroway}
+#
+amenity=kindergarten | 
+amenity=cafe         |
+amenity=fast_food    |
+amenity=restaurant   |
+amenity=food_court   |
+amenity=college      |
+amenity=parking      |
+amenity=prison       |
+amenity=school       |
+amenity=university   |
+amenity=hospital     |
+amenity=clinic       |
+amenity=dentist      |
+amenity=doctors      |
+amenity=nursing_home 
+{delete amenity}
+#
+healthcare=* {delete healthcare}
+#
+parking=* {delete parking} 
+#
+leisure=garden      |
+leisure=ice_rink    |
+leisure=golf_course |
+leisure=pitch       |
+leisure=playground  |
+leisure=sports_centre |
+leisure=sports_center |
+leisure=stadium     |
+leisure=track       |
+leisure=water_park  
+{delete leisure}
+#
+place=village       |
+place=suburb        |
+place=square
+{delete place}
+#
+highway=services    |
+highway=rest_area
+{delete highway}  
+#
+dock=drydock {delete dock}
+#
+landuse=allotments   |
+landuse=cemetary     |
+landuse=commercial   |
+landuse=construction |
+landuse=farm         |
+landuse=farmland     |
+landuse=farmyard     |
+landuse=greenfield   |
+landuse=industrial   |
+landuse=residential  
+{delete landuse}
+#
+military=airfield   |
+military=barracks   
+{delete military}  
+#
+building=* {delete building}

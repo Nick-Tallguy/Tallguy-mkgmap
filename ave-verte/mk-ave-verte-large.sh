@@ -1,0 +1,89 @@
+#!/bin/bash
+# 
+DATE=$(date +"%Y-%m-%d")       
+NME=ave-verte-large
+DESC="Tallguy-Ave-Verte-Large"
+FAMILYNME=Tallguy_ave_verte_large
+GMAKE=/home/nick/mapping/mkgmap
+POLY=/mkgmap-resources/ave-verte-12.poly
+NC_GMAKE=/home/nick/ncdata/mapping/Garmin
+PBF=/home/nick/mapping/mkgmap/pbf_downloads/ave-verte-12.osm.pbf
+MAPS=/home/nick/mapping/QMS/Maps
+TYPS=/home/nick/Github/Tallguy-mkgmap
+NC_STYLES=${TYPS}/${NME}
+LOGFILE=/home/nick/logs/${NME}-${DATE}.log
+SCRIPTS=${TYPS}/gen-scripts
+ZIPPED=${GMAKE}/7-zipped
+#
+PROCESS_RETURN() {
+    if [ $? -eq 0 ]
+    then 
+        echo "Success" $(date -u)
+    else
+        echo "Failed script at this point" $(date -u)
+        exit 1
+    fi
+}
+## Sorting the logging
+exec 3>&1 1>${LOGFILE} 2>&1
+trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for details.' >&3" ERR
+trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
+#
+echo "sorting the trash - about 100mins for map creation" $(date -u)
+cd ${SCRIPTS}
+./m93-space.sh
+#
+cd ${GMAKE}/work
+#
+## SPLITTER
+rm -r ${GMAKE}/splitter/*
+echo "starting splitter" $(date -u)
+java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+PROCESS_RETURN
+#
+sleep 10
+### MKGMAP 
+echo "Starting mkgmap" $(date -u)
+rm -r ${GMAKE}/work/*
+java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/ave-verte.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-Ave-Verte-FR-Eng" ${NC_STYLES}/5405.txt --gmapsupp --gmapi --nsis
+PROCESS_RETURN
+##
+sleep 20
+echo "Smaller file size now .exe file with makensis " $(date -u)
+makensis osmmap.nsi
+PROCESS_RETURN
+cd ${ZIPPED}
+echo "Zipping the windows file (needed for nextcloud)" $(date -u)
+7z a ${ZIPPED}/${NME}-winexe-${DATE} ${GMAKE}/work/${FAMILYNME}.exe
+PROCESS_RETURN
+echo "Creating torrent file" $(date -u)
+transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
+PROCESS_RETURN
+echo "copying .exe files folder to dietpi" $(date -u)
+scp -r -P 22 ${ZIPPED}/${NME}-winexe-${DATE}* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+PROCESS_RETURN
+# 
+echo "zipping gmapi files" $(date -u)
+7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
+PROCESS_RETURN
+echo "Creating gmapi torrent file" $(date -u)
+transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
+PROCESS_RETURN
+scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+PROCESS_RETURN
+#
+echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
+mv ${GMAKE}/work/gmapsupp.img ${MAPS}/${NME}-${DATE}.img
+mv ${GMAKE}/work/*.tdb ${MAPS}/${NME}-${DATE}.tdb
+#
+echo "Creating 7z archive" $(date -u)
+7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
+PROCESS_RETURN
+cd ${ZIPPED}
+#
+scp -P 22 ${ZIPPED}/${NME}-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+PROCESS_RETURN
+#
+echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
+trash-put ${ZIPPED}/*
+echo "Files transferred to dietpi & all finished" $(date -u)

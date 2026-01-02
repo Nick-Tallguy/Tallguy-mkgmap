@@ -1,0 +1,21 @@
+
+# Cycle routes - this section for V16 Avenue Verte main route only
+type=route & route=bicycle & (ref=V16 | ref=AV | ncn_ref=V16)
+	{
+		apply { 
+		set route_ref_AV=V16 ;
+		set name='Ave Verte' ;
+		set ref='V16'        ;
+	} 
+	}
+	
+# Eastern route option
+type=route & route=bicycle & (ref=V16a | ref=V16A)
+	{
+		apply { 
+		set route_ref_AV=V16A    ;
+		set name='Ave Verte East';
+		set ref=V16A             ;
+	} 
+	}		
+

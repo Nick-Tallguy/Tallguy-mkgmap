@@ -1,0 +1,31 @@
+### This snippet alters some points to a more appropriate symbol for cycle use
+## The object type number - the kind of element that it is. If the number is greater than 0xff then it will be treated as a type and subtype combination. Eg 0x2305 is type 0x23 with subtype 0x5.
+
+# cycle specific points
+shop=* & (service:bicycle:retail=yes | service:bicycle:repair=yes | service:bicycle:tools=yes)  [0x2f13 resolution 20]
+shop=bicycle { delete shop } [0x2f13 resolution 20]
+
+# Alter the standard way that mkgmap deals with cycle_barriers
+barrier=cycle_barrier {
+#    add mkgmap:bicycle=no;
+    add mkgmap:car=no;
+    add mkgmap:delivery=no;
+    add mkgmap:truck=no;
+    add mkgmap:bus=no;
+    add mkgmap:taxi=no;
+    add mkgmap:emergency=no;
+    set mkgmap:road-speed=0;
+    delete barrier
+    }
+
+barrier=kissing_gate | barrier=stile {
+    add mkgmap:bicycle=no;
+    add mkgmap:car=no;
+    add mkgmap:delivery=no;
+    add mkgmap:truck=no;
+    add mkgmap:bus=no;
+    add mkgmap:taxi=no;
+    add mkgmap:emergency=no;
+    set mkgmap:road-speed=0;
+    delete barrier
+    }

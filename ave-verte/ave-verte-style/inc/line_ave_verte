@@ -1,0 +1,27 @@
+
+###  Avenue Verte route to be highlighted and different to other routes. 
+
+highway=* & (route_ref=V16 | ref=AV | ref=V16 | ncn_ref=V16) 
+{
+set mkgmap:way-has-pois=yes;
+set name='Ave Verte'; 
+delete ref;
+delete ncn_from_relation; 
+delete rcn_from_relation; 
+delete lcn_from_relation;
+} 
+[0x10 resolution 18 road_class=4 road_speed=7]
+
+
+highway=* & (route_ref_AV=V16A | ref=V16A | ref=V16a) 
+{
+set mkgmap:way-has-pois=yes;
+set name='Ave Verte East';
+delete ref;
+delete ncn_from_relation; 
+delete rcn_from_relation; 
+delete lcn_from_relation ;
+} 
+[0x10 resolution 18 road_class=4 road_speed=7]
+
+
