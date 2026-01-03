@@ -73,4 +73,3 @@ PROCESS_RETURN
 trash-put europe-latest-1.osm.pbf
 echo "Updated extract safely created - trashed the old one" $(date -u)
 
-
