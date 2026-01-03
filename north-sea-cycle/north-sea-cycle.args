@@ -9,7 +9,7 @@ country-name: Europe
 country-abbr: EUR
 cycle-map  # May put this back in at some point. Commented out on 28/06/2023 when working on the routing
 make-opposite-cycleways
-style-file: /home/nick/Github/Tallguy-mkgmap/north-sea-cycle/north-sea-cycle-style/
+style-file: /home/nick/Github/Tallguy-mkgmap/north-sea-cycle/north-sea-cycle/
 #overview-mapname: 60000000
 #download the latest sea files from from http://osm2.pleiades.uni-wuppertal.de/sea/latest/
 precomp-sea: /home/nick/mapping/mkgmap/sea-latest.zip
