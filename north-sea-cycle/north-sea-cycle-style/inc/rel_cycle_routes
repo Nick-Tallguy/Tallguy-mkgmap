@@ -1,0 +1,44 @@
+# -------------------------------------------------------------------
+# This is the default mkgmap style file for applying rules on
+# OSM relations.  Usually you will set tags on the
+# elements that make up the relation, and the tags will be
+# processed by the rules defined in the "points" or "lines" files.
+#
+# Any line prefaced with # is a comment and will not be applied.
+# Each line is a rule, of the generalised format:
+#  OSM_tag(s)_to_match  [Garmin_type_code resolution]
+# See http://wiki.openstreetmap.org/wiki/Mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
+# for more information.
+#
+#	
+#	
+# Cycle routes - General
+type=route & route=bicycle & network=ncn
+	{
+		apply { 
+		set ncn_from_relation=yes;
+		set name='${name}';
+		set ref='${ref}';
+	} 
+	}	
+
+type=route & route=bicycle & network=rcn
+	{
+		apply { 
+		set rcn_from_relation=yes;
+		set name='${name}';
+		set ref='${ref}';
+	} 
+	}	
+
+type=route & route=bicycle & network=lcn
+	{
+		apply { 
+		set lcn_from_relation=yes;
+		set name='${name}';
+		set ref='${ref}';
+	} 
+	}	
+
+

@@ -1,0 +1,39 @@
+
+###  North Sea Cycle Route to be highlighted and different to other routes. 
+
+highway=* & route_ref_NSC=EV12 
+{
+set mkgmap:way-has-pois=yes;
+set name='NSC EV12'        ; 
+delete ncn_from_relation   ; 
+delete rcn_from_relation   ; 
+delete lcn_from_relation   ;
+} 
+[0x10 resolution 18 road_class=4 road_speed=7]
+
+
+highway=* & route_ref_NSC=ncn1 
+{
+set mkgmap:way-has-pois=yes;
+set name='NSC ncn1'        ; 
+delete ncn_from_relation   ; 
+delete rcn_from_relation   ; 
+delete lcn_from_relation   ;
+delete highway             ;
+} 
+[0x10 resolution 18 road_class=4 road_speed=7]
+
+### Add this section to ensure other cycle routes in GB are not displayed the same as North Sea Cycle
+highway=* & ncn_from_relation=yes {set mkgmap:way-has-pois=yes; delete highway;} [0x12 resolution 18 road_class=4 road_speed=7]
+
+
+highway=* & route_ref_NSC=NSC_NL 
+{
+set mkgmap:way-has-pois=yes;
+set name='NSC NL'          ; 
+delete ncn_from_relation   ; 
+delete rcn_from_relation   ; 
+delete lcn_from_relation   ;
+} 
+[0x10 resolution 18 road_class=4 road_speed=7]
+

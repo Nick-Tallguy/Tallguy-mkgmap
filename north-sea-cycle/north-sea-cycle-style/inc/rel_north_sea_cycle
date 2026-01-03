@@ -1,0 +1,27 @@
+# Cycle routes - this section for EV12 North Sea Cycle route only - remainder are dealt with later.
+# North Sea Cycle Route
+type=route & route=bicycle & ( icn_ref=EV12 | ref=EV12 | icn_ref=12 )
+
+	{
+		apply { 
+		set route_ref_NSC=EV12;
+		set name='NSC EV12';
+	} 
+	}			
+##
+type=route & network=ncn & ref=1
+    {
+		apply { 
+		set route_ref_NSC=ncn1      ;
+		set name='NSC ncn1'     ;
+	} 
+	}		
+##
+type=route & route=bicycle & ref=LF-K
+    {
+		apply { 
+		set route_ref_NSC=NSC_NL;
+		set name='NSC NL';
+	} 
+	}		
+

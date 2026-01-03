@@ -1,0 +1,26 @@
+#
+# 
+# Parkrun running start points.
+#
+### ENSURE THAT THE BELOW TEXT IS INCLUDED IN THE POINTS FILE
+#   parkrun=start [0x5003 resolution 23]
+#
+### THAT THE PARKRUN XPM IS ADDED INTO THE STYLE FILE (6000.TXT?)
+#
+## & that 
+##########  include 'inc/rel_parkrun';
+## is included in the relations file.  
+
+type=route & route=running & (network=parkrun|network=Parkrun|operator=parkrun|operator=Parkrun) {
+    apply role=start {
+    set parkrun=start;
+    set name='${name}';
+    }
+}
+
+type=route & route=running & (network=parkrun|network=Parkrun|operator=parkrun|operator=Parkrun) {
+    apply role=start_stop {
+    set parkrun=start;
+    set name='${name}';
+    }
+}
