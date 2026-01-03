@@ -57,14 +57,6 @@ done
 done
 done
 
-if [ -e ${PBF}/$MOST.osc.gz ]
-then 
-	echo "update files downloaded" $(date -u)
-else
-	echo "update files are missing" $(date -u)
-	exit 1
-fi
-
 mv europe-latest.osm.pbf europe-latest-1.osm.pbf
 echo "Updating Full Europe extract" $(date -u)
 osmium apply-changes -v ${FULLEUROPE}-1.osm.pbf *.osc.gz -o ${PBF}/europe-latest.osm.pbf
