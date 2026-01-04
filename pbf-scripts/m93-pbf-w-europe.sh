@@ -7,6 +7,7 @@ NME=w-europe
 LOGFILE=/home/nick/logs/pbf-${NME}-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 PARENT=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf  
+GHUB=/home/nick/Github/Tallguy-mkgmap
 #
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
@@ -35,5 +36,5 @@ trash-put ${NME}.osm.pbf
 else 
 echo "${NME}.osm.pbf not present - cannot be trashed"  
 fi
-osmium extract -v -p /home/nick/ncdata/mapping/Garmin/mkgmap-resources/${NME}.poly ${PARENT} -o ${PBF}/${NME}.osm.pbf
+osmium extract -v -p ${GHUB}/pbf-scripts/poly-files/${NME}.poly ${PARENT} -o ${PBF}/${NME}.osm.pbf
 PROCESS_RETURN

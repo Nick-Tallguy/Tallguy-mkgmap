@@ -6,7 +6,7 @@ LOGFILE=/home/nick/logs/pbf-europe-update-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 FULLEUROPE=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest    
 GEOF=http://download.geofabrik.de/europe-updates/000/004
-GHSCRIPTS=/home/nick/Github/Tallguy-mkgmap/gen-scripts
+GHUB=/home/nick/Github/Tallguy-mkgmap
 
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
@@ -25,7 +25,7 @@ trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 
 echo "sorting the trash ready for update.  30 mins approx, uses approx 1686 MB ram" $(date -u)
-cd ${GHSCRIPTS}
+cd ${GHUB}/gen-scripts
 ./m93-space.sh
 
 ######################## Establish the most recent increment file to be used, and the next to be downloaded.
