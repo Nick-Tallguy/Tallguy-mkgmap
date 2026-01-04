@@ -25,7 +25,6 @@ trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash. Total time for file creation = 10 mins" $(date -u)
 cd ${GHUB}/gen-scripts
-#
 ./m93-space.sh
 #
 cd ${PBF}

@@ -25,7 +25,8 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash. Total time for file creation = 10 mins approx. 3274 MB max used" $(date -u)
-./${GHUB}/gen-scripts/m93-space.sh
+cd ${GHUB}/gen-scripts
+./m93-space.sh
 #
 cd ${PBF}
 ##
