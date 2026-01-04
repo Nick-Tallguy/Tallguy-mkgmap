@@ -37,46 +37,46 @@ echo "finished_local.txt does not exist" $(date -u)
 fi
 #
 ###############  UPDATE THE MAIN EUROPE PBF 
-cd ${GHUB}/pbf-scripts
+#cd ${GHUB}/pbf-scripts
  
-echo "Updating Europe extract - 30 mins" $(date -u) && ./m93-1-pbf_update.sh
-PROCESS_RETURN
-sleep 10
+#echo "Updating Europe extract - 30 mins" $(date -u) && ./m93-1-pbf_update.sh
+#PROCESS_RETURN
+#sleep 10
 # 
 ###############   W Europe Extract  
-if [ -e /home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf ]
-then 
-    cd ${GHUB}/pbf-scripts
-    echo "W-Europe extract - 19 mins" $(date -u) && ./m93-pbf-w-europe.sh
-else
-    echo "europe latest does not exist" && exit 1
-fi
-PROCESS_RETURN
-sleep 10  
+#if [ -e /home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf ]
+#then 
+#    cd ${GHUB}/pbf-scripts
+#    echo "W-Europe extract - 19 mins" $(date -u) && ./m93-pbf-w-europe.sh
+#else
+#    echo "europe latest does not exist" && exit 1
+#fi
+#PROCESS_RETURN
+#sleep 10  
 # 
 ##################     Large Ave Verte extract create
-cd ${GHUB}/pbf-scripts
-echo "Large Ave Verte extract - 9 mins" $(date -u) && ./m93-pbf-ave-verte-large.sh
-PROCESS_RETURN
-sleep 10
+#cd ${GHUB}/pbf-scripts
+#echo "Large Ave Verte extract - 9 mins" $(date -u) && ./m93-pbf-ave-verte-large.sh
+#PROCESS_RETURN
+#sleep 10
 # 
 ###############  GB EXTRACT 
-cd ${GHUB}/pbf-scripts
-echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-gb.sh
-PROCESS_RETURN
-sleep 10     
+#cd ${GHUB}/pbf-scripts
+#echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-gb.sh
+#PROCESS_RETURN
+#sleep 10     
 # 
 ###############  TESTING  
-cd ${GHUB}/pbf-scripts
-echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-testing.sh    
-PROCESS_RETURN
-sleep 10 
+#cd ${GHUB}/pbf-scripts
+#echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-testing.sh    
+#PROCESS_RETURN
+#sleep 10 
 #
 ################# SMALL AVENUE VERTE EXTRACT
-cd ${GHUB}/pbf-scripts
-echo "Small Ave Verte extract - 5 mins" $(date -u) && ./m93-pbf-ave-verte.sh
-PROCESS_RETURN
-sleep 10 
+#cd ${GHUB}/pbf-scripts
+#echo "Small Ave Verte extract - 5 mins" $(date -u) && ./m93-pbf-ave-verte.sh
+#PROCESS_RETURN
+#sleep 10 
 # 
 ################# NORTH SEA CYCLE EXTRACT
 cd ${GHUB}/pbf-scripts

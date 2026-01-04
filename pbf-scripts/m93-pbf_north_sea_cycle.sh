@@ -3,7 +3,7 @@
 ##### This script produces an extract to make the North Sea Cycle route map
 #
 DATE=$(date +"%Y-%m-%d")              # 
-NME=north_sea_cycle-5
+NME=north-sea-cycle-5.poly
 LOGFILE=/home/nick/logs/pbf-${NME}-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 PARENT=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf  
