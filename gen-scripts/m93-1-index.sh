@@ -3,7 +3,6 @@
 ##### quick list of items to produce.
 #
 DATE=$(date +"%Y-%m-%d")
-SCRIPTS=/home/nick/ncdata/computer/scripts/mapping/mkgmap
 LOGFILE=/home/nick/logs/1-index-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 MAPS=/home/nick/mapping/QMS/Maps
@@ -24,9 +23,6 @@ exec 3>&1 1>${LOGFILE} 2>&1
 trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for details.' >&3" ERR
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
-###############  UPDATE GITHUB  
-echo "Update Github" && cd ${GHUB} && git checkout main && git pull
-PROCESS_RETURN
 ############# checking if shutdown file exists
 if [ -e ${MAPS}/finished_local.txt ]
 then
