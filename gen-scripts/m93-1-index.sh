@@ -109,6 +109,11 @@ sleep 10
 #echo "Canarys map"  $(date -u) && ./m93-mk-canarys.sh
 PROCESS_RETURN
 sleep 10 
+#################SEND COMPLETED MAPS TO DIETPI
+echo "Sending completed maps to dietpi"
+cd ${GHUB}/gen-scripts
+./send.sh
+PROCESS_RETURN
 #################FILE SYNC ON DIETPI
 echo "sorting the file sync on dietpi" $(date -u)
 cd ${GHUB}/gen-scripts

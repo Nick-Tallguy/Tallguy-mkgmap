@@ -77,10 +77,6 @@ mv ${GMAKE}/work/*.tdb ${MAPS}/${NME}-${DATE}.tdb
 echo "Creating 7z archive" $(date -u)
 7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
 PROCESS_RETURN
-cd ${ZIPPED}
-#
-scp -P 22 ${ZIPPED}/${NME}-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
-PROCESS_RETURN
 #
 echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
 trash-put ${ZIPPED}/*
