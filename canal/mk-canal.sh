@@ -78,18 +78,8 @@ echo "Creating 7z archive" $(date -u)
 PROCESS_RETURN
 cd ${ZIPPED}
 #
-#
-echo "copying 7-zipped folder contents to destination" $(date -u)
-scp -P 22 ${ZIPPED}/${NME}-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
-PROCESS_RETURN
-#
-echo "sorting the file sync on destination" $(date -u)
+#######  Sending the files to dietpi & then trashing
 cd ${SCRIPTS}
-./mk-sync-needed.sh
-##
-echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-trash-put ${ZIPPED}/*
-trash-put ${MAPS}/*
-echo "Files transferred to destination & all finished" $(date -u)
-
-
+./send.sh
+PROCESS_RETURN
+echo "${NME} map safely completed" $(date -u)

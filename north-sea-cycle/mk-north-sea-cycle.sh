@@ -67,8 +67,6 @@ PROCESS_RETURN
 echo "Creating gmapi torrent file" $(date -u)
 transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
 PROCESS_RETURN
-scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
-PROCESS_RETURN
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
 mv ${GMAKE}/work/gmapsupp.img ${MAPS}/${NME}-${DATE}.img
@@ -78,7 +76,8 @@ echo "Creating 7z archive" $(date -u)
 7z a ${ZIPPED}/${NME}-${DATE} ${MAPS}/${NME}-${DATE}.img ${MAPS}/${NME}-${DATE}.tdb
 PROCESS_RETURN
 #
-echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-trash-put ${ZIPPED}/*
-trash-put ${MAPS}/*
-echo "Files transferred to dietpi & all finished - torrent files commented out & sync requested" $(date -u)
+#######  Sending the files to dietpi & then trashing
+cd ${SCRIPTS}
+./send.sh
+PROCESS_RETURN
+echo "${NME} map safely completed" $(date -u)

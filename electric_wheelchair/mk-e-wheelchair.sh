@@ -77,17 +77,12 @@ PROCESS_RETURN
 echo "Creating torrent file" $(date -u)
 transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
 PROCESS_RETURN
-echo "copying .exe files folder to dietpi" $(date -u)
-scp -r -P 22 ${ZIPPED}/${NME}-winexe-${DATE}* 192.168.0.19:/mnt/dietpi_userdata/downloads/
-PROCESS_RETURN
 # 
 echo "zipping gmapi files" $(date -u)
 7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
 PROCESS_RETURN
 echo "Creating gmapi torrent file" $(date -u)
 transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
-PROCESS_RETURN
-scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
 PROCESS_RETURN
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
@@ -101,15 +96,8 @@ echo "Creating 7z archive" $(date -u)
 PROCESS_RETURN
 cd ${ZIPPED}
 #
-scp -P 22 ${ZIPPED}/${NME}-${DATE}.* 192.168.0.19:/mnt/dietpi_userdata/downloads/
+#######  Sending the files to dietpi & then trashing
+cd ${SCRIPTS}
+./send.sh
 PROCESS_RETURN
-#
-#echo "sorting the file sync on destination" $(date -u)
-#cd ${SCRIPTS}
-# ./mk-sync-needed.sh
-##
-echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-trash-put ${ZIPPED}/*
-trash-put ${MAPS}/*
-echo "Files transferred to dietpi & all finished - torrent files commented out & sync not requested" $(date -u)
-echo "Finished" $(date -u)
+echo "${NME} map safely completed" $(date -u)

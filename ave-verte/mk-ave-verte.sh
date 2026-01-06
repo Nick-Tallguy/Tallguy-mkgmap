@@ -56,16 +56,9 @@ cd ${ZIPPED}
 echo "Zipping the windows file (needed for nextcloud)" $(date -u)
 7z a ${ZIPPED}/${NME}-winexe-${DATE} ${GMAKE}/work/${FAMILYNME}.exe
 PROCESS_RETURN
-#
-echo "copying .exe files folder to dietpi" $(date -u)
-scp -r -P 22 ${ZIPPED}/${NME}-winexe-${DATE}* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
-PROCESS_RETURN
 # 
 echo "zipping gmapi files" $(date -u)
 7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
-PROCESS_RETURN
-#
-scp -r -P 22 ${ZIPPED}/${NME}-gmapi-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
 PROCESS_RETURN
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
@@ -78,11 +71,8 @@ echo "Creating 7z archive" $(date -u)
 PROCESS_RETURN
 cd ${ZIPPED}
 #
-scp -P 22 ${ZIPPED}/${NME}-${DATE}.* nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
+#######  Sending the files to dietpi & then trashing
+cd ${SCRIPTS}
+./send.sh
 PROCESS_RETURN
-#
-echo "cleaning up - trashing files in 7-zipped folder and Maps folder" $(date -u)
-trash-put ${ZIPPED}/*
-trash-put ${MAPS}/*
-#touch ${MAPS}/finished_local.txt
-echo "Files transferred to dietpi & all finished - torrent files commented out & sync requested" $(date -u)
+echo "${NME} map safely completed" $(date -u)
