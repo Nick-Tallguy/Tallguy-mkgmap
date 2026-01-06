@@ -4,7 +4,7 @@
 DATE=$(date +"%Y-%m-%d")
 LOGFILE=/home/nick/logs/pbf-europe-update-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
-FULLEUROPE=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest    
+FULLEUROPE=${PBF}/europe-latest    
 GEOF=http://download.geofabrik.de/europe-updates/000/004
 GHUB=/home/nick/Github/Tallguy-mkgmap
 

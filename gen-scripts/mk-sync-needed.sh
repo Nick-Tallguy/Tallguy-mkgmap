@@ -8,7 +8,7 @@
 #
 DATE=$(date +"%Y-%m-%d")
 MAPS=/home/nick/mapping/QMS/Maps
-ZIPPED=/home/nick/7-zipped
+ZIPPED=/home/nick/mapping/mkgmap/7-zipped
 #
 touch ${ZIPPED}/map-sync-needed.txt
 scp -P 22 ${ZIPPED}/map-sync-needed.txt nick@daphne-nick.uk:/mnt/dietpi_userdata/downloads/

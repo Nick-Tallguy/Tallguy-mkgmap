@@ -6,15 +6,15 @@ DATE=$(date +"%Y-%m-%d")              #
 NME=north-sea-cycle-5
 LOGFILE=/home/nick/logs/pbf-${NME}-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
-PARENT=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf  
+PARENT=${PBF}/europe-latest.osm.pbf  
 GHUB=/home/nick/Github/Tallguy-mkgmap
 #
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
     then 
-        echo "Success"
+        echo "Success" $(date -u)
     else
-        echo "Failed script at this point"
+        echo "Failed script at this point" $(date -u)
         exit 1
     fi
 }

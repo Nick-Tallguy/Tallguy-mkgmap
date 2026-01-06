@@ -6,7 +6,7 @@ DATE=$(date +"%Y-%m-%d")            #
 NME=great-britain
 LOGFILE=/home/nick/logs/pbf-${NME}-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
-PARENT=/home/nick/mapping/mkgmap/pbf_downloads/w-europe.osm.pbf  
+PARENT=${PBF}/w-europe.osm.pbf  
 GHUB=/home/nick/Github/Tallguy-mkgmap
 #
 PROCESS_RETURN() {

@@ -3,7 +3,7 @@
 ##### quick list of items to produce.
 #
 DATE=$(date +"%Y-%m-%d")
-LOGFILE=/home/nick/logs/1-index-${DATE}.log
+LOGFILE=/home/nick/logs/GHUPDATE-${DATE}.log
 GHUB=/home/nick/Github/Tallguy-mkgmap
 #
 ##  return code checking
