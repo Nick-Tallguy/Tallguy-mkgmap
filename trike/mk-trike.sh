@@ -6,6 +6,7 @@ DESC="Tallguy - Garmin_compatible_trike_map"
 FAMILYNME=Tallguy-trike
 GMAKE=/home/nick/mapping/mkgmap
 GHUB=/home/nick/Github/Tallguy-mkgmap
+MK_PROGS=${GHUB}/mkgmap-progs
 AREA=great-britain
 POLY=${GHUB}/mkgmap-resources/${AREA}.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
@@ -68,7 +69,7 @@ cd ${GMAKE}/work
 ## SPLITTER
 rm -r ${GMAKE}/splitter/*
 echo "starting splitter" $(date -u)
-java -Xmx14g -jar ${GHUB}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${GHUB}/mkgmap-resources/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-6.osm.pbf
+java -Xmx14g -jar ${GHUB}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${GHUB}/mkgmap-progs/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-6.osm.pbf
 PROCESS_RETURN
 #
 ### MKGMAP 

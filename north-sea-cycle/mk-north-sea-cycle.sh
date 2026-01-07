@@ -5,14 +5,15 @@ NME=north-sea-cycle
 DESC="Tallguy-North-Sea-Cycle"
 FAMILYNME=Tallguy_north_sea_cycle
 GMAKE=/home/nick/mapping/mkgmap
+GHUB=/home/nick/Github/Tallguy-mkgmap
+MK_PROGS=${GHUB}/mkgmap-progs
 POLY=/mkgmap-resources/${NME}-5.poly
 NC_GMAKE=/home/nick/ncdata/mapping/Garmin
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/${NME}-5.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
-TYPS=/home/nick/Github/Tallguy-mkgmap
-NC_STYLES=${TYPS}/${NME}
+NC_STYLES=${GHUB}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
-SCRIPTS=${TYPS}/gen-scripts
+GENSCR=${GHUB}/gen-scripts
 ZIPPED=${GMAKE}/7-zipped
 #
 PROCESS_RETURN() {
@@ -30,21 +31,21 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash" $(date -u)
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./m93-space.sh
 #
 cd ${GMAKE}/work
 #
 ## SPLITTER
-#rm -r ${GMAKE}/splitter/*
-#echo "starting splitter" $(date -u)
-#java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
-#PROCESS_RETURN
+rm -r ${GMAKE}/splitter/*
+echo "starting splitter" $(date -u)
+java -Xmx14g -jar ${MK_PROGS}/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${MK_PROGS}/cities15000.zip   --polygon-file=${POLY} ${PBF}
+PROCESS_RETURN
 #
 ### MKGMAP
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/north-sea-cycle.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-North-Sea-Cycle" ${NC_STYLES}/5406.txt --gmapsupp --gmapi --nsis
+java -Xms1024m -Xmx14g  -jar ${MK_PROGS}/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/north-sea-cycle.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-North-Sea-Cycle" ${NC_STYLES}/5406.txt --gmapsupp --gmapi --nsis
 PROCESS_RETURN
 ##
 echo "Creating the windows .exe file with makensis" $(date -u)
@@ -77,7 +78,7 @@ echo "Creating 7z archive" $(date -u)
 PROCESS_RETURN
 #
 #######  Sending the files to dietpi & then trashing
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./send.sh
 PROCESS_RETURN
 echo "${NME} map safely completed" $(date -u)

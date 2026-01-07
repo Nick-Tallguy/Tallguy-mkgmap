@@ -9,12 +9,11 @@ GHUB=/home/nick/Github/Tallguy-mkgmap
 AREA=great-britain
 #AREA=testing
 POLY=${GHUB}/pbf-scripts/poly-files/${AREA}.poly
-GHUB=/home/nick/ncdata/mapping/Garmin
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/${AREA}.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
 NC_STYLES=${GHUB}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
-SCRIPTS=${GHUB}/gen-scripts
+GENSCR=${GHUB}/gen-scripts
 ZIPPED=${GMAKE}/7-zipped
 #
 PROCESS_RETURN() {
@@ -32,7 +31,7 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash" $(date -u)
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./m93-space.sh
 #
 cd ${GMAKE}/work
@@ -79,7 +78,7 @@ PROCESS_RETURN
 cd ${ZIPPED}
 #
 #######  Sending the files to dietpi & then trashing
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./send.sh
 PROCESS_RETURN
 echo "${NME} map safely completed" $(date -u)
