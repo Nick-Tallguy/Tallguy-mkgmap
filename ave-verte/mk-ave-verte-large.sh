@@ -46,7 +46,7 @@ sleep 10
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx14g  -jar ${MK_PROGS}/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/ave-verte.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-Ave-Verte-FR-Eng" ${NC_STYLES}/5405.txt --gmapsupp --gmapi --nsis
+java -Xms1024m -Xmx14g  -jar ${MK_PROGS}/mkgmap-r4923/mkgmap.jar -c ${GHUB}/ave-verte/ave-verte.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-Ave-Verte-FR-Eng" ${NC_STYLES}/5405.txt --gmapsupp --gmapi --nsis
 PROCESS_RETURN
 ##
 sleep 20

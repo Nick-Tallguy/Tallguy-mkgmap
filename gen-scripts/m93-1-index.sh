@@ -86,18 +86,18 @@ fi
 #cd ${GHUB}/trike && echo "Trike Map" $(date -u) && ./mk-trike.sh
 #PROCESS_RETURN
 #################  CANAL MAP  
-cd ${GHUB}/canal && echo "Canal Map" $(date -u) && ./mk-canal.sh
-PROCESS_RETURN
+#cd ${GHUB}/canal && echo "Canal Map" $(date -u) && ./mk-canal.sh
+#PROCESS_RETURN
 #################  ELECTRIC WHEELCHAIR MAP
-cd ${GHUB}/electric_wheelchair && echo "Electric Wheelchair" $(date -u) && ./mk-e-wheelchair.sh
-PROCESS_RETURN
+#cd ${GHUB}/electric_wheelchair && echo "Electric Wheelchair" $(date -u) && ./mk-e-wheelchair.sh
+#PROCESS_RETURN
 ################## BARRIERS FILTERED MAP
-cd ${GHUB}/barriers_filtered && echo "Barriers filtered- ? mins" $(date -u) && ./mk-barriers-filtered.sh
-PROCESS_RETURN  
+#cd ${GHUB}/barriers_filtered && echo "Barriers filtered- ? mins" $(date -u) && ./mk-barriers-filtered.sh
+#PROCESS_RETURN  
 ################## SMALL AVENUE VERTE MAP
-cd ${GHUB}/ave-verte && echo "Small Ave Verte map - 22 mins" $(date -u) && ./mk-ave-verte.sh
-PROCESS_RETURN
-sleep 10
+#cd ${GHUB}/ave-verte && echo "Small Ave Verte map - 22 mins" $(date -u) && ./mk-ave-verte.sh
+#PROCESS_RETURN
+#sleep 10
 ################  AVE VERTE Large map create
 cd ${GHUB}/ave-verte && echo "Large Ave Verte map - 2hr 50 mins" $(date -u) && ./mk-ave-verte-large.sh
 PROCESS_RETURN
