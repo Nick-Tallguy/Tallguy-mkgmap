@@ -6,6 +6,7 @@ LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 DESTINATION=nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
 GMAKE=/home/nick/mapping/mkgmap
 ZIPPED=${GMAKE}/7-zipped
+MAPS=/home/nick/mapping/QMS/Maps
 #
 PROCESS_RETURN() {
     if [ $? -eq 0 ]

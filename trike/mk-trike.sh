@@ -108,7 +108,7 @@ PROCESS_RETURN
 cd ${ZIPPED}
 #
 #######  Sending the files to dietpi & then trashing
-cd ${SCRIPTS}
+cd ${GHUB}/gen-scripts
 ./send.sh
 PROCESS_RETURN
 echo "${NME} map safely completed" $(date -u)

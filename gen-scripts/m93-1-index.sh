@@ -82,8 +82,8 @@ fi
 
 
 ##################  TRIKE MAP
-cd ${GHUB}/trike && echo "Trike Map" $(date -u) && ./mk-trike.sh
-PROCESS_RETURN
+#cd ${GHUB}/trike && echo "Trike Map" $(date -u) && ./mk-trike.sh
+#PROCESS_RETURN
 #################  CANAL MAP  
 cd ${GHUB}/canal && echo "Canal Map" $(date -u) && ./mk-canal.sh
 PROCESS_RETURN
