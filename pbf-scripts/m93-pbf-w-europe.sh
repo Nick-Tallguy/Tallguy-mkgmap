@@ -8,6 +8,7 @@ LOGFILE=/home/nick/logs/pbf-${NME}-${DATE}.log
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 PARENT=/home/nick/mapping/mkgmap/pbf_downloads/europe-latest.osm.pbf  
 GHUB=/home/nick/Github/Tallguy-mkgmap
+MAPS=/home/nick/mapping/QMS/Maps
 #
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
@@ -15,6 +16,7 @@ PROCESS_RETURN() {
         echo "Success"
     else
         echo "Failed script at this point"
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }

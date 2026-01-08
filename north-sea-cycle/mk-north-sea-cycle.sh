@@ -22,6 +22,7 @@ PROCESS_RETURN() {
         echo "Success" $(date -u)
     else
         echo "Failed script at this point" $(date -u)
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }
