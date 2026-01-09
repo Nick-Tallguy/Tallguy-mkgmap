@@ -12,10 +12,10 @@ MAPS=/home/nick/mapping/QMS/Maps
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
     then 
-        echo "Success"
+        echo "Success" $(date +"%H:%Mhrs")
     else
-        echo "Failed script at this point"
-        touch ${MAPS}/finished_local.txt
+        echo "Failed script at this point" $(date +"%H:%Mhrs")
+        touch ${MAPS}/finished_local.txt $(date +"%H:%Mhrs")
         exit 1
     fi
 }
@@ -35,22 +35,25 @@ cd ${PBF}
 ls -tr [0-9]* | cut -c 1-3 | tail -n 1 | while read HIGHEST;
 do
 echo "This is the big number $HIGHEST"
-NEWLOW=$(($HIGHEST+1))  ; echo "This is the new small number $NEWLOW - now trashing the existing .osc.gz files"  $(date -u)
+NEWLOW=$(($HIGHEST+1))  ; echo "This is the new small number $NEWLOW - now trashing the existing .osc.gz files"  $(date +"%H:%Mhrs")
+PROCESS_RETURN
 
 ######################## Establish which is the highest numbered increment file that can be downloaded
-trash-put state.txt*
+cd ${PBF}
+trash-put state.txt
 
-echo "Downloading state.txt from Geofabrik"  $(date -u)
+echo "Downloading state.txt from Geofabrik"  $(date +"%H:%Mhrs")
 wget http://download.geofabrik.de/europe-updates/state.txt
 PROCESS_RETURN
 grep sequenceNu $PBF/state.txt | cut -c 17-19 | while read MOST;
 do
-echo "$MOST is the top number to download"  $(date -u)
+echo "$MOST is the top number to download"  $(date +"%H:%Mhrs")
+PROCESS_RETURN
 
 #######################  Download the incremental files
 cd ${PBF}  
 trash-put *.osc.gz
-echo "Downloading any update files" $(date -u)
+echo "Downloading any update files" $(date +"%H:%Mhrs")
 for d in $(seq $NEWLOW $MOST)
 do 
 wget -nv ${GEOF}/$d.osc.gz
@@ -60,10 +63,10 @@ done
 done
 
 mv europe-latest.osm.pbf europe-latest-1.osm.pbf
-echo "Updating Full Europe extract" $(date -u)
+echo "Updating Full Europe extract" $(date +"%H:%Mhrs")
 osmium apply-changes -v ${FULLEUROPE}-1.osm.pbf *.osc.gz -o ${PBF}/europe-latest.osm.pbf
 PROCESS_RETURN
 
 trash-put europe-latest-1.osm.pbf
-echo "Updated extract safely created - trashed the old one" $(date -u)
+echo "Updated extract safely created - trashed the old one" $(date +"%H:%Mhrs")
 
