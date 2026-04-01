@@ -51,10 +51,10 @@ PROCESS_RETURN
 sleep 10  
 # 
 ##################     Large Ave Verte extract create
-cd ${GHUB}/pbf-scripts
-echo "Large Ave Verte extract - 9 mins" $(date -u) && ./m93-pbf-ave-verte-large.sh
-PROCESS_RETURN
-sleep 10
+#cd ${GHUB}/pbf-scripts
+#echo "Large Ave Verte extract - 9 mins" $(date -u) && ./m93-pbf-ave-verte-large.sh
+#PROCESS_RETURN
+#sleep 10
 # 
 ###############  GB EXTRACT 
 cd ${GHUB}/pbf-scripts
@@ -98,9 +98,9 @@ cd ${GHUB}/ave-verte && echo "Small Ave Verte map - 22 mins" $(date -u) && ./mk-
 PROCESS_RETURN
 sleep 10
 ################  AVE VERTE Large map create
-cd ${GHUB}/ave-verte && echo "Large Ave Verte map - 2hr 50 mins" $(date -u) && ./mk-ave-verte-large.sh
-PROCESS_RETURN
-sleep 10
+#cd ${GHUB}/ave-verte && echo "Large Ave Verte map - 2hr 50 mins" $(date -u) && ./mk-ave-verte-large.sh
+#PROCESS_RETURN
+#sleep 10
 ################# NORTH SEA CYCLE MAP
 cd ${GHUB}/north-sea-cycle && echo "North Sea Cycle map - 1hr 23 mins" $(date -u) && ./mk-north-sea-cycle.sh
 PROCESS_RETURN
