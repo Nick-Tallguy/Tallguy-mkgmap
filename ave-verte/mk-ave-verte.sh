@@ -5,14 +5,14 @@ NME=ave-verte
 DESC="Tallguy-Ave-Verte"
 FAMILYNME=Tallguy_ave_verte
 GMAKE=/home/nick/mapping/mkgmap
-POLY=/mkgmap-resources/${NME}.poly
-NC_GMAKE=/home/nick/ncdata/mapping/Garmin
+GHUB=/home/nick/Github/Tallguy-mkgmap
+MK_PROGS=${GHUB}/mkgmap-progs
+POLY=${GHUB}/pbf-scripts/poly-files/${NME}.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads/${NME}.osm.pbf
 MAPS=/home/nick/mapping/QMS/Maps
-TYPS=/home/nick/Github/Tallguy-mkgmap
-NC_STYLES=${TYPS}/${NME}
+NC_STYLES=${GHUB}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
-SCRIPTS=${TYPS}/gen-scripts
+GENSCR=${GHUB}/gen-scripts
 ZIPPED=${GMAKE}/7-zipped
 #
 PROCESS_RETURN() {
@@ -21,6 +21,7 @@ PROCESS_RETURN() {
         echo "Success" $(date -u)
     else
         echo "Failed script at this point" $(date -u)
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }
@@ -31,7 +32,7 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 echo "sorting the trash" $(date -u)
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./m93-space.sh
 #
 PROCESS_RETURN
@@ -40,13 +41,13 @@ cd ${GMAKE}/work
 ## SPLITTER
 rm -r ${GMAKE}/splitter/*
 echo "starting splitter" $(date -u)
-java -Xmx14g -jar ${NC_GMAKE}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${NC_GMAKE}/mkgmap-resources/cities15000.zip   --polygon-file=${NC_GMAKE}${POLY} ${PBF}
+java -Xmx14g -jar ${MK_PROGS}/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${MK_PROGS}/cities15000.zip   --polygon-file=${POLY} ${PBF}
 PROCESS_RETURN
 #
 ### MKGMAP 
 echo "Starting mkgmap" $(date -u)
 rm -r ${GMAKE}/work/*
-java -Xms1024m -Xmx14g  -jar ${NC_GMAKE}/mkgmap-progs/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/ave-verte.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-Ave-Verte" ${NC_STYLES}/5405.txt --gmapsupp --gmapi --nsis
+java -Xms1024m -Xmx14g  -jar ${MK_PROGS}/mkgmap-r4923/mkgmap.jar -c ${NC_STYLES}/ave-verte.args --family-name=${FAMILYNME} -c ${GMAKE}/splitter/template.args --description="Tallguy-Ave-Verte" ${NC_STYLES}/5405.txt --gmapsupp --gmapi --nsis
 PROCESS_RETURN
 ##
 echo "Creating the windows .exe file with makensis" $(date -u)
@@ -72,7 +73,7 @@ PROCESS_RETURN
 cd ${ZIPPED}
 #
 #######  Sending the files to dietpi & then trashing
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./send.sh
 PROCESS_RETURN
 echo "${NME} map safely completed" $(date -u)

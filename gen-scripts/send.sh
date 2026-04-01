@@ -6,6 +6,7 @@ LOGFILE=/home/nick/logs/${NME}-${DATE}.log
 DESTINATION=nick@192.168.0.19:/mnt/dietpi_userdata/downloads/
 GMAKE=/home/nick/mapping/mkgmap
 ZIPPED=${GMAKE}/7-zipped
+MAPS=/home/nick/mapping/QMS/Maps
 #
 PROCESS_RETURN() {
     if [ $? -eq 0 ]
@@ -13,6 +14,7 @@ PROCESS_RETURN() {
         echo "Success" $(date -u)
     else
         echo "Failed script at this point" $(date -u)
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }

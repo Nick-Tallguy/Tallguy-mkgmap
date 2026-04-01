@@ -1,6 +1,6 @@
 
 
-#### TRIKE SPECIFIC BITS  TRIKE WIDTH = 0.82 METRES - warning at 85cm
+#### TRIKE SPECIFIC BITS  TRIKE WIDTH = 0.82 METRES 
 highway=steps & (access=private | access=customers ) { delete highway }
 highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count!=* { set bicycle=no } [0x03200 resolution 18-22 continue]  
 highway=steps & ( ncn_from_relation=yes | rcn_from_relation=yes | lcn_from_relation=yes) & step_count!=* {set name='steps?' } [0x03200 resolution 24]

@@ -15,6 +15,7 @@ PROCESS_RETURN() {
         echo "Success" $(date -u)
     else
         echo "Failed script at this point" $(date -u)
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }
@@ -90,7 +91,7 @@ PROCESS_RETURN
 #################  ELECTRIC WHEELCHAIR MAP
 cd ${GHUB}/electric_wheelchair && echo "Electric Wheelchair" $(date -u) && ./mk-e-wheelchair.sh
 PROCESS_RETURN
-################## BARRIERS FILTERED MAP
+################# BARRIERS FILTERED MAP
 cd ${GHUB}/barriers_filtered && echo "Barriers filtered- ? mins" $(date -u) && ./mk-barriers-filtered.sh
 PROCESS_RETURN  
 ################## SMALL AVENUE VERTE MAP
@@ -107,8 +108,8 @@ PROCESS_RETURN
 sleep 10   
 ################# CANARYS
 #echo "Canarys map"  $(date -u) && ./m93-mk-canarys.sh
-PROCESS_RETURN
-sleep 10 
+#PROCESS_RETURN
+#sleep 10 
 #
 #################FILE SYNC ON DIETPI
 echo "sorting the file sync on dietpi" $(date -u)
@@ -116,5 +117,5 @@ cd ${GHUB}/gen-scripts
 ./mk-sync-needed.sh
 PROCESS_RETURN
 #  Use this line if you wish shutdown after map created.
-echo "All finished"  $(date -u) && touch ${MAPS}/finished_local.txt
+echo "All finished - will close down shortly"  $(date -u) && touch ${MAPS}/finished_local.txt
 PROCESS_RETURN

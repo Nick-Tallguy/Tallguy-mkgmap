@@ -15,7 +15,7 @@ PBF=/home/nick/mapping/mkgmap/pbf_downloads
 MAPS=/home/nick/mapping/QMS/Maps
 NC_STYLES=${GHUB}/${NME}
 LOGFILE=/home/nick/logs/${NME}-${DATE}.log
-SCRIPTS=${GHUB}/gen-scripts
+GENSCR=${GHUB}/gen-scripts
 ZIPPED=${GMAKE}/7-zipped
 #
 PROCESS_RETURN() {
@@ -24,6 +24,7 @@ PROCESS_RETURN() {
         echo "Success" $(date -u)
     else
         echo "Failed script at this point" $(date -u)
+        touch ${MAPS}/finished_local.txt
         exit 1
     fi
 }
@@ -35,7 +36,7 @@ trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 ## Trash any existing o5m files
 trash-put ${PBF}/*.o5m
 echo "sorting the trash" $(date -u)
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./m93-space.sh
 #
 ## OSMCONVERT  
@@ -97,7 +98,7 @@ PROCESS_RETURN
 cd ${ZIPPED}
 #
 #######  Sending the files to dietpi & then trashing
-cd ${SCRIPTS}
+cd ${GENSCR}
 ./send.sh
 PROCESS_RETURN
 echo "${NME} map safely completed" $(date -u)

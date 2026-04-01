@@ -65,7 +65,7 @@ Produces a cycle map aimed at a recumbent trike rider with a trike 0.82 metres w
 
 The aim is to produce a map which you can use in a garmin cycle computer with your trike, able to route you, and which you can search for features. But perhaps more importantly, you can view the map on something like [QMapShack](https://github.com/Maproom/qmapshack/wiki/DocMain), [Garmin Basecamp](https://www.garmin.com/en-GB/software/basecamp/) or just on your actual cycle computer, and see if there will be some kind of 'hiccup' which will cause you problems when you find it. Personally I've found problems on 'The Avenue Verte' where I found a bridge with hundreds of steps that defeated me, NCN1 in the UK with cycle barriers that blocked me, and a railway bridge in Scotland that I had to take a 10 mile diversion round the roads to avoid when riding my recumbent trike.  
 
-Using [MKGMAP](https://www.mkgmap.org.uk/) it is possible to create a map that only shows barriers which will affect a vehicle (in this case a recumbent trike) of a certain width. One of my trikes is 82cm in width, so that's the width I've chosen whilst creating this map. For instance, any bollards which have a gap between them of 85cm or less are shown on this map, and their actual available width of 'gap' is shown. If the bollards don't have their width of opening (maxwidth:physical) marked on [OpenStreetMap](https://www.openstreetmap.org) then bollards will appear on the map as **'Bollard Gap?'** - it's easy to update OpenStreetMap so the actual gap is shown.  
+Using [MKGMAP](https://www.mkgmap.org.uk/) it is possible to create a map that only shows barriers which will affect a vehicle (in this case a recumbent trike) of a certain width. One of my trikes is 82cm in width, so that's the width I've chosen whilst creating this map. For instance, any bollards which have a gap between them of 82cm or less are shown on this map, and their actual available width of 'gap' is shown. If the bollards don't have their width of opening (maxwidth:physical) marked on [OpenStreetMap](https://www.openstreetmap.org) then bollards will appear on the map as **'Bollard Gap?'** - it's easy to update OpenStreetMap so the actual gap is shown.  
 
 This map has been created using OpenStreetMap data, and a number of other programmes to manipulate the data.
 
@@ -76,7 +76,7 @@ As a recumbent trike rider, I would like to have maps on my navigation devices t
 
 ### GPS's
 
-Cycling = Garmin Edge 705, 605 & Edge 800
+Cycling = Garmin Edge 705, 605 & Edge 800 & 810
 
 
 Handheld = Garmin etrex 30
