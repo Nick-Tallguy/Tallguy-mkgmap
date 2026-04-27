@@ -64,10 +64,10 @@ fi
 #sleep 10     
 # 
 ###############  TESTING  
-cd ${GHUB}/pbf-scripts
-echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-testing.sh    
-PROCESS_RETURN
-sleep 10 
+#cd ${GHUB}/pbf-scripts
+#echo "GB extract - 5 mins" $(date -u) && ./m93-pbf-testing.sh    
+#PROCESS_RETURN
+#sleep 10 
 #
 ################# SMALL AVENUE VERTE EXTRACT
 #cd ${GHUB}/pbf-scripts

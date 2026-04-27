@@ -44,7 +44,5 @@ barrier= and ( bicycle=yes or bicycle=designated or route=bicycle )
 --drop-nodes=
 barrier= 
 
---drop=
-highway=track
 
 --out-o5m
