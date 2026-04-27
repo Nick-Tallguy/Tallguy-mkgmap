@@ -27,6 +27,14 @@ landuse=grass
 =vineyard
 
 --keep=
+landcover=grass
+=forest
+=meadow
+=recreation_ground  
+=village_green  
+=vineyard
+
+--keep=
 waterway=river  
 =stream  
 =canal  
