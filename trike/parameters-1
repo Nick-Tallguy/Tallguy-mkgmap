@@ -24,5 +24,7 @@ highway=*ary
 =service
 =bridleway
 =cycleway
+=path
+=footway
 
 --out-o5m
