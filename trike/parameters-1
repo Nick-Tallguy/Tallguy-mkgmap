@@ -27,14 +27,14 @@ highway=service and ( access=private or access=customers )
 
 --keep=
 highway=bridleway and ( tracktype=grade1 or tracktype=grade2 ) and ( width=>0.83 or maxwidth:physical=>0.83 )
-highway=footway and bicycle=yes
-highway=path and bicycle=yes
+highway=footway and ( bicycle=yes or bicycyle=designated )
+highway=path and ( bicycle=yes or bicycyle=designated )
 
 --keep=
 highway=steps and bicycle=yes
 
 --keep=
-highway=track and ( designation=byway or designation=restricted_byway ) 
+highway=track and ( designation=byway or designation=restricted_byway or designation=byway_open_to_all_traffic ) 
 highway=track and ( tracktype=grade1 or tracktype=grade2 ) and bicycle=yes
 
 --keep=
@@ -42,6 +42,6 @@ route=bicycle
 
 --drop=
 --drop-nodes=
-barrier= and access=private
+barrier= and ( access=private or access=customers or access=agricultural )
 
 --out-o5m
