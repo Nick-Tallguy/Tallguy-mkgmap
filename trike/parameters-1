@@ -30,7 +30,7 @@ highway=bridleway and ( tracktype=grade1 or tracktype=grade2 ) and ( width=>0.83
 highway=footway and ( bicycle=yes or bicycle=designated )
 highway=path and ( bicycle=yes or bicycle=designated )
 highway=steps and bicycle=yes
-highway=track and ( designation=byway or designation=restricted_byway or designation=byway_open_to_all_traffic or designation=public_bridleway )  and ( width=>0.83 or maxwidth:physical=>0.83 )
+highway=track and ( designation=byway or designation=restricted_byway or designation=byway_open_to_all_traffic or designation=public_bridleway  ) and ( width=>0.83 or maxwidth:physical=>0.83 )
 highway=track and ( tracktype=grade1 or tracktype=grade2 ) and ( bicycle=yes or bicycle=designated )
 
 --keep=
