@@ -22,9 +22,33 @@ highway=*ary
 =services
 =traffic_signals
 =service
-=bridleway
 =cycleway
-=path
-=footway
+
+
+--drop="highway=bridleway and width<=0.82"
+--keep="highway=bridleway"
+
+--drop="highway=path and width<=0.82"
+--keep="highway=path and ( bicycle=yes or bicycle=designated or bicycle=permissive ) "
+
+--keep="highway=footway and ( bicycle=yes or bicycle=designated or bicycle=permissive ) and width>=0.83"
+--drop="highway=footway"
+
+--keep=
+designation=byway_open_to_all_traffic
+=public_bridleway
+=byway
+=restricted_byway
+
+--keep=
+bicycle=yes
+=designated
+=permissive
+
+--keep=
+route=bicycle
+
+--keep="highway=steps and ( bicycle=designated or bicycle=yes ) "
+--drop="highway=steps"
 
 --out-o5m

@@ -14,8 +14,8 @@ highway=steps & stile=* { delete barrier }
 #highway=steps & access=no  { set bicycle=no ; set name='no access' } [0x00b00 resolution 24]
 #highway=steps & step_count>=2 { set bicycle=no } 
 #highway=steps & step_count>=2  [0x00b00 resolution 20-22 continue]
-#highway=steps & step_count>=2 { set name='${step_count}_steps' } [0x00b00 resolution 24]
-#highway=steps & step_count!=* [0x03200 resolution 20-22 continue]
+highway=steps & step_count>=2 { set name='${step_count}_steps' } [0x00b00 resolution 24]
+highway=steps & step_count!=* [0x03200 resolution 20-22 continue]
 #highway=steps & step_count!=* {set name='step count?' ; delete highway } [0x03200 resolution 24]
 #
 #####    CYCLE_BARRIER

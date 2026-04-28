@@ -7,8 +7,8 @@ FAMILYNME=Tallguy-trike
 GMAKE=/home/nick/mapping/mkgmap
 GHUB=/home/nick/Github/Tallguy-mkgmap
 MK_PROGS=${GHUB}/mkgmap-progs
-#AREA=great-britain
-AREA=testing
+AREA=great-britain
+#AREA=testing
 POLY=${GHUB}/pbf-scripts/poly-files/${AREA}.poly
 PBF=/home/nick/mapping/mkgmap/pbf_downloads
 MAPS=/home/nick/mapping/QMS/Maps
@@ -45,9 +45,9 @@ PROCESS_RETURN
 #
 ## OSMFILTER
 #
-osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-1 -o=${PBF}/${AREA}-1.o5m     # parameters-1 = highways with barriers
+osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-1 -o=${PBF}/${AREA}-1.o5m     # parameters-1 = items with barrier nodes included
 PROCESS_RETURN
-osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-2 -o=${PBF}/${AREA}-2.o5m     # parameters-2 = landuse etc that's wanted, without barriers
+osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-2 -o=${PBF}/${AREA}-2.o5m     # parameters-2 = items without barrier nodes
 PROCESS_RETURN
 #
 osmium merge ${PBF}/${AREA}-1.o5m ${PBF}/${AREA}-2.o5m -o${PBF}/${AREA}-3.osm.pbf
