@@ -8,8 +8,8 @@
 # and http://wiki.openstreetmap.org/wiki/Mkgmap/help/Custom_styles
 # for more information.
 
-include 'inc/line_cycle_routes';
 include 'inc/line_trike_barriers';
+include 'inc/line_cycle_routes';
 
 addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
 
@@ -191,6 +191,7 @@ highway=pedestrian {set tmp:stopMopUp=yes} [0x16 road_class=0 road_speed=0 resol
 highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
 highway=bridleway [0x07 road_class=0 road_speed=0 resolution 23]
+highway=byway [0x16 road_class=0 road_speed=0 resolution 23]
 highway=byway [0x16 road_class=0 road_speed=0 resolution 23]
 
 highway=driveway {set highway=service; add service=driveway}  # fix common bad tagging
