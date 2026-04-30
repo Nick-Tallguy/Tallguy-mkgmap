@@ -54,9 +54,9 @@ GPS Scale|level|resolution|Comment|
 
 It's worth bearing in mind that we don't know exactly what the Garmin has been programmed to do, and it may not always display what we are expecting / hoping for!
 
-## Trike Map - Experimental at this stage 
+## Trike Map
 
-Produces a cycle map aimed at a recumbent trike rider with a trike 0.82 metres wide. - Any barriers which have an available width of less than 85cm, and are on a route that could be cycled are shown with a red B in a circle. The map is routable, but will show barriers with a red circled B if you will not fit through (caveat, if the opening width has not been updated on OpenStreetMap (OSM), then the map displays the red B in a circle as a warning that you may have a problem there (Perhaps you could update OSM so that the next trike rider has a better map). 
+Produces a cycle map aimed at a recumbent trike rider with a trike 0.82 metres wide. - Any barriers which have an available width of less than 83cm, and are on a route that could be cycled are shown with a red X. The map is routable, but will avoid barriers with a red X (caveat, if the opening width has not been updated on OpenStreetMap (OSM), then the map displays a red B in a circle as a warning that you may have a problem there (Perhaps you could update OSM so that the next trike rider has a better map). 
 
 ### The Garmin compatible map for a recumbent trike rider
 
@@ -71,7 +71,7 @@ This map has been created using OpenStreetMap data, and a number of other progra
 
 ### Background
 
-As a recumbent trike rider, I would like to have maps on my navigation devices that assist me. I have **NCN 1** fairly near me, and fond memories of riding it when I rode a 2 wheel bike and was a Sustrans Ranger, but parts of it are a 'show stopper' for me on my trike as they have narrow gaps between bollards which require me to get off and try to lift the trike over a chest high gate - not easy or fun for me if on my own - I'm thinking that some kind of warning on the map so I can choose whether to try to negotiate the barrier, or not go that way at all, would be helpful.  
+As a recumbent trike rider, I would like to have maps on my navigation devices that assist me. I have **NCN 1** fairly near me, and fond memories of riding it when I rode a 2 wheel bike and was a Sustrans Ranger, but parts of it are a 'show stopper' for me on my trike as they have narrow gaps between bollards which require me to get off and try to lift the trike over a chest high barrier - not easy or fun for me if on my own - I'm thinking that some kind of warning on the map so I can choose whether to try to negotiate the barrier, or not go that way at all, would be helpful.  
 
 
 ### GPS's
