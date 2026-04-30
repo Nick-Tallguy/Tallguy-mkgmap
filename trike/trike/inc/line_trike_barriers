@@ -4,10 +4,13 @@
 ### NEED TO ADD THE XPM'S FOR STEPS & BARRIER TO THE STYLE FILE (????.TXT?).
 #####################   TRIKE WIDTH = 0.82 METRES
 #
-highway=steps & step_count>1 {add bicycle=no} [0x10a01 resolution 24 continue]
 
 highway=* { add mkgmap:way-has-pois=true; }
 
 highway=* & (width<0.83 | opening<0.83 | maxwidth<0.83 | maxwidth:physical<0.83) { add mkgmap:bicycle=no; delete highway; }
 
-highway=steps & step_count>1 & (rcn_from_relation=yes | ncn_from_relation=yes | rcn_from_relation=yes ) {set bicycle=no} [0x10a01 resolution 24 continue]
+highway=steps & step_counte=1 & (rcn_from_relation=yes | ncn_from_relation=yes | lcn_from_relation=yes ) {set bicycle=yes} [0x10a01 road_speed=3 resolution 24 continue]
+highway=steps & step_count>1 & (rcn_from_relation=yes | ncn_from_relation=yes | lcn_from_relation=yes ) {set bicycle=no} [0x10a01 resolution 24 continue]
+
+highway=steps & step_count=1 {set bicycle=yes;} [0x10a01 resolution 24 road_speed=3 continue]
+highway=steps & step_count>1 {set bicycle=no;} [0x10a01 resolution 24 continue]
