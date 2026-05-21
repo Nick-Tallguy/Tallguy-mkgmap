@@ -76,14 +76,14 @@ echo "Zipping the windows file (needed for nextcloud)" $(date -u)
 7z a ${ZIPPED}/${NME}-winexe-${DATE} ${GMAKE}/work/${FAMILYNME}.exe
 PROCESS_RETURN
 echo "Creating torrent file" $(date -u)
-transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
+transmission-create ${NME}-winexe-${DATE}.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t udp://open.demonii.com:1337/announce -t https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-winexe-${DATE}.7z
 PROCESS_RETURN
 # 
 echo "zipping gmapi files" $(date -u)
 7z a ${ZIPPED}/${NME}-gmapi-${DATE} ${GMAKE}/work/${FAMILYNME}.gmap
 PROCESS_RETURN
 echo "Creating gmapi torrent file" $(date -u)
-transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t https://tracker2.ctix.cn:443/announce https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
+transmission-create ${NME}-gmapi-${DATE}.7z.torrent -c ${DESC} -t udp://tracker.opentrackr.org:1337/announce -t udp://open.demonii.com:1337/announce -t https://tracker1.520.jp:443/announce ${ZIPPED}/${NME}-gmapi-${DATE}.7z
 PROCESS_RETURN
 #
 echo "moving gmapsupp to qmapshack map folder and renaming" $(date -u)
