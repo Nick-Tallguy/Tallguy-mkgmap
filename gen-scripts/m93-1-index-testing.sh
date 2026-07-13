@@ -92,8 +92,8 @@ PROCESS_RETURN
 #cd ${GHUB}/electric_wheelchair && echo "Electric Wheelchair" $(date -u) && ./mk-e-wheelchair.sh
 #PROCESS_RETURN
 ################# BARRIERS FILTERED MAP
-cd ${GHUB}/barriers_filtered && echo "Barriers filtered- ? mins" $(date -u) && ./mk-barriers-filtered.sh
-PROCESS_RETURN  
+#cd ${GHUB}/barriers_filtered && echo "Barriers filtered- ? mins" $(date -u) && ./mk-barriers-filtered.sh
+#PROCESS_RETURN  
 ################## SMALL AVENUE VERTE MAP
 #cd ${GHUB}/ave-verte && echo "Small Ave Verte map - 22 mins" $(date -u) && ./mk-ave-verte.sh
 #PROCESS_RETURN
