@@ -22,7 +22,7 @@ trap "echo 'ERROR: An error occurred during execution, check log ${LOGFILE} for 
 trap '{ set +x; } 2>/dev/null; echo -n "[$(date -Is)] " set -x' DEBUG
 #
 ###############  UPDATE GITHUB  
-echo "Update Github" && cd ${GHUB} && git checkout testing && git pull
+echo "Update Github" && cd ${GHUB} && git checkout main && git pull
 PROCESS_RETURN
 ############# checking if shutdown file exists
 if [ -e ${MAPS}/finished_local.txt ]
