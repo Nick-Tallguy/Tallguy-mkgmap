@@ -25,15 +25,17 @@ highway=*ary
 =traffic_signals
 =service
 =cycleway
+=bridleway
+
+--drop=
+highway=track and access=private
+highway=track and 
+
+--keep=
+highway=track
 
 --keep=
 --keep-relations="route=bicycle"
-
---drop=
-highway=bridleway and width<=0.82
-
---keep=
-highway=bridleway
 
 --drop=
 barrier=  and ( access=private or access=customers )

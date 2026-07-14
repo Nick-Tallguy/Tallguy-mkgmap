@@ -1,6 +1,6 @@
 -v
 
-// parameters 2.  non highways - features such as grass, woodland, etc, but dropping the barriers.
+// parameters 2.  features such as grass, woodland, etc, but dropping the barriers.
 
 --keep=
 place=city
