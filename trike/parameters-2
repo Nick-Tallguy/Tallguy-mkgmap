@@ -96,6 +96,8 @@ route=running
 --drop-nodes=
 barrier=
 
---drop="highway=steps"
+--drop=
+--drop-nodes=
+highway=steps
 
 --out-o5m

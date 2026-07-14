@@ -25,13 +25,9 @@ highway=*ary
 =traffic_signals
 =service
 =cycleway
-=steps and bicycle=designated
 
 --keep=
 --keep-relations="route=bicycle"
-
-// --keep=
-// bridge=
 
 --drop=
 highway=bridleway and width<=0.82
@@ -40,7 +36,7 @@ highway=bridleway and width<=0.82
 highway=bridleway
 
 --drop=
-highway=path and width<=0.82
+barrier=  and ( access=private or access=customers )
 
 --keep=
 designation=byway_open_to_all_traffic
