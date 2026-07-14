@@ -35,16 +35,16 @@ echo "sorting the trash - total time for map creation = ??? mins." $(date -u)
 #
 ## Trash any existing o5m files
 trash-put ${PBF}/*.o5m
+trash-put ${PBF}/testing-3.osm.pbf
 #
 #cd ${GHUB}/gen-scripts
 #./m93-space.sh
-#
+
 ## OSMCONVERT  
 osmconvert ${PBF}/${AREA}.osm.pbf --out-o5m >${PBF}/${AREA}.o5m
 PROCESS_RETURN
-#
+
 ## OSMFILTER
-#
 osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-1 -o=${PBF}/${AREA}-1.o5m     # parameters-1 = items with barrier nodes included
 PROCESS_RETURN
 osmfilter ${PBF}/${AREA}.o5m --parameter-file=${GHUB}/trike/parameters-2 -o=${PBF}/${AREA}-2.o5m     # parameters-2 = items without barrier nodes
@@ -52,26 +52,13 @@ PROCESS_RETURN
 #
 osmium merge ${PBF}/${AREA}-1.o5m ${PBF}/${AREA}-2.o5m -o${PBF}/${AREA}-3.osm.pbf
 PROCESS_RETURN
-#
-## OSMCONVERT  
-osmconvert ${PBF}/${AREA}-3.osm.pbf --out-o5m >${PBF}/${AREA}-3.o5m
-PROCESS_RETURN
-#
-##  Filtering for private areas
-osmfilter ${PBF}/${AREA}-3.o5m --parameter-file=${GHUB}/barriers_filtered/bar-parameters-1 -o=${PBF}/${AREA}-4.o5m     # bar-parameters-1 = highways except service, tracks and paths which are private or customers
-PROCESS_RETURN
-osmfilter ${PBF}/${AREA}-3.o5m --parameter-file=${GHUB}/barriers_filtered/bar-parameters-2 -o=${PBF}/${AREA}-5.o5m     # bar-parameters-2 = Private Customer access areas without barriers
-PROCESS_RETURN
-#
-trash-put ${PBF}/${AREA}-?.osm.pbf
-osmium merge ${PBF}/${AREA}-4.o5m ${PBF}/${AREA}-5.o5m -o${PBF}/${AREA}-6.osm.pbf
-PROCESS_RETURN
+
 cd ${GMAKE}/work
-#
+
 ## SPLITTER
 rm -r ${GMAKE}/splitter/*
 echo "starting splitter" $(date -u)
-java -Xmx14g -jar ${GHUB}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${GHUB}/mkgmap-progs/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-6.osm.pbf
+java -Xmx14g -jar ${GHUB}/mkgmap-progs/splitter-r654/splitter.jar --output=pbf --output-dir=${GMAKE}/splitter --max-nodes=1400000 --mapid=10010001 --geonames-file=${GHUB}/mkgmap-progs/cities15000.zip   --polygon-file=${POLY} ${PBF}/${AREA}-3.osm.pbf
 PROCESS_RETURN
 #
 ### MKGMAP 
