@@ -1,5 +1,7 @@
 -v
 
+// parameters-1 . Items with barrier nodes included - All ways that a cycle could use, but drops those ways not wide enough for the trike to fit.  
+
 --keep=
 highway=*ary
 =motorway
@@ -23,16 +25,22 @@ highway=*ary
 =traffic_signals
 =service
 =cycleway
+=steps and bicycle=designated
 
+--keep=
+--keep-relations="route=bicycle"
 
---drop="highway=bridleway and width<=0.82"
---keep="highway=bridleway"
+// --keep=
+// bridge=
 
---drop="highway=path and width<=0.82"
---keep="highway=path and ( bicycle=yes or bicycle=designated or bicycle=permissive ) "
+--drop=
+highway=bridleway and width<=0.82
 
---keep="highway=footway and ( bicycle=yes or bicycle=designated or bicycle=permissive ) and width>=0.83"
---drop="highway=footway"
+--keep=
+highway=bridleway
+
+--drop=
+highway=path and width<=0.82
 
 --keep=
 designation=byway_open_to_all_traffic
@@ -47,8 +55,5 @@ bicycle=yes
 
 --keep=
 route=bicycle
-
---keep="highway=steps and ( bicycle=designated or bicycle=yes ) "
---drop="highway=steps"
 
 --out-o5m
