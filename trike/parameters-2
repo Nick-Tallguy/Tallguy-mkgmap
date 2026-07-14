@@ -1,7 +1,6 @@
 -v
 
---keep=
-highway=service
+// parameters 2.  non highways - features such as grass, woodland, etc, but dropping the barriers.
 
 --keep=
 place=city
@@ -96,5 +95,7 @@ route=running
 --drop=
 --drop-nodes=
 barrier=
+
+--drop="highway=steps"
 
 --out-o5m

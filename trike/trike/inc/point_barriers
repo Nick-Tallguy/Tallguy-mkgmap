@@ -103,8 +103,7 @@ barrier=kissing_gate & kissing_gate!=* { add name='kissing_gate type & measureme
 #
 #####     GATE
 barrier=gate | barrier=lift_gate | barrier=swing_gate { set mkgmap:road-speed=0;}
-(barrier=gate | barrier=lift_gate | barrier=swing_gate) & (access=private | access=customers | access=no | locked=yes) { set bicycle=no } [0x00b00 resolution 20-22 continue]
-(barrier=gate | barrier=lift_gate | barrier=swing_gate) & (access=private | access=customers | access=no | locked=yes) { set bicycle=no ; set name='${barrier}_no access' } [0x00b00 resolution 24]
+(barrier=gate | barrier=lift_gate | barrier=swing_gate) & (access=private | access=no | locked=yes) { set bicycle=no ; delete barrier } 
 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & opening=* {set maxwidth:physical='${opening}'; delete opening} 
 (barrier=gate  | barrier=lift_gate | barrier=swing_gate) & maxwidth:physical!=* & maxwidth=* {set maxwidth:physical='${maxwidth}'; delete maxwidth} 
