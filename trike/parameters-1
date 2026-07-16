@@ -23,7 +23,6 @@ highway=*ary
 =rest_area
 =services
 =traffic_signals
-=service
 =cycleway
 =bridleway
 
@@ -45,6 +44,12 @@ designation=byway_open_to_all_traffic
 =public_bridleway
 =byway
 =restricted_byway
+
+--drop=
+highway=service and ( access=private or access=customers )
+
+--keep=
+highway=service
 
 --keep=
 bicycle=yes
