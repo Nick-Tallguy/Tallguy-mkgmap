@@ -117,7 +117,7 @@ cd ${GHUB}/gen-scripts
 ./mk-sync-needed.sh
 PROCESS_RETURN
 ## Transfer log to DietPi
-./home/scripts/LogtoDietpi.sh
+./home/nick/scripts/LogtoDietpi.sh
 #  Use this line if you wish shutdown after map created.
 echo "All finished - will close down shortly"  $(date -u) && touch ${MAPS}/finished_local.txt
 PROCESS_RETURN
